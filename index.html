@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Critiqly Főoldal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar floating">
+      <div class="brand">
+        <a href="index.html" class="logo-card">C</a>
+        <div class="brand-meta">
+          <div class="site-title">Critiqly</div>
+          <div class="site-sub">Filmek • Sorozatok • Vélemények</div>
+        </div>
+      </div>
+
+      <nav class="main-nav">
+        <a href="movies.html">Filmek</a>
+        <a href="series.html">Sorozatok</a>
+        <a href="top.html">Toplista</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="search-wrap floating-pill">
+          <input class="search-input" placeholder="Keresés filmre, sorozatra, színészre..." aria-label="Keresés">
+        </div>
+        <button class="btn primary" onclick="location.href='login.html'">Bejelentkezés</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <div class="hero-card floating">
+          <div class="hero-left">
+            <div class="poster big">Plakát</div>
+          </div>
+          <div class="hero-right">
+            <div class="kicker" id="highlight-div">Kiemelt</div>
+
+            </div>
+          </div>
+        </div>
+
+        <aside class="floating side-panel">
+          <div class="panel-section">
+            <div class="panel-title">Ma népszerű</div>
+            <ol class="mini-list">
+              <li>Az Éjszakai Város</li>
+              <li>Holnap Hajnal</li>
+              <li>Vérvonal</li>
+            </ol>
+          </div>
+
+          <div class="panel-section">
+            <div class="panel-title">Műfajok</div>
+            <div class="genres">
+              <span class="pill">Sci‑Fi</span>
+              <span class="pill">Thriller</span>
+              <span class="pill">Dráma</span>
+              <span class="pill">Kaland</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="list-section">
+        <div class="section-head">
+          <h2>Most népszerű</h2>
+          <div class="sort">Rendezés: <select><option>Legnépszerűbb</option></select></div>
+        <div id="popular-now"></div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div>© Critiqly statikus demó</div>
+      <div class="muted">A funkciók később JavaScript + backend integrációval aktiválhatók.</div>
+    </footer>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
