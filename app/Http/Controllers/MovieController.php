@@ -5,9 +5,31 @@ namespace App\Http\Controllers;
 use App\Models\Movie;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
+use Illuminate\Support\Facades\Http;
 
 class MovieController extends Controller
 {
+    public function getMovies()
+    {
+        $pages = 5;
+        for ($page = 1; $page <= $pages; $page++) {
+            $resp = Http::get('https://api.themoviedb.org/3/movie/popular', ['api_key' => '69347c0868fbf37f48034f15e356362b', 'page' => $page]);
+        }
+
+        $genres = ['Comedy', 'Action', 'Horror', 'Rom-Com', 'Thriller', 'Sci-Fi', 'Drama', 'Romance', 'Fantasy'];
+        $data = $resp->json();
+        foreach ($data['results'] as $movieData) {
+            Movie::create([
+                'title' => $movieData['original_title'],
+                'plot' => $movieData['overview'],
+                'genre' => fake()->randomElement($genres),
+                'poster' => $movieData['poster_path'],
+                'releaseDate' => $movieData['release_date']
+            ]);
+        }
+    }
+
+
     /**
      * Display a listing of the resource.
      */
