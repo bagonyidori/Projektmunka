@@ -12,8 +12,8 @@ return new class extends Migration {
     {
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
-            $table->id("movieId");
-            $table->id("userId");
+            $table->foreignId("movie_id");
+            $table->foreignId("user_id");
             $table->string("comment");
             $table->integer("stars");
             $table->softDeletes();
