@@ -12,6 +12,7 @@ return new class extends Migration {
     {
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('tmdb_id');
             $table->string("title")->unique();
             $table->string("genre");
             $table->string("plot");
