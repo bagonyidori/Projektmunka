@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string("genre");
             $table->text("plot");
             $table->date("releaseDate");
-            $table->string("poster");
+            $table->string("poster")->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
