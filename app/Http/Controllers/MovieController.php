@@ -11,7 +11,7 @@ class MovieController extends Controller
 {
     public function getMovies()
     {
-        $pages = 5;
+        $pages = 25;
         for ($page = 1; $page <= $pages; $page++) {
             $resp = Http::get('https://api.themoviedb.org/3/movie/popular', ['api_key' => '69347c0868fbf37f48034f15e356362b', 'page' => $page]);
         }
