@@ -13,6 +13,7 @@ class Movie extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
+        "tmdb_id",
         "title",
         "genre",
         "plot",
