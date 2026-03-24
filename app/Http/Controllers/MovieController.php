@@ -19,7 +19,7 @@ class MovieController extends Controller
             $data = $resp->json();
             foreach ($data['results'] as $movieData) {
 
-                if (!isset($movieData['id']) || !isset($movieData['release_date'])) {
+                if (!isset($movieData['id']) || empty($movieData['release_date'])) {
                     continue;
                 }
 
