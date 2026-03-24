@@ -40,7 +40,8 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
+        $movies = Movie::latest()->paginate(24);
+        return view('movies.index', compact('movies'));
     }
 
     /**
@@ -64,7 +65,10 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-        //
+        $movie = Movie::findOrFail($id);
+        $related = Movie::where('id', '!=', $id)->latest()->take(8)->get();
+
+        return view('movies.show', compact('movie', 'related'));
     }
 
     /**
@@ -90,4 +94,14 @@ class MovieController extends Controller
     {
         //
     }
+
+   
+    public function home()
+    {
+        $featured = Movie::latest()->take(6)->get();
+        $trending = Movie::latest()->take(12)->get();
+
+        return view('home', compact('featured', 'trending'));
+    }
+
 }

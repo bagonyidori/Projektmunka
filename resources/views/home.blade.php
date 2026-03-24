@@ -10,7 +10,6 @@
         <p>Modern, gyors és vizuálisan erős felület filmekhez, sorozatokhoz és értékelésekhez.</p>
         <div class="hero_actions">
             <a href="{{ route('movies.index') }}" class="btn btn--primary">Filmek böngészése</a>
-            <a href="{{ route('series.index') }}" class="btn btn--ghost">Sorozatok böngészése</a>
         </div>
     </div>
 
