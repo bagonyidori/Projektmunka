@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Movie extends Model
 {
     /** @use HasFactory<\Database\Factories\MovieFactory> */
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         "title",
@@ -17,4 +19,11 @@ class Movie extends Model
         "releaseDate",
         "poster"
     ];
+
+    protected $dates = ['deleted_at'];
+
+    public function ratings(): HasMany
+    {
+        return $this->hasMany(Rating::class, 'movie_id');
+    }
 }
