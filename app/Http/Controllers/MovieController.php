@@ -19,7 +19,7 @@ class MovieController extends Controller
             $data = $resp->json();
             foreach ($data['results'] as $movieData) {
 
-                if (!isset($movieData['id'])) {
+                if (!isset($movieData['id']) || !isset($movieData['release_date'])) {
                     continue;
                 }
 
@@ -28,7 +28,7 @@ class MovieController extends Controller
                         'tmdb_id' => $movieData['id']
                     ],
                     [
-                        'title' => $movieData['original_title'],
+                        'title' => $movieData['title'],
                         'plot' => $movieData['overview'],
                         'genre' => fake()->randomElement($genres),
                         'poster' => $movieData['poster_path'],
