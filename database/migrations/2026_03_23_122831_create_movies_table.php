@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->bigInteger('tmdb_id')->unique();
             $table->string("title");
             $table->string("genre");
-            $table->string("plot");
+            $table->text("plot");
             $table->date("releaseDate");
             $table->string("poster");
             $table->timestamps();
