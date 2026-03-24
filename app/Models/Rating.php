@@ -14,4 +14,14 @@ class Rating extends Model
         "comment",
         "stars"
     ];
+
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function movies()
+    {
+        return $this->belongsTo(Movie::class);
+    }
 }
