@@ -11,7 +11,6 @@
 
     <div class="nav_links">
         <a href="">Főoldal</a>
-        <a href="">Filmek</a>
-        
+        <a href="">Filmek</a>     
     </div>
 </nav>
