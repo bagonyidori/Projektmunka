@@ -19,13 +19,18 @@ class MovieController extends Controller
         $genres = ['Comedy', 'Action', 'Horror', 'Rom-Com', 'Thriller', 'Sci-Fi', 'Drama', 'Romance', 'Fantasy'];
         $data = $resp->json();
         foreach ($data['results'] as $movieData) {
-            Movie::create([
-                'title' => $movieData['original_title'],
-                'plot' => $movieData['overview'],
-                'genre' => fake()->randomElement($genres),
-                'poster' => $movieData['poster_path'],
-                'releaseDate' => $movieData['release_date']
-            ]);
+            Movie::updateOrCreate(
+                [
+                    'tmdb_id' => $movieData['id']
+                ],
+                [
+                    'title' => $movieData['original_title'],
+                    'plot' => $movieData['overview'],
+                    'genre' => fake()->randomElement($genres),
+                    'poster' => $movieData['poster_path'],
+                    'releaseDate' => $movieData['release_date']
+                ]
+            );
         }
     }
 
