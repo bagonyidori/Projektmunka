@@ -21,6 +21,6 @@ class Movie extends Model
 
     public function ratings(): HasMany
     {
-        return $this->hasMany(Rating::class, 'user_id');
+        return $this->hasMany(Rating::class, 'movie_id');
     }
 }
