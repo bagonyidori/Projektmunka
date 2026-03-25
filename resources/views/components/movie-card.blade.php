@@ -1,14 +1,16 @@
-<a href="{{ route('movies.show', $movie->id) }}" class="card reveal">
-    <div class="card_wrap">
-        <img class="card_img" src="{{ $movie->poster ?? asset('images/placeholder.jpg') }}" alt="{{ $movie->title }}">
-        <div class="card_over"></div>
-        <div class="card_meta_box">
-            <span class="pill">{{ $movie->year ?? '—' }}</span>
-            <span class="pill pill--rating">★ {{ $movie->rating ?? 'N/A' }}</span>
-        </div>
-    </div>
-    <div class="card_body">
+<a href="{{ route('movies.show', $movie->id) }}" class="movie_card" data-genre="{{ strtolower($movie->genre) }}">
+    @if($movie->poster)
+        <img src="{{ $movie->poster }}" alt="{{ $movie->title }}">
+    @else
+        <div class="poster_placeholder">Nincs kép</div>
+    @endif
+    
+    <div class="card_content">
         <h3>{{ $movie->title }}</h3>
-        <p>{{ $movie->description }}</p>
+        
+        <div class="card_meta">
+            <span class="year">{{ date('Y', strtotime($movie->releaseDate)) }}</span>
+            <span class="genre_label">{{ $movie->genre }}</span>
+        </div>
     </div>
 </a>
