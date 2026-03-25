@@ -1,39 +1,43 @@
 @extends('layouts.app')
 
-@section('title', $movie->title . ' – Criticly')
-
 @section('content')
-<section class="detail_hero reveal">
-    <div class="detail_poster">
-        <img src="{{ $movie->poster ?? asset('images/placeholder.jpg') }}" alt="{{ $movie->title }}">
-    </div>
+<div class="movie_detail_wrapper reveal">
+    <a href="{{ route('home') }}" class="btn back_btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Vissza a filmekhez
+    </a>
 
-    <div class="detail_info">
-        <span class="hero_badge">{{ $movie->genre ?? 'Film' }}</span>
-        <h1>{{ $movie->title }}</h1>
-        <div class="detail_metrics">
-            <span>Év: {{ $movie->year ?? '—' }}</span>
-            <span>★ {{ $movie->rating ?? 'N/A' }}</span>
-            <span>{{ $movie->runtime ?? '—' }} perc</span>
+    <div class="movie_detail_grid">
+        <div class="movie_detail_poster">
+            @if($movie->poster)
+                <img src="{{ $movie->poster }}" alt="{{ $movie->title }}">
+            @else
+                <div class="poster_placeholder">Nincs kép</div>
+            @endif
         </div>
-        <p>{{ $movie->description }}</p>
-
-        <div class="hero_actions">
-            <button class="btn btn--primary" id="favBtn" type="button">Kedvenc</button>
-            <button class="btn btn--ghost" id="shareBtn" type="button">Megosztás</button>
+        
+        <div class="movie_detail_info">
+            <h1>{{ $movie->title }}</h1>
+            
+            <div class="movie_badges">
+                <span class="badge">{{ date('Y-m-d', strtotime($movie->releaseDate)) }}</span>
+                <span class="badge">{{ $movie->genre }}</span>
+            </div>
+            
+            <div class="movie_plot">
+                <h3>Történet</h3>
+                <p>{{ $movie->plot }}</p>
+            </div>
         </div>
     </div>
-</section>
+</div>
 
-<section class="section reveal">
-    <div class="section_head">
-        <h2>Hasonló ajánlások</h2>
-    </div>
-
+<div class="related_movies_section reveal">
+    <h2>Hasonló filmek</h2>
     <div class="grid">
-        @foreach($related as $movie)
-            @include('components.movie-card', ['movie' => $movie])
+        @foreach($related as $relatedMovie)
+            @include('components.movie-card', ['movie' => $relatedMovie])
         @endforeach
     </div>
-</section>
+</div>
 @endsection
