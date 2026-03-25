@@ -1,6 +1,6 @@
 <a href="{{ route('movies.show', $movie->id) }}" class="movie_card">
     @if($movie->poster)
-        <img src="{{ $movie->poster }}" alt="{{ $movie->title }}">
+        <img src="{{ 'https://image.tmdb.org/t/p/original' . $movie->poster }}" alt="{{ $movie->title }}">
     @else
         <div class="poster_placeholder">Nincs kép</div>
     @endif
