@@ -544,3 +544,28 @@ body.light_mode {
     --text-dark: #ffffff;
 }
 
+.notification {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--primary);
+    color: var(--text-dark);
+    padding: 16px 32px;
+    border-radius: var(--radius-sm);
+    font-weight: 800;
+    text-transform: uppercase;
+    z-index: 1000;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.notification.is_visible {
+    transform: translateX(-50%) translateY(0);
+}
+
+#favBtn.is_active {
+    background: #ff4757;
+    color: white;
+    border-color: #ff4757;
+}
