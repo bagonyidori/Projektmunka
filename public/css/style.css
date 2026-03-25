@@ -673,3 +673,33 @@ body.light_mode {
     color: white;
     border-color: #ff4757;
 }
+
+.movie_actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.card_poster_wrapper {
+    position: relative;
+}
+
+.card_rating {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--primary);
+    color: var(--text-dark);
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
+}
+
+.card_rating svg {
+    width: 14px !important;
+    height: 14px !important;
+}
