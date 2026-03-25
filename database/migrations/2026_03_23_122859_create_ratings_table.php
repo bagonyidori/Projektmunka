@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId("movie_id");
             $table->foreignId("user_id");
-            $table->string("comment");
+            $table->string("comment")->nullable();
             $table->integer("stars");
             $table->softDeletes();
             $table->timestamps();
