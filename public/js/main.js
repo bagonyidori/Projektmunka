@@ -37,24 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-const filterButtons = document.querySelectorAll('.chip');
-    const movieCards = document.querySelectorAll('.movie_card');
+document.querySelectorAll('.filter_btn').forEach(button => {
+    button.addEventListener('click', () => {
+        document.querySelectorAll('.filter_btn').forEach(btn => btn.classList.remove('is_active'));
+        button.classList.add('is_active');
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            filterButtons.forEach(btn => btn.classList.remove('is_active'));
-            button.classList.add('is_active');
-
-            const filterValue = button.getAttribute('data-filter');
-
-            movieCards.forEach(card => {
-                const cardGenre = card.getAttribute('data-genre');
-                
-                if (filterValue === 'all' || filterValue === cardGenre) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
     });
+});

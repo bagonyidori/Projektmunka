@@ -10,11 +10,14 @@
     </div>
 
     <div class="filters">
-        <button class="chip is_active" data-filter="all">Összes</button>
-        <button class="chip" data-filter="action">Akció</button>
-        <button class="chip" data-filter="drama">Dráma</button>
-        <button class="chip" data-filter="sci-fi">Sci-fi</button>
-        <button class="chip" data-filter="comedy">Vígjáték</button>
+        <a href="{{ route('movies.index') }}" class="chip {{ !request('genre') ? 'is_active' : '' }}">Összes</a>  
+        <a href="{{ route('movies.index', ['genre' => 'Action']) }}" class="chip {{ request('genre') == 'Action' ? 'is_active' : '' }}">Akció</a>
+        <a href="{{ route('movies.index', ['genre' => 'Comedy']) }}" class="chip {{ request('genre') == 'Comedy' ? 'is_active' : '' }}">Vígjáték</a>
+        <a href="{{ route('movies.index', ['genre' => 'Drama']) }}" class="chip {{ request('genre') == 'Drama' ? 'is_active' : '' }}">Dráma</a>
+        <a href="{{ route('movies.index', ['genre' => 'Sci-Fi']) }}" class="chip {{ request('genre') == 'Sci-Fi' ? 'is_active' : '' }}">Sci-Fi</a>
+        <a href="{{ route('movies.index', ['genre' => 'Horror']) }}" class="chip {{ request('genre') == 'Horror' ? 'is_active' : '' }}">Horror</a>
+        <a href="{{ route('movies.index', ['genre' => 'Romance']) }}" class="chip {{ request('genre') == 'Romance' ? 'is_active' : '' }}">Romantikus</a>
+        <a href="{{ route('movies.index', ['genre' => 'Fantasy']) }}" class="chip {{ request('genre') == 'Fantasy' ? 'is_active' : '' }}">Fantasy</a>
     </div>
 </section>
 
