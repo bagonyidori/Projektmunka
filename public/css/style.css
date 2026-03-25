@@ -542,6 +542,8 @@ body.light_mode {
     --line: rgba(0, 0, 0, 0.1);
     --card: #1c1a15;
     --text-dark: #ffffff;
+    --primary: #badf36;
+    --primary-2: #98b828;
 }
 
 .notification {
