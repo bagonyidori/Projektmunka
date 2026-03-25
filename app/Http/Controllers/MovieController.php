@@ -39,7 +39,6 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-        
         $related = Movie::where('id', '!=', $movie->id)->latest()->take(8)->get();
 
         return view('movies.show', compact('movie', 'related'));

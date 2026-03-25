@@ -20,9 +20,7 @@
 
 <section class="grid" id="catalogGrid">
     @foreach($movies as $movie)
-        <article class="movie_card reveal" data-genre="{{ strtolower($movie->genre ?? 'all') }}">
             @include('components.movie-card', ['movie' => $movie])
-        </article>
     @endforeach
 </section>
 
