@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Criticly – Főoldal')
+@section('title', 'Criticly - Főoldal')
 
 @section('content')
 <section class="hero reveal">
