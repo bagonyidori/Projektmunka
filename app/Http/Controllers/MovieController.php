@@ -20,6 +20,10 @@ class MovieController extends Controller
             $query->where('genre', 'like', '%' . $request->genre . '%');
         }
 
+        if ($request->has('search') && $request->search != '') {
+            $query->where('title', 'like', '%' . $request->search . '%');
+        }
+
         $movies = $query->latest()->paginate(24)->withQueryString();
         return view('movies.index', compact('movies'));
     }
