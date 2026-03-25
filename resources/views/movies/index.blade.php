@@ -10,11 +10,11 @@
     </div>
 
     <div class="filters">
-        <button class="chip is_active" data-filter="all">Összes</button>
-        <button class="chip" data-filter="action">Akció</button>
-        <button class="chip" data-filter="drama">Dráma</button>
-        <button class="chip" data-filter="sci-fi">Sci-fi</button>
-        <button class="chip" data-filter="comedy">Vígjáték</button>
+        <button class="chip filter_btn is_active" data-filter="all">Összes</button>
+        <button class="chip filter_btn" data-filter="action">Akció</button>
+        <button class="chip filter_btn" data-filter="drama">Dráma</button>
+        <button class="chip filter_btn" data-filter="sci-fi">Sci-fi</button>
+        <button class="chip filter_btn" data-filter="comedy">Vígjáték</button>
     </div>
 </section>
 
