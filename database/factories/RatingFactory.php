@@ -18,7 +18,9 @@ class RatingFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            "movie_id" => fake()->numberBetween(1, 420),
+            "user_id" => fake()->numberBetween(1, 10),
+            "stars" => fake()->numberBetween(1, 5)
         ];
     }
 }
