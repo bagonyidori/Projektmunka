@@ -6,15 +6,21 @@ use App\Models\Movie;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $movies = Movie::latest()->paginate(24);
+        $query = Movie::query();
+        if ($request->has('genre') && $request->genre != '') {
+            $query->where('genre', 'like', '%' . $request->genre . '%');
+        }
+
+        $movies = $query->latest()->paginate(24)->withQueryString();
         return view('movies.index', compact('movies'));
     }
 
