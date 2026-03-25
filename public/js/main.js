@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (localStorage.getItem('theme') === 'light') {
         body.classList.add('light_mode');
+    } else {
+        localStorage.setItem('theme', 'dark');
     }
 
     themeToggle.addEventListener('click', () => {
