@@ -37,7 +37,7 @@
 
     <div class="grid">
         @foreach($featured as $movie)
-            @include('components.movie_card', ['movie' => $movie])
+            @include('components.movie-card', ['movie' => $movie])
         @endforeach
     </div>
 </section>
@@ -49,7 +49,7 @@
 
     <div class="rail" data-rail>
         @foreach($trending as $movie)
-            @include('components.movie_card', ['movie' => $movie])
+            @include('components.movie-card', ['movie' => $movie])
         @endforeach
     </div>
 </section>
