@@ -533,3 +533,14 @@ img { display: block; max-width: 100%; }
     padding: 4px 8px;
     border-radius: 8px;
 }
+
+body.light_mode {
+    --bg: #f5f5f0;
+    --bg-2: #ffffff;
+    --text: #1c1a15;
+    --text-neon: #1c1a15;
+    --line: rgba(0, 0, 0, 0.1);
+    --card: #1c1a15;
+    --text-dark: #ffffff;
+}
+
