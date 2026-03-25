@@ -415,3 +415,121 @@ img { display: block; max-width: 100%; }
 .theme_toggle:hover {
     transform: scale(1.1) rotate(15deg);
 }
+
+.auth_wrapper {
+    display: grid;
+    place-items: center;
+    min-height: 75vh;
+    padding: 40px 0;
+}
+
+.auth_box {
+    width: 100%;
+    max-width: 460px;
+    background: var(--card);
+    color: var(--text-dark);
+    padding: 48px;
+    border-radius: var(--radius);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+    border: 4px solid var(--primary);
+}
+
+.auth_head {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.auth_head h1 {
+    font-size: 2.8rem;
+    margin: 0 0 12px;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    line-height: 1;
+}
+
+.auth_head p {
+    color: #555;
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.form_group {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form_label {
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    letter-spacing: 0.5px;
+}
+
+.form_input {
+    width: 100%;
+    padding: 16px 20px;
+    border-radius: 16px;
+    border: 2px solid #ccc;
+    background: #f9f9f9;
+    color: var(--text-dark);
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.form_input:focus {
+    outline: none;
+    border-color: var(--text-dark);
+    background: #ffffff;
+    box-shadow: 6px 6px 0 var(--primary);
+    transform: translate(-2px, -2px);
+}
+
+.auth_btn {
+    width: 100%;
+    margin-top: 16px;
+    font-size: 1.1rem;
+    padding: 18px;
+    border: 2px solid transparent;
+}
+
+.auth_btn:hover {
+    border-color: var(--text-dark);
+}
+
+.auth_footer {
+    margin-top: 32px;
+    text-align: center;
+    font-weight: 600;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.auth_footer p {
+    margin: 0;
+}
+
+.auth_footer a {
+    color: var(--text-dark);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-left: 8px;
+    transition: all 0.2s;
+}
+
+.auth_footer a:hover {
+    color: var(--primary);
+    background: var(--text-dark);
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 8px;
+}
