@@ -37,11 +37,20 @@ class MovieController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Movie $movie)
+    public function show($id)
     {
-        $related = Movie::where('id', '!=', $movie->id)->latest()->take(8)->get();
+    $movie = \App\Models\Movie::where('id', $id)->first();
 
-        return view('movies.show', compact('movie', 'related'));
+    if (!$movie) {
+        return abort(404);
+    }
+
+    $related = \App\Models\Movie::where('genre', $movie->genre)
+                ->where('id', '!=', $id)
+                ->take(4)
+                ->get();
+
+    return view('movies.show', compact('movie', 'related'));
     }
 
     /**
