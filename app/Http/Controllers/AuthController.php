@@ -30,6 +30,8 @@ class AuthController extends Controller
         $user = User::create($validated);
 
         Auth::login($user);
+
+        return redirect()->route('movies.index');
     }
 
     public function loginUser()

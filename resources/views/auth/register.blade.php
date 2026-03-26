@@ -16,12 +16,18 @@
                     <label for="name" class="form_label">Felhasználónév</label>
                     <input type="text" id="name" name="name" class="form_input" placeholder="Pl. MovieBuff99" required
                         autofocus>
+                    @error('name')
+                        <p style="color:red">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="form_group">
                     <label for="email" class="form_label">Email cím</label>
                     <input type="email" id="email" name="email" class="form_input" placeholder="hello@criticly.com"
                         required>
+                    @error('email')
+                        <p style="color:red">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="form_group">
@@ -34,6 +40,9 @@
                     <label for="password_confirmation" class="form_label">Jelszó újra</label>
                     <input type="password" id="password_confirmation" name="password_confirmation" class="form_input"
                         placeholder="Jelszó megerősítése" required>
+                    @error('password')
+                        <p style="color:red">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <button type="submit" class="btn btn--primary auth_btn">Regisztráció</button>
