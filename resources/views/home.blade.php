@@ -6,7 +6,7 @@
 <section class="hero reveal">
     <div class="hero_box">
         <span class="hero_badge">Film- és sorozatkritika</span>
-        <h1>Találd meg a következő kedvenc filmedet vagy sorozatodat.</h1>
+        <h1>Találd meg a következő kedvenc filmedet vagy sorozatodat!</h1>
         <p>Modern, gyors és vizuálisan erős felület filmekhez, sorozatokhoz és értékelésekhez.</p>
         <div class="hero_actions">
             <a href="{{ route('movies.index') }}" class="btn btn--primary">Filmek böngészése</a>
@@ -20,11 +20,11 @@
         </div>
         <div class="stat">
             <span>Friss tartalom</span>
-            <strong>Napi frissülő ajánlók</strong>
+            <strong>Friss napi válogatások</strong>
         </div>
         <div class="stat">
             <span>Közösségi értékelés</span>
-            <strong>Review + rating rendszer</strong>
+            <strong>Kritikák és értékelések</strong>
         </div>
     </div>
 </section>

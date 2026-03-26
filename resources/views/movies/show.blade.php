@@ -20,7 +20,7 @@
             <h1>{{ $movie->title }}</h1>
             
             <div class="movie_badges">
-                <span class="badge">{{ date('Y-m-d', strtotime($movie->releaseDate)) }}</span>
+                <span class="badge">{{ date('Y/m/d', strtotime($movie->releaseDate)) }}</span>
                 <span class="badge">{{ $movie->genre }}</span>
                 <span class="badge badge--rating">
                     <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; margin-right:4px;"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
