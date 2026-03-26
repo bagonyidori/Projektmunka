@@ -13,6 +13,8 @@ Route::get('/', function () {
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 
+Route::post('/register', [AuthController::class, 'registerUser'])->name('user.register');
+Route::post('/login', [AuthController::class, 'loginUser'])->name('user.login');
 
 Route::get('/', [MovieController::class, 'home'])->name('home');
 Route::get('/movies', [MovieController::class, 'index'])->name('movies.index');
