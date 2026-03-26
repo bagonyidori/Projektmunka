@@ -10,8 +10,8 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/register', [])->name('show.register');
-Route::get('/login', [])->name('show.login');
+Route::get('/register', [AuthController::class, 'showRegister'])->name('show.register');
+Route::get('/login', [AuthController::class, 'showLogin'])->name('show.login');
 
 
 Route::get('/', [MovieController::class, 'home'])->name('home');
