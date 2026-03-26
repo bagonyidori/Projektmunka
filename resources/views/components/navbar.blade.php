@@ -19,7 +19,7 @@
     </div>
 
     <div class="nav_auth">
-        <a href="{{ route('show.login') }}" class="btn btn--ghost">Belépés</a>
-        <a href="{{ route('show.register') }}" class="btn btn--primary">Regisztráció</a>
+        <a href="{{ route('login') }}" class="btn btn--ghost">Belépés</a>
+        <a href="{{ route('register') }}" class="btn btn--primary">Regisztráció</a>
     </div>
 </nav>

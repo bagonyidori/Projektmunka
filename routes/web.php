@@ -10,8 +10,8 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/register', [AuthController::class, 'showRegister'])->name('show.register');
-Route::get('/login', [AuthController::class, 'showLogin'])->name('show.login');
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 
 
 Route::get('/', [MovieController::class, 'home'])->name('home');
@@ -22,10 +22,10 @@ Route::get('/rolunk', function () {
     return view('pages.about');
 })->name('about');
 
-Route::get('/bejelentkezes', function () {
-    return view('auth.login');
-})->name('login');
+// Route::get('/bejelentkezes', function () {
+//     return view('auth.login');
+// })->name('login');
 
-Route::get('/regisztracio', function () {
-    return view('auth.register');
-})->name('register');
+// Route::get('/regisztracio', function () {
+//     return view('auth.register');
+// })->name('register');
