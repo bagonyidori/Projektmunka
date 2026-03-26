@@ -44,7 +44,7 @@
 
 <section class="section reveal">
     <div class="section_head">
-        <h2>Trending most</h2>
+        <h2>Felkapott most</h2>
     </div>
 
     <div class="rail" data-rail>
