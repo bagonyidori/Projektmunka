@@ -12,13 +12,13 @@ namespace CritiqlyAdmin.Models
         public string title { get; set; }
         public string genre { get; set; }
         public string plot { get; set; }
-        public DateTime release_date { get; set; }
+        public DateTime? release_date { get; set; }
         public string poster { get; set; }
-        public DateTime created_at { get; set; }
-        public DateTime updated_at { get; set; }
-        public DateTime deleted_at { get; set; }
+        public DateTime? created_at { get; set; }
+        public DateTime? updated_at { get; set; }
+        public DateTime? deleted_at { get; set; }
 
-        public Movie(int id, int tmdb_id, string title, string genre, string plot, DateTime release_date, string poster, DateTime created_at, DateTime updated_at, DateTime deleted_at)
+        /*public Movie(int id, int tmdb_id, string title, string genre, string plot, DateTime release_date, string poster, DateTime created_at, DateTime updated_at, DateTime deleted_at)
         {
             this.id = id;
             this.tmdb_id = tmdb_id;
@@ -30,6 +30,6 @@ namespace CritiqlyAdmin.Models
             this.created_at = created_at;
             this.updated_at = updated_at;
             this.deleted_at = deleted_at;
-        }
+        }*/
     }
 }

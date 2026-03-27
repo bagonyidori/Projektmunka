@@ -1,6 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CritiqlyAdmin.MainPage">
+             x:Class="CritiqlyAdmin.MainPage"
+             xmlns:Models="clr-namespace:CritiqlyAdmin.Models">
+    <VerticalStackLayout>
+        <Button Clicked="GetMovies" Text="Filmek lekérése"/>
 
+        <CollectionView ItemsSource="{Binding Movies}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="Models:Movie">
+                    <Grid Padding="10">
+                        <Label Text="{Binding title}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
 </ContentPage>
