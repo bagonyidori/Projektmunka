@@ -672,6 +672,15 @@ body.light_mode {
     background: #ff4757;
     color: white;
     border-color: #ff4757;
+    min-width: 250px;
+}
+
+.favBtn {
+    min-width: 250px;
+}
+
+.favBtn-heart{
+    margin-right: 5px;
 }
 
 .movie_actions {
@@ -708,3 +717,4 @@ body.light_mode {
     width: 205px;
     height: 98px;
 }
+
