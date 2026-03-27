@@ -7,6 +7,7 @@ use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
+use Laravel\Sanctum\HasApiTokens;
 
 class MovieController extends Controller
 {
