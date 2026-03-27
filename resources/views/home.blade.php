@@ -16,19 +16,18 @@
     <div class="hero_side">
         <div class="stat">
             <span>Top kategóriák</span>
-            <strong>Akció, dráma, sci-fi</strong>
+            <strong>Akció, Dráma, Sci-Fi</strong>
         </div>
         <div class="stat">
-            <span>Friss tartalom</span>
-            <strong>Napi frissülő ajánlók</strong>
+            <span>Napi ajánlók</span>
+            <strong>Friss, válogatott tartalom</strong>
         </div>
         <div class="stat">
-            <span>Közösségi értékelés</span>
-            <strong>Review + rating rendszer</strong>
+            <span>Közösségi értékelések</span>
+            <strong>Valódi vélemények</strong>
         </div>
     </div>
 </section>
-
 <section class="section reveal">
     <div class="section_head">
         <h2>Kiemelt filmek</h2>
@@ -44,10 +43,24 @@
 
 <section class="section reveal">
     <div class="section_head">
-        <h2>Trending most</h2>
+        <h2>Felkapott most</h2>
     </div>
 
     <div class="rail" data-rail>
+        @foreach($trending as $movie)
+            @include('components.movie-card', ['movie' => $movie])
+        @endforeach
+    </div>
+</section>
+<section class="section reveal">
+    <div class="section_head">
+        <h2>Napi válogatás</h2>
+    </div>
+
+    <div class="rail" data-rail>
+        //adatbázisból kéri le majd, mindennap más generált filmeket fog kidobni
+        /a generálásta grafikus rész kezeli
+
         @foreach($trending as $movie)
             @include('components.movie-card', ['movie' => $movie])
         @endforeach
