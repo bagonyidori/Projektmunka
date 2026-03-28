@@ -12,4 +12,11 @@ class MovieController extends Controller
     {
         return Movie::all();
     }
+
+    public function update(Request $request, Movie $movie)
+    {
+        $movie->update($request->all());
+
+        return response()->json($movie);
+    }
 }
