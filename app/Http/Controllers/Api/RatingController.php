@@ -12,4 +12,11 @@ class RatingController extends Controller
     {
         return Rating::all();
     }
+
+    public function update(Request $request, Rating $rating)
+    {
+        $rating->update($request->all());
+
+        return response()->json($rating);
+    }
 }

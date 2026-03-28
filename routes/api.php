@@ -13,3 +13,4 @@ Route::get('/movies', [MovieController::class, 'index']);
 Route::get('/ratings', [RatingController::class, 'index']);
 
 Route::put('/movies/{movie}', [MovieController::class, 'update']);
+Route::put('/ratings/{rating}', [RatingController::class, 'update']);
