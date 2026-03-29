@@ -96,7 +96,7 @@ class MovieController extends Controller
 
     public function home()
     {
-        $featured = Movie::latest()->take(6)->get();
+        $featured = Movie::latest()->take(8)->get();
         $trending = Movie::latest()->take(12)->get();
         $dailyMovies = DailyMovie::with('movie')->whereDate('date', today())->get();
 
