@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Validation\ValidationException;
+//use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use App\Models\User;
@@ -34,9 +36,21 @@ class AuthController extends Controller
         return redirect()->route('movies.index');
     }
 
-    public function loginUser()
+    public function loginUser(Request $request)
     {
+        $validated = $request->validate([
+            'email' => 'required|email',
+            "password" => 'required|string'
+        ]);
 
+        if (Auth::attempt($validated)) {
+            $request->session()->regenerate();
+            return redirect()->route('movies.index');
+        }
+
+        throw ValidationException::withMessages([
+            'credentials' => 'Sorry, incorrect credentials!'
+        ]);
     }
 
     public function logout(Request $request)
