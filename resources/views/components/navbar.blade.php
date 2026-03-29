@@ -12,12 +12,22 @@
 
     <div class="nav_links">
         <a href="{{ route('home') }}">Főoldal</a>
-        <a href="{{ route('movies.index') }}">Filmek</a>       
-        <a href="{{ route('about') }}">Rólunk</a> 
+        <a href="{{ route('movies.index') }}">Filmek</a>
+        <a href="{{ route('about') }}">Rólunk</a>
     </div>
 
-    <div class="nav_auth">
-        <a href="{{ route('login') }}" class="btn btn--ghost">Belépés</a>
-        <a href="{{ route('register') }}" class="btn btn--primary">Regisztráció</a>
-    </div>
+    @guest
+        <div class="nav_auth">
+            <a href="{{ route('login') }}" class="btn btn--ghost">Belépés</a>
+            <a href="{{ route('register') }}" class="btn btn--primary">Regisztráció</a>
+        </div>
+    @endguest
+
+    @auth
+        <span>Üdv, {{ Auth::user()->name }}</span>
+        <form action="{{ route('user.logout') }}" method="POST">
+            @csrf
+            <button>Logout</button>
+        </form>
+    @endauth
 </nav>
