@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using CritiqlyAdmin.Models;
@@ -54,6 +55,29 @@ namespace CritiqlyAdmin
                 throw new Exception("Deserialization failed");
 
             return result;
+        }
+
+        public async void TestDailyMovies(object sender, EventArgs e)
+        {
+            var client = new HttpClient();
+
+            int[] newDailys = new int[4];
+            Random rnd = new Random();
+            for (int i = 0; i < 4; i++)
+            {
+                newDailys[i]= rnd.Next(1, 450);
+            }
+
+            var data = new
+            {
+                movies = newDailys
+            };
+
+            var json = JsonSerializer.Serialize(data);
+            var httpData = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync("http://localhost:8000/api/daily-movies", httpData);
+            var responseBody = await response.Content.ReadAsStringAsync();
         }
     }
 }
