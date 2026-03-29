@@ -27,7 +27,7 @@
         <span>Üdv, {{ Auth::user()->name }}</span>
         <form action="{{ route('user.logout') }}" method="POST">
             @csrf
-            <button>Logout</button>
+            <button class="btn btn--primary">Logout</button>
         </form>
     @endauth
 </nav>
