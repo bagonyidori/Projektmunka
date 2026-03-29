@@ -58,11 +58,8 @@
     </div>
 
     <div class="rail" data-rail>
-        //adatbázisból kéri le majd, mindennap más generált filmeket fog kidobni
-        /a generálásta grafikus rész kezeli
-
-        @foreach($trending as $movie)
-            @include('components.movie-card', ['movie' => $movie])
+        @foreach($dailyMovies as $daily)
+            @include('components.movie-card', ['movie' => $daily->movie])
         @endforeach
     </div>
 </section>
