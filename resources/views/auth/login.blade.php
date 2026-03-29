@@ -16,14 +16,25 @@
                     <label for="email" class="form_label">Email cím</label>
                     <input type="email" id="email" name="email" class="form_input" placeholder="hello@criticly.com" required
                         autocomplete="email" autofocus>
+                    @error('email')
+                        <p style="color:red">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="form_group">
                     <label for="password" class="form_label">Jelszó</label>
                     <input type="password" id="password" name="password" class="form_input" placeholder="••••••••" required>
+                    @error('password')
+                        <p style="color:red">{{ $message }}</p>
+                    @enderror
                 </div>
 
+                @error('credentials')
+                    <p style="color:red">{{ $message }}</p>
+                @enderror
+
                 <button type="submit" class="btn btn--primary auth_btn">Belépés</button>
+
             </form>
 
             <div class="auth_footer">
