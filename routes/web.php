@@ -16,6 +16,8 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/register', [AuthController::class, 'registerUser'])->name('user.register');
 Route::post('/login', [AuthController::class, 'loginUser'])->name('user.login');
 
+Route::post('/logout', [AuthController::class, 'logoutUser'])->name('user.logout');
+
 Route::get('/', [MovieController::class, 'home'])->name('home');
 Route::get('/movies', [MovieController::class, 'index'])->name('movies.index');
 Route::get('/movies/{id}', [MovieController::class, 'show'])->name('movies.show');
