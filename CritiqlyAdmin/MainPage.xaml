@@ -2,12 +2,43 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CritiqlyAdmin.MainPage"
+             Title="Critiqly Nexus Core"
+             Shell.BackgroundColor="#1C1A15"
+             Shell.NavBarIsVisible="False"
              xmlns:Models="clr-namespace:CritiqlyAdmin.Models">
+
     <VerticalStackLayout>
-        <Button Clicked="GetMovies" Text="Filmek lekérése"/>
-        <Button Clicked="TestDailyMovies" Text="Random napi filmek"/>
-        <Button Clicked="GetRatings" Text="Értékelések lekérése"/>
-        <Button Clicked="GetTrendingMovies" Text="Filter by ratings"/>
+        <HorizontalStackLayout VerticalOptions="Fill">
+            <Label
+             Text="Critiqly Nexus Core"
+             FontFamily="Kimberley"
+             TextColor="#D4FF3E"
+             VerticalTextAlignment="Center"
+             VerticalOptions="Center"
+             HeightRequest="50"
+             FontSize="40"
+             Margin="10,10,0,0"/>
+            <Button 
+            Margin="150,0,5,0"
+            Padding="0,10,0,10"
+            Clicked="GetMovies"
+            x:Name="getMoviesBtn"
+            BackgroundColor="Red"
+            Text="Filmek lekérése"
+            FontFamily="Kimberley"
+            TextColor="White"/>
+            <Button 
+            Margin="5,0,5,0"
+            Clicked="GetRatings"
+            x:Name="getRatingsBtn"
+            BackgroundColor="red" 
+            Text="Értékelések lekérése"
+            FontFamily="Kimberley"
+            TextColor="White"/>
+        </HorizontalStackLayout>
+
+        <Button Margin="15,50,15,0" Clicked="TestDailyMovies" BackgroundColor="#D4FF3E" Text="Random napi filmek"/>
+        <Button Margin="15,10,15,0" Clicked="GetTrendingMovies" BackgroundColor="#D4FF3E" Text="Filter by ratings"/>
         
         <CollectionView ItemsSource="{Binding Movies}">
             <CollectionView.ItemTemplate>

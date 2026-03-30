@@ -29,6 +29,8 @@ namespace CritiqlyAdmin
             var movies = await GetAsync<Movie>("http://127.0.0.1:8000/api/movies");
 
             Movies.Clear();
+            getMoviesBtn.BackgroundColor = Colors.Lime;
+
 
             foreach (var movie in movies)
             {
@@ -41,6 +43,7 @@ namespace CritiqlyAdmin
             var ratings = await GetAsync<Rating>("http://127.0.0.1:8000/api/ratings");
 
             Ratings.Clear();
+            getRatingsBtn.BackgroundColor = Colors.Lime;
 
             foreach (var rating in ratings)
             {
