@@ -6,6 +6,8 @@
     <VerticalStackLayout>
         <Button Clicked="GetMovies" Text="Filmek lekérése"/>
         <Button Clicked="TestDailyMovies" Text="Random napi filmek"/>
+        <Button Clicked="GetRatings" Text="Értékelések lekérése"/>
+        <Button Clicked="GetTrendingMovies" Text="Filter by ratings"/>
         
         <CollectionView ItemsSource="{Binding Movies}">
             <CollectionView.ItemTemplate>
