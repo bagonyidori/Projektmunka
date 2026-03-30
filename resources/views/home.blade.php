@@ -43,12 +43,12 @@
 
 <section class="section reveal">
     <div class="section_head">
-        <h2>Felkapott most</h2>
+        <h2>Legjobbra értékelt</h2>
     </div>
 
     <div class="rail" data-rail>
-        @foreach($trending as $movie)
-            @include('components.movie-card', ['movie' => $movie])
+        @foreach($trendingMovies as $trendy)
+            @include('components.movie-card', ['movie' => $trendy->movie])
         @endforeach
     </div>
 </section>

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MovieController;
 use App\Http\Controllers\Api\RatingController;
 use App\Http\Controllers\Api\DailyMovieController;
+use App\Http\Controllers\Api\TrendingMovieController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -16,3 +17,4 @@ Route::get('/ratings', [RatingController::class, 'index']);
 Route::put('/movies/{movie}', [MovieController::class, 'update']);
 Route::put('/ratings/{rating}', [RatingController::class, 'update']);
 Route::post('/daily-movies', [DailyMovieController::class, 'store']);
+Route::post('/trending-movies', [TrendingMovieController::class, 'store']);

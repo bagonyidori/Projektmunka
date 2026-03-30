@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\DailyMovie;
+use App\Models\TrendingMovie;
 
 class MovieController extends Controller
 {
@@ -27,10 +28,10 @@ class MovieController extends Controller
         }
 
         $movies = $query->latest()->paginate(24)->withQueryString();
-        return view('movies.index', compact('movies'));
-
         $dailyMovies = DailyMovie::with('movie')->get();
-        return view('movies.index', compact('dailyMovies'));
+        $trendingMovies = TrendingMovie::with('movie')->get();
+        
+        return view('movies.index', compact('movies', 'dailyMovies', 'trendingMovies'));
     }
 
     /**
@@ -97,10 +98,10 @@ class MovieController extends Controller
     public function home()
     {
         $featured = Movie::latest()->take(8)->get();
-        $trending = Movie::latest()->take(12)->get();
-        $dailyMovies = DailyMovie::with('movie')->whereDate('date', today())->get();
+        $trendingMovies = TrendingMovie::with('movie')->whereDate('date', today())->get();
+        $dailyMovies = DailyMovie::with('movie')->whereDate('date', today())->get(); 
 
-        return view('home', compact('featured', 'trending', 'dailyMovies'));
+        return view('home', compact('featured', 'trendingMovies', 'dailyMovies'));
     }
 
 }
