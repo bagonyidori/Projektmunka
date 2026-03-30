@@ -17,28 +17,64 @@
              VerticalOptions="Center"
              HeightRequest="50"
              FontSize="40"
-             Margin="10,10,0,0"/>
+             Margin="30,20,0,0"/>
+
             <Button 
-            Margin="150,0,5,0"
-            Padding="0,10,0,10"
+            Margin="400,20,5,0"
             Clicked="GetMovies"
             x:Name="getMoviesBtn"
             BackgroundColor="Red"
-            Text="Filmek lekérése"
+            Text="FILMEK LEKÉRÉSE"
             FontFamily="Kimberley"
             TextColor="White"/>
+            
             <Button 
-            Margin="5,0,5,0"
+            Margin="5,20,5,0"
             Clicked="GetRatings"
             x:Name="getRatingsBtn"
             BackgroundColor="red" 
-            Text="Értékelések lekérése"
+            Text="ÉRTÉKELÉSEK LEKÉRÉSE"
             FontFamily="Kimberley"
             TextColor="White"/>
         </HorizontalStackLayout>
 
-        <Button Margin="15,50,15,0" Clicked="TestDailyMovies" BackgroundColor="#D4FF3E" Text="Random napi filmek"/>
-        <Button Margin="15,10,15,0" Clicked="GetTrendingMovies" BackgroundColor="#D4FF3E" Text="Filter by ratings"/>
+        <HorizontalStackLayout VerticalOptions="Fill" HorizontalOptions="Center" Margin="0,50,0,0">
+            <Button 
+                Margin="5,0,5,0" 
+                Clicked="TestDailyMovies"
+                BackgroundColor="#D4FF3E"
+                Text="NAPI FILMEK KIVÁLASZTÁSA"
+                FontFamily="Kimberley"
+                TextColor="#111111"
+                x:Name="selectDailyBtn"/>
+            
+            <Button 
+                Margin="5,0,5,0"
+                Clicked="GetTrendingMovies"
+                BackgroundColor="#D4FF3E"
+                Text="FELKAPOTT FILMEK FRISSÍTÉSE"
+                FontFamily="Kimberley"
+                TextColor="#111111"
+                x:Name="updateTrendingBtn"/>
+
+            <Button 
+                Margin="5,0,5,0" 
+                Clicked="GetTrendingMovies"
+                BackgroundColor="#D4FF3E"
+                Text="FILMEK SZERKESZTÉSE"
+                FontFamily="Kimberley"
+                TextColor="#111111"
+                x:Name="updateMoviesBtn"/>
+
+            <Button 
+                Margin="5,0,5,0" 
+                Clicked="GetTrendingMovies"
+                BackgroundColor="#D4FF3E"
+                Text="FILMEK TÖRLÉSE"
+                FontFamily="Kimberley"
+                TextColor="#111111"
+                x:Name="deleteMoviesBtn"/>
+        </HorizontalStackLayout>
         
         <CollectionView ItemsSource="{Binding Movies}">
             <CollectionView.ItemTemplate>
