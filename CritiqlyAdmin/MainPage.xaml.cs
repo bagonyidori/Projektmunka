@@ -18,7 +18,6 @@ namespace CritiqlyAdmin
         {
             InitializeComponent();
             BindingContext = this;
-
         }
 
 
@@ -30,13 +29,15 @@ namespace CritiqlyAdmin
             var movies = await GetAsync<Movie>("http://127.0.0.1:8000/api/movies");
 
             Movies.Clear();
-            getMoviesBtn.BackgroundColor = Colors.DarkGreen;
-            //getMoviesBtn.TextColor = Colors.Black;
 
             foreach (var movie in movies)
             {
                 Movies.Add(movie);
             }
+            fireUp();
+            getMoviesBtn.BackgroundColor = Colors.DarkGreen;
+            getMoviesBtn.Text = "FILMEK ✓";
+            //getMoviesBtn.TextColor = Colors.Black;
         }
 
         public async void GetRatings(object sender, EventArgs e)
@@ -44,13 +45,15 @@ namespace CritiqlyAdmin
             var ratings = await GetAsync<Rating>("http://127.0.0.1:8000/api/ratings");
 
             Ratings.Clear();
-            getRatingsBtn.BackgroundColor = Colors.DarkGreen;
-            //getRatingsBtn.TextColor = Colors.Black;
 
             foreach (var rating in ratings)
             {
                 Ratings.Add(rating);
             }
+            fireUp();
+            getRatingsBtn.Text = "ÉRTÉKELÉSEK ✓";
+            getRatingsBtn.BackgroundColor = Colors.DarkGreen;
+            //getRatingsBtn.TextColor = Colors.Black;
         }
 
         public async Task<List<T>> GetAsync<T>(string url)
@@ -155,6 +158,24 @@ namespace CritiqlyAdmin
                 //await DisplayAlertAsync("Alert", response.ToString(), "OK");
 
                 //TODO: Try-Catch, error handling
+            }
+        }
+
+        public void fireUp()
+        {
+            if(Movies.Count > 0 && Ratings.Count > 0)
+            {
+                selectDailyBtn.IsEnabled = true;
+                updateTrendingBtn.IsEnabled = true;
+                updateMoviesBtn.IsEnabled = true;
+                deleteMoviesBtn.IsEnabled = true;
+                selectDailyBtn.BackgroundColor = Color.FromRgb(212, 255, 62);
+                updateTrendingBtn.BackgroundColor = Color.FromRgb(212, 255, 62);
+                updateMoviesBtn.BackgroundColor = Color.FromRgb(212, 255, 62);
+                deleteMoviesBtn.BackgroundColor = Color.FromRgb(212, 255, 62);
+
+                getMoviesBtn.IsEnabled = false;
+                getRatingsBtn.IsEnabled = false;
             }
         }
     }
