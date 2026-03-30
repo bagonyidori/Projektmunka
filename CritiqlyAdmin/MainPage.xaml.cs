@@ -14,6 +14,7 @@ namespace CritiqlyAdmin
     {
         public ObservableCollection<Movie> Movies { get; set; } = new();
         public ObservableCollection<Rating> Ratings { get; set; } = new();
+        public ObservableCollection<Rating> relevantData { get; set; } = new();
         public MainPage()
         {
             InitializeComponent();

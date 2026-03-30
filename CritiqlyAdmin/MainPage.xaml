@@ -50,7 +50,7 @@
                 TextColor="#111111"
                 x:Name="selectDailyBtn"
                 IsEnabled="False"/>
-            
+
             <Button 
                 Margin="5,0,5,0"
                 Clicked="GetTrendingMovies"
@@ -81,15 +81,38 @@
                 x:Name="deleteMoviesBtn"
                 IsEnabled="False"/>
         </HorizontalStackLayout>
-        
-        <CollectionView ItemsSource="{Binding Movies}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="Models:Movie">
-                    <Grid Padding="10">
-                        <Label Text="{Binding title}" />
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+
+        <HorizontalStackLayout>
+            <VerticalStackLayout>
+                <ListView 
+                    x:Name="mainDataLoader" 
+                    ItemsSource="{Binding relevantData}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="Models:Rating">
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="1"
+                                    Text="{Binding movie_id}"
+                                    FontFamily="Kimberley" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+            
+            <VerticalStackLayout 
+                x:Name="buttonsLoader">
+                
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
