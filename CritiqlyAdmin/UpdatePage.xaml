@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Shell.NavBarIsVisible="False"
+             x:Class="CritiqlyAdmin.UpdatePage">
+    <VerticalStackLayout>
+            <HorizontalStackLayout 
+            VerticalOptions="Fill" 
+            BackgroundColor="#2A2720">
+            <Image 
+                Source='Images/critiqlyNexusCore.png'
+                MaximumHeightRequest="50"
+                Margin="30,30,0,0"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+            </Image>
+            <Button 
+            Margin="700,20,5,0"
+            Clicked="Save"
+            x:Name="SaveBtn"
+            BackgroundColor="Red" 
+            Text="MENTÉS ÉS KILÉPÉS"
+            FontFamily="Kimberley"
+            TextColor="White"
+            MinimumWidthRequest="200"/>
+        </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+            BackgroundColor="#2A2720"
+            Padding="0,0,0,25">
+                <Label
+                x:Name="StatusLabel"
+                FontSize="25"
+                FontFamily="Kimberley"
+                TextColor="White"
+                Margin="50,30,0,0"
+                />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+</ContentPage>

@@ -10,10 +10,8 @@ using MySql.Data.MySqlClient;
 
 namespace CritiqlyAdmin
 {
-    [QueryProperty(nameof(Username), "username")]
     public partial class MainPage : ContentPage
     {
-        public string Username { get; set; }
         public ObservableCollection<Movie> Movies { get; set; } = new();
         public ObservableCollection<Rating> Ratings { get; set; } = new();
         public ObservableCollection<Rating> relevantData { get; set; } = new();
@@ -27,7 +25,7 @@ namespace CritiqlyAdmin
         {
             base.OnAppearing();
 
-            welcomeLabel.Text = "Üdv újra, " + Username +"!";
+            welcomeLabel.Text = "Üdv újra, " + AppData.Username +"!";
         }
 
 
@@ -44,6 +42,7 @@ namespace CritiqlyAdmin
             {
                 Movies.Add(movie);
             }
+            AppData.Movies = Movies.ToList();
             fireUp();
             getMoviesBtn.BackgroundColor = Colors.DarkGreen;
             getMoviesBtn.Text = "FILMEK ✓";
@@ -60,6 +59,7 @@ namespace CritiqlyAdmin
             {
                 Ratings.Add(rating);
             }
+            AppData.Ratings = Ratings.ToList();
             fireUp();
             getRatingsBtn.Text = "ÉRTÉKELÉSEK ✓";
             getRatingsBtn.BackgroundColor = Colors.DarkGreen;
@@ -90,36 +90,7 @@ namespace CritiqlyAdmin
 
         public async void TestDailyMovies(object sender, EventArgs e)
         {
-            if(Movies.Count == 0)
-            {
-                await DisplayAlertAsync("Hiba", "Előbb töltsd be az adatokat!", "OK");
-                return;
-            }
-            else
-            {
-                var client = new HttpClient();
-
-                int[] newDailys = new int[4];
-                Random rnd = new Random();
-                for (int i = 0; i < 4; i++)
-                {
-                    newDailys[i] = rnd.Next(1, (Movies.Count + 1));
-                }
-
-                var data = new
-                {
-                    movies = newDailys
-                };
-
-                var json = JsonSerializer.Serialize(data);
-                var httpData = new StringContent(json, Encoding.UTF8, "application/json");
-
-                var response = await client.PostAsync("http://localhost:8000/api/daily-movies", httpData);
-                var responseBody = await response.Content.ReadAsStringAsync();
-                //await DisplayAlertAsync("Alert", response.ToString(), "OK");
-
-                //TODO: Try-Catch, error handling
-            }
+            await Shell.Current.GoToAsync($"//DailyPage");
         }
 
         public async void GetTrendingMovies(object sender, EventArgs e)

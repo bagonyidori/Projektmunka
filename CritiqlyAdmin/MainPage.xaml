@@ -7,7 +7,9 @@
              xmlns:Models="clr-namespace:CritiqlyAdmin.Models">
 
     <VerticalStackLayout>
-        <HorizontalStackLayout VerticalOptions="Fill">
+        <HorizontalStackLayout 
+            VerticalOptions="Fill" 
+            BackgroundColor="#2A2720">
             <Image 
                 Source='Images/critiqlyNexusCore.png'
                 MaximumHeightRequest="50"
@@ -40,7 +42,7 @@
             Margin="40,20,5,0"
             Clicked="LogOut"
             x:Name="logOutBtn"
-            BackgroundColor="OrangeRed" 
+            BackgroundColor="Red" 
             Text="KIJELENTKEZÉS"
             FontFamily="Kimberley"
             TextColor="White"
@@ -48,16 +50,16 @@
 
         </HorizontalStackLayout>
 
-        <HorizontalStackLayout>
+        <HorizontalStackLayout
+            BackgroundColor="#2A2720"
+            Padding="0,0,0,25">
             <Label
                 x:Name="welcomeLabel"
-                FontSize="20"
+                FontSize="25"
                 FontFamily="Kimberley"
                 TextColor="White"
-                Margin="30,0,0,0"
-                >
-                
-            </Label>
+                Margin="50,30,0,0"
+                />
         </HorizontalStackLayout>
 
         <VerticalStackLayout VerticalOptions="Fill" HorizontalOptions="Center" Margin="0,50,0,0">
@@ -114,37 +116,17 @@
                 IsEnabled="False"/>
         </VerticalStackLayout>
 
-        <HorizontalStackLayout>
-            <VerticalStackLayout>
-                <ListView 
-                    x:Name="mainDataLoader" 
-                    ItemsSource="{Binding relevantData}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="Models:Rating">
-                            <ViewCell>
-                                <Grid Padding="10">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <Label Grid.Column="1"
-                                    Text="{Binding movie_id}"
-                                    FontFamily="Kimberley" />
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </VerticalStackLayout>
-            
-            <VerticalStackLayout 
-                x:Name="buttonsLoader">
-                
-            </VerticalStackLayout>
+        <HorizontalStackLayout
+            HorizontalOptions="Fill">
+            <Label
+                x:Name="infoLabel"
+                FontSize="20"
+                FontFamily="Kimberley"
+                TextColor="White"
+                Margin="50,50,0,0"
+                HorizontalOptions="End"
+                Text="CNC VERSION 0.0.1"
+                />
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

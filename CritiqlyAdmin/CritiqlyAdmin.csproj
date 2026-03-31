@@ -72,12 +72,36 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="DailyPage.xaml.cs">
+	    <DependentUpon>DailyPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="TrendingPage.xaml.cs">
+	    <DependentUpon>TrendingPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="DeletePage.xaml.cs">
+	    <DependentUpon>DeletePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="UpdatePage.xaml.cs">
+	    <DependentUpon>UpdatePage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="LoginPage.xaml.cs">
 	    <DependentUpon>LoginPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="DailyPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="TrendingPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="DeletePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UpdatePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
