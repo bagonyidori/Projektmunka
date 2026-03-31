@@ -22,7 +22,10 @@
             >
         </Label>
 
-        <HorizontalStackLayout HorizontalOptions="Center" MinimumHeightRequest="150">
+        <HorizontalStackLayout 
+            HorizontalOptions="Center" 
+            MinimumHeightRequest="50"
+            Margin="0,40,0,0">
             <Border 
                 BackgroundColor="#F5F5F5"
                 Stroke="#D4FF3E"
@@ -49,7 +52,6 @@
                             VerticalOptions="Center"/>
                     </Grid>
 
-                    <!-- INPUT -->
                     <Entry 
                         Grid.Column="1"
                         Placeholder="Felhasználónév.."
@@ -61,6 +63,76 @@
                         Margin="10,0"/>
 
                 </Grid>
+            </Border>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout 
+            HorizontalOptions="Center" 
+            MinimumHeightRequest="50"
+            Margin="0,20,0,0">
+            <Border 
+                BackgroundColor="#F5F5F5"
+                Stroke="#D4FF3E"
+                StrokeThickness="3"
+                StrokeShape="RoundRectangle 12"
+                Padding="0"
+                HeightRequest="60"
+                MinimumWidthRequest="250">
+
+                <Grid 
+                    ColumnDefinitions="60,*"
+                    BackgroundColor="#363333">
+
+                    <Grid 
+                        BackgroundColor="#383432"
+                        WidthRequest="60"
+                        HeightRequest="60">
+
+                        <Image 
+                            Source="Images/password.png"
+                            WidthRequest="20"
+                            HeightRequest="20"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"/>
+                    </Grid>
+
+                    <Entry 
+                        Grid.Column="1"
+                        Placeholder="Jelszó.."
+                        FontFamily="Kimberley"
+                        TextColor="White"
+                        PlaceholderColor="#828282"
+                        BackgroundColor="Transparent"
+                        VerticalOptions="Center"
+                        Margin="10,0"
+                        IsPassword="True"/>
+
+                </Grid>
+            </Border>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout 
+            HorizontalOptions="Center" 
+            MinimumHeightRequest="50"
+            Margin="0,30,0,0">
+            <Border 
+                BackgroundColor="#F5F5F5"
+                Stroke="#D4FF3E"
+                StrokeThickness="3"
+                StrokeShape="RoundRectangle 12"
+                Padding="0"
+                HeightRequest="60"
+                MinimumWidthRequest="250">
+                <Button
+                    Clicked="TryLogin"
+                    Text="Bejelentkezés"
+                    FontFamily="Kimberley"
+                    TextColor="Black"
+                    FontSize="20"
+                    BackgroundColor="#D4FF3E"
+                    >
+                    
+                </Button>
             </Border>
         </HorizontalStackLayout>
     </VerticalStackLayout>

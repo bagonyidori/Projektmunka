@@ -6,4 +6,9 @@ public partial class LoginPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+	public void TryLogin(object sender, EventArgs e)
+	{
+
+	}
 }
