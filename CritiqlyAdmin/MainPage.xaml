@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CritiqlyAdmin.MainPage"
              Title="Critiqly Nexus Core"
-             Shell.BackgroundColor="#1C1A15"
+             BackgroundColor="#1C1A15"
              Shell.NavBarIsVisible="False"
              xmlns:Models="clr-namespace:CritiqlyAdmin.Models">
 
@@ -11,13 +11,14 @@
         <HorizontalStackLayout VerticalOptions="Fill">
             <Image 
                 Source='Images/critiqlyNexusCore.png'
-                MaximumHeightRequest="150"
+                MaximumHeightRequest="50"
+                Margin="30,30,0,0"
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
             </Image>
 
             <Button 
-            Margin="350,20,5,0"
+            Margin="450,20,5,0"
             Clicked="GetMovies"
             x:Name="getMoviesBtn"
             BackgroundColor="Red"

@@ -6,9 +6,6 @@
     xmlns:local="clr-namespace:CritiqlyAdmin"
     Title="Critiqly Nexus Core">
 
-    <ShellContent
-        Title="Login"
-        ContentTemplate="{DataTemplate local:LoginPage}"
-        Route="LoginPage" />
-
+    <ShellContent Title="Login" ContentTemplate="{DataTemplate local:LoginPage}" Route="LoginPage"/>
+    <ShellContent Title="Main" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage"/>
 </Shell>

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CritiqlyAdmin.LoginPage"
+             BackgroundColor="#1C1A15"
              Shell.NavBarIsVisible="False"
              Title="NewPage1">
     <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
@@ -11,6 +12,7 @@
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
         </Image>
+        
         <Label
             Text="Jelentkezz be a folytatáshoz!"
             FontFamily="Kimberley"
@@ -19,5 +21,47 @@
             Margin="0,30,0,0"
             >
         </Label>
+
+        <HorizontalStackLayout HorizontalOptions="Center" MinimumHeightRequest="150">
+            <Border 
+                BackgroundColor="#F5F5F5"
+                Stroke="#D4FF3E"
+                StrokeThickness="3"
+                StrokeShape="RoundRectangle 12"
+                Padding="0"
+                HeightRequest="60"
+                MinimumWidthRequest="250">
+
+                <Grid 
+                    ColumnDefinitions="60,*"
+                    BackgroundColor="#363333">
+
+                    <Grid 
+                        BackgroundColor="#383432"
+                        WidthRequest="60"
+                        HeightRequest="60">
+
+                        <Image 
+                            Source="Images/username.png"
+                            WidthRequest="20"
+                            HeightRequest="20"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"/>
+                    </Grid>
+
+                    <!-- INPUT -->
+                    <Entry 
+                        Grid.Column="1"
+                        Placeholder="Felhasználónév.."
+                        FontFamily="Kimberley"
+                        TextColor="White"
+                        PlaceholderColor="#828282"
+                        BackgroundColor="Transparent"
+                        VerticalOptions="Center"
+                        Margin="10,0"/>
+
+                </Grid>
+            </Border>
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
