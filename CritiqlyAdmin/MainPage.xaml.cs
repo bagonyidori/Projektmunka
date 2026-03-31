@@ -170,6 +170,10 @@ namespace CritiqlyAdmin
                 updateTrendingBtn.IsEnabled = true;
                 updateMoviesBtn.IsEnabled = true;
                 deleteMoviesBtn.IsEnabled = true;
+                selectDailyBtn.Opacity = 1;
+                updateTrendingBtn.Opacity = 1;
+                updateMoviesBtn.Opacity = 1;
+                deleteMoviesBtn.Opacity = 1;
                 selectDailyBtn.BackgroundColor = Color.FromRgb(212, 255, 62);
                 updateTrendingBtn.BackgroundColor = Color.FromRgb(212, 255, 62);
                 updateMoviesBtn.BackgroundColor = Color.FromRgb(212, 255, 62);
@@ -178,6 +182,11 @@ namespace CritiqlyAdmin
                 getMoviesBtn.IsEnabled = false;
                 getRatingsBtn.IsEnabled = false;
             }
+        }
+
+        public async void LogOut(Object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//LoginPage");
         }
     }
 }

@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CritiqlyAdmin.LoginPage"
              BackgroundColor="#1C1A15"
-             Shell.NavBarIsVisible="False"
-             Title="NewPage1">
+             Shell.NavBarIsVisible="False">
     <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
         <Image 
                 Source='Images/critiqlyNexusCore.png'
@@ -60,6 +59,7 @@
                         PlaceholderColor="#828282"
                         BackgroundColor="Transparent"
                         VerticalOptions="Center"
+                        x:Name="EntryUsername"
                         Margin="10,0"/>
 
                 </Grid>
@@ -104,6 +104,7 @@
                         PlaceholderColor="#828282"
                         BackgroundColor="Transparent"
                         VerticalOptions="Center"
+                        x:Name="EntryPassword"
                         Margin="10,0"
                         IsPassword="True"/>
 
@@ -130,6 +131,7 @@
                     TextColor="Black"
                     FontSize="20"
                     BackgroundColor="#D4FF3E"
+                    x:Name="LoginBtn"
                     >
                     
                 </Button>

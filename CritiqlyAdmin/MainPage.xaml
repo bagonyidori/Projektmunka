@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CritiqlyAdmin.MainPage"
-             Title="Critiqly Nexus Core"
              BackgroundColor="#1C1A15"
              Shell.NavBarIsVisible="False"
              xmlns:Models="clr-namespace:CritiqlyAdmin.Models">
@@ -18,10 +17,10 @@
             </Image>
 
             <Button 
-            Margin="450,20,5,0"
+            Margin="250,20,5,0"
             Clicked="GetMovies"
             x:Name="getMoviesBtn"
-            BackgroundColor="Red"
+            BackgroundColor="#BA521A"
             Text="FILMEK LEKÉRÉSE"
             FontFamily="Kimberley"
             TextColor="White"
@@ -31,11 +30,22 @@
             Margin="5,20,5,0"
             Clicked="GetRatings"
             x:Name="getRatingsBtn"
-            BackgroundColor="red" 
+            BackgroundColor="#BA521A" 
             Text="ÉRTÉKELÉSEK LEKÉRÉSE"
             FontFamily="Kimberley"
             TextColor="White"
             MinimumWidthRequest="200"/>
+
+            <Button 
+            Margin="40,20,5,0"
+            Clicked="LogOut"
+            x:Name="logOutBtn"
+            BackgroundColor="OrangeRed" 
+            Text="KIJELENTKEZÉS"
+            FontFamily="Kimberley"
+            TextColor="White"
+            MinimumWidthRequest="200"/>
+
         </HorizontalStackLayout>
 
         <HorizontalStackLayout VerticalOptions="Fill" HorizontalOptions="Center" Margin="0,50,0,0">
@@ -47,6 +57,7 @@
                 FontFamily="Kimberley"
                 TextColor="#111111"
                 x:Name="selectDailyBtn"
+                Opacity="0.6"
                 IsEnabled="False"/>
 
             <Button 
@@ -57,6 +68,7 @@
                 FontFamily="Kimberley"
                 TextColor="#111111"
                 x:Name="updateTrendingBtn"
+                Opacity="0.6"
                 IsEnabled="False"/>
 
             <Button 
@@ -67,6 +79,7 @@
                 FontFamily="Kimberley"
                 TextColor="#111111"
                 x:Name="updateMoviesBtn"
+                Opacity="0.6"
                 IsEnabled="False"/>
 
             <Button 
@@ -77,6 +90,7 @@
                 FontFamily="Kimberley"
                 TextColor="#111111"
                 x:Name="deleteMoviesBtn"
+                Opacity="0.6"
                 IsEnabled="False"/>
         </HorizontalStackLayout>
 
