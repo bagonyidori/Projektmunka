@@ -9,15 +9,12 @@
 
     <VerticalStackLayout>
         <HorizontalStackLayout VerticalOptions="Fill">
-            <Label
-             Text="Critiqly Nexus Core"
-             FontFamily="Kimberley"
-             TextColor="#D4FF3E"
-             VerticalTextAlignment="Center"
-             VerticalOptions="Center"
-             HeightRequest="50"
-             FontSize="40"
-             Margin="30,20,0,0"/>
+            <Image 
+                Source='Images/critiqlyNexusCore.png'
+                MaximumHeightRequest="150"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+            </Image>
 
             <Button 
             Margin="350,20,5,0"
