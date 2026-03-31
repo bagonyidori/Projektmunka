@@ -40,10 +40,13 @@ public partial class LoginPage : ContentPage
 
         if (user.Is_Admin)
         {
+            //await DisplayAlertAsync("Alert", "belépett", "OK");
             LoginBtn.Text = "SIKERES BELÉPÉS";
             await Task.Delay(1000);
-            //await DisplayAlertAsync("Alert", "belépett", "OK");
             await Shell.Current.GoToAsync("//MainPage");
+            LoginBtn.Text = "Bejelentkezés";
+            EntryUsername.Text = "";
+            EntryPassword.Text = "";
         }
     }
 }
