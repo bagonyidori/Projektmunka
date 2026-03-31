@@ -60,7 +60,7 @@
                         BackgroundColor="Transparent"
                         VerticalOptions="Center"
                         x:Name="EntryUsername"
-                        Margin="10,0"/>
+                        />
 
                 </Grid>
             </Border>
@@ -69,7 +69,7 @@
         <HorizontalStackLayout 
             HorizontalOptions="Center" 
             MinimumHeightRequest="50"
-            Margin="0,20,0,0">
+            Margin="0,10,0,0">
             <Border 
                 BackgroundColor="#F5F5F5"
                 Stroke="#D4FF3E"
@@ -105,7 +105,6 @@
                         BackgroundColor="Transparent"
                         VerticalOptions="Center"
                         x:Name="EntryPassword"
-                        Margin="10,0"
                         IsPassword="True"/>
 
                 </Grid>

@@ -43,7 +43,7 @@ public partial class LoginPage : ContentPage
             //await DisplayAlertAsync("Alert", "belépett", "OK");
             LoginBtn.Text = "SIKERES BELÉPÉS";
             await Task.Delay(1000);
-            await Shell.Current.GoToAsync("//MainPage");
+            await Shell.Current.GoToAsync($"//MainPage?username={EntryUsername.Text}");
             LoginBtn.Text = "Bejelentkezés";
             EntryUsername.Text = "";
             EntryPassword.Text = "";

@@ -10,8 +10,10 @@ using MySql.Data.MySqlClient;
 
 namespace CritiqlyAdmin
 {
+    [QueryProperty(nameof(Username), "username")]
     public partial class MainPage : ContentPage
     {
+        public string Username { get; set; }
         public ObservableCollection<Movie> Movies { get; set; } = new();
         public ObservableCollection<Rating> Ratings { get; set; } = new();
         public ObservableCollection<Rating> relevantData { get; set; } = new();
@@ -19,6 +21,13 @@ namespace CritiqlyAdmin
         {
             InitializeComponent();
             BindingContext = this;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            welcomeLabel.Text = "Üdv újra, " + Username +"!";
         }
 
 
