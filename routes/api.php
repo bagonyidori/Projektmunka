@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\MovieController;
 use App\Http\Controllers\Api\RatingController;
 use App\Http\Controllers\Api\DailyMovieController;
 use App\Http\Controllers\Api\TrendingMovieController;
+use App\Http\Controllers\Api\UserController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -13,6 +14,7 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/movies', [MovieController::class, 'index']);
 Route::get('/ratings', [RatingController::class, 'index']);
+Route::get('/users', [UserController::class, 'index']);
 
 Route::put('/movies/{movie}', [MovieController::class, 'update']);
 Route::put('/ratings/{rating}', [RatingController::class, 'update']);
