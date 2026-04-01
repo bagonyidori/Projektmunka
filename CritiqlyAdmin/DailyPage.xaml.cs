@@ -28,6 +28,25 @@ public partial class DailyPage : ContentPage
     {
         AppData.DailyLastUpdate = DateTime.Now;
 
-        await Shell.Current.GoToAsync($"//MainPage");
+        var client = new HttpClient();
+        var data = new
+        {
+            daily = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
+            trending = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz")
+        };
+
+        var json = JsonSerializer.Serialize(data);
+        var httpData = new StringContent(json, Encoding.UTF8, "application/json");
+        await DisplayAlertAsync("json", json, "OK");
+        var response = await client.PostAsync("http://localhost:8000/api/admin/update", httpData);
+
+        if (response.IsSuccessStatusCode)
+        {
+            await Shell.Current.GoToAsync($"//MainPage");
+        }
+        else
+        {
+            await DisplayAlertAsync("Hiba", "A mentés nem sikerült! \n Próbáld újra!", "OK");
+        }
     }
 }

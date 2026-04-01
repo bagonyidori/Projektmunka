@@ -26,6 +26,7 @@ namespace CritiqlyAdmin
             base.OnAppearing();
 
             welcomeLabel.Text = "Üdv újra, " + AppData.Username +"!";
+            LoadAppData();
         }
 
 
@@ -64,6 +65,24 @@ namespace CritiqlyAdmin
             getRatingsBtn.Text = "ÉRTÉKELÉSEK ✓";
             getRatingsBtn.BackgroundColor = Colors.DarkGreen;
             //getRatingsBtn.TextColor = Colors.Black;
+        }
+
+        public async void LoadAppData()
+        {
+            var client = new HttpClient();
+            var data = await client.GetAsync("http://127.0.0.1:8000/api/admin/get");
+            var json = await data.Content.ReadAsStringAsync();
+
+            var result = JsonSerializer.Deserialize<List<AdminData>>(json, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+
+            await DisplayAlertAsync("Alert", result[0].DailyLastUpdate.ToString(), "OK");
+            //await DisplayAlertAsync("Alert", result[0].TrendingLastUpdate.ToString(), "OK");
+
+            AppData.DailyLastUpdate = result[0].DailyLastUpdate;
+            AppData.TrendingLastUpdate = result[0].TrendingLastUpdate;
         }
 
         public async Task<List<T>> GetAsync<T>(string url)
@@ -132,7 +151,7 @@ namespace CritiqlyAdmin
 
                 var json = JsonSerializer.Serialize(data);
                 var httpData = new StringContent(json, Encoding.UTF8, "application/json");
-                await DisplayAlertAsync("Alert", json, "OK");
+                //await DisplayAlertAsync("Alert", json, "OK");
 
                 var response = await client.PostAsync("http://localhost:8000/api/trending-movies", httpData);
                 var responseBody = await response.Content.ReadAsStringAsync();
