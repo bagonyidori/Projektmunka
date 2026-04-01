@@ -63,6 +63,7 @@
             <Button
                 Text="⌕ Keresés"
                 Clicked="SearchQuery"
+                x:Name="searchQueryBtn"
                 FontFamily="Kimberley"
                 FontSize="20"
                 BackgroundColor="#D4FF3E"
@@ -73,12 +74,25 @@
             <Button
                 Text="🍀 Sorsolás"
                 Clicked="RollRandom"
+                x:Name="rollRandomBtn"
                 FontFamily="Kimberley"
                 FontSize="20"
                 BackgroundColor="#D4FF3E"
                 Margin="15,30,0,20">
 
             </Button>
+
+            <Button
+                Text="☑ Kiválasztottak Megtekintése"
+                Clicked="checkSelected"
+                x:Name="checkSelectedBtn"
+                FontFamily="Kimberley"
+                FontSize="20"
+                BackgroundColor="#D4FF3E"
+                Margin="15,30,0,20">
+
+            </Button>
+
         </HorizontalStackLayout>
         <CollectionView 
             ItemsSource="{Binding QueryMovies}"
@@ -89,7 +103,7 @@
             >
 
             <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical" Span="4"/>
+                <GridItemsLayout Orientation="Vertical" Span="4" VerticalItemSpacing="10"/>
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
