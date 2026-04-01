@@ -10,15 +10,23 @@ class AdminDataController extends Controller
 {
     public function index()
     {
-        return AdminData::all();
+        return response()->json(
+            AdminData::all()->map(function ($item) {
+                return [
+                    'id' => $item->id,
+                    'daily_last_update' => $item->daily_last_update->toISOString(),
+                    'trending_last_update' => $item->trending_last_update->toISOString(),
+                ];
+            })
+        );
     }
 
     public function update(Request $request)
     {
         //dd('bejött');
         $request->validate([
-            'daily' => 'required|date',
-            'trending' => 'required|date'
+            'daily' => 'required|date_format:Y-m-d\TH:i:sP',
+            'trending' => 'required|date_format:Y-m-d\TH:i:sP'
         ]);
 
         $data = AdminData::first();

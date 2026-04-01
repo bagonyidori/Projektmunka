@@ -14,5 +14,10 @@ class AdminData extends Model
         'trending_last_update',
     ];
 
+    protected $casts = [
+    'daily_last_update' => 'datetime',
+    'trending_last_update' => 'datetime',
+    ];
+
     protected $dates = ['deleted_at'];
 }

@@ -23,4 +23,4 @@ Route::put('/ratings/{rating}', [RatingController::class, 'update']);
 Route::post('/daily-movies', [DailyMovieController::class, 'store']);
 Route::post('/trending-movies', [TrendingMovieController::class, 'store']);
 Route::post('/admin/login', [UserController::class, 'adminLogin']);
-Route::post('/admin/post', [AdminDataController::class, 'update']);
+Route::post('/admin/update', [AdminDataController::class, 'update']);
