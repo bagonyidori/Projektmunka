@@ -14,6 +14,8 @@ namespace CritiqlyAdmin.Models
         public string plot { get; set; }
         public DateTime? release_date { get; set; }
         public string poster { get; set; }
+        public string fullPosterUrl =>
+            string.IsNullOrEmpty(poster)? null : $"https://image.tmdb.org/t/p/w500{poster}";
         public DateTime? created_at { get; set; }
         public DateTime? updated_at { get; set; }
         public DateTime? deleted_at { get; set; }

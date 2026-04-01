@@ -107,58 +107,24 @@ namespace CritiqlyAdmin
             return result;
         }
 
-        public async void TestDailyMovies(object sender, EventArgs e)
+        public async void SelectDailyMovies(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync($"//DailyPage");
+            await Shell.Current.GoToAsync("//DailyPage");
         }
 
-        public async void GetTrendingMovies(object sender, EventArgs e)
+        public async void EditTrendingMovies(object sender, EventArgs e)
         {
-            if (Movies.Count == 0 || Ratings.Count == 0)
-            {
-                await DisplayAlertAsync("Hiba", "Előbb töltsd be az adatokat!", "OK");
-                return;
-            }
-            else
-            {
-                var client = new HttpClient();
+            await Shell.Current.GoToAsync("//TrendingPage");
+        }
 
-                Dictionary<int, int> trendingMovies = new Dictionary<int, int>();
+        public async void UpdateMovies(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//UpdatePage");
+        }
 
-                foreach (var movie in Movies)
-                {
-                    foreach (var rating in Ratings)
-                    {
-                        if (rating.movie_id == movie.id && !trendingMovies.ContainsKey(movie.id))
-                        {
-                            //await DisplayAlertAsync("Alert", "Találtam mId + rId -> Nem volt még listában", "OK");
-                            trendingMovies.Add(movie.id, rating.stars);
-                        }
-                        else if (rating.movie_id == movie.id && trendingMovies.ContainsKey(movie.id))
-                        {
-                            //await DisplayAlertAsync("Alert", "Találtam mId + rId ->  Volt már listában", "OK");
-                            trendingMovies[movie.id] += rating.stars;
-                        }
-                    }
-                }
-
-                int[] top4 = trendingMovies.OrderByDescending(x => x.Value).Take(4).Select(x => x.Key).ToArray();
-
-                var data = new
-                {
-                    movies = top4
-                };
-
-                var json = JsonSerializer.Serialize(data);
-                var httpData = new StringContent(json, Encoding.UTF8, "application/json");
-                //await DisplayAlertAsync("Alert", json, "OK");
-
-                var response = await client.PostAsync("http://localhost:8000/api/trending-movies", httpData);
-                var responseBody = await response.Content.ReadAsStringAsync();
-                //await DisplayAlertAsync("Alert", response.ToString(), "OK");
-
-                //TODO: Try-Catch, error handling
-            }
+        public async void DeleteMovies(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//DeletePage");
         }
 
         public void fireUp()
