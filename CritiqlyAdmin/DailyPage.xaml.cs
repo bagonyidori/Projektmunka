@@ -26,13 +26,12 @@ public partial class DailyPage : ContentPage
 
     public async void Save(Object sender, EventArgs e)
     {
-        AppData.DailyLastUpdate = DateTime.Now;
-
+        
         var client = new HttpClient();
         var data = new
         {
             daily = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
-            trending = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz")
+            trending = AppData.TrendingLastUpdate.Value.ToString("yyyy-MM-ddTHH:mm:sszzz")
         };
 
         var json = JsonSerializer.Serialize(data);
