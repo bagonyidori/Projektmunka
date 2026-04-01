@@ -15,7 +15,17 @@
                 HorizontalOptions="Center">
             </Image>
             <Button 
-            Margin="700,20,5,0"
+            Margin="500,20,5,0"
+            Clicked="Exit"
+            x:Name="exitBtn"
+            BackgroundColor="OrangeRed" 
+            Text="KILÉPÉS"
+            FontFamily="Kimberley"
+            TextColor="White"
+            MinimumWidthRequest="200"/>
+
+            <Button 
+            Margin="5,20,5,0"
             Clicked="Save"
             x:Name="SaveBtn"
             BackgroundColor="Red" 

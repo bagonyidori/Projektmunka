@@ -112,6 +112,25 @@ public partial class DailyPage : ContentPage
         checkSelectedBtn.BackgroundColor = Color.FromRgb(212, 255, 62);
     }
 
+    public async void Exit(Object sender, EventArgs e)
+    {
+        var isResponseOk = await DisplayAlertAsync(
+            "Kilépés",
+            "Biztosan ki akarsz lépni? Az eddigi változtatások elvesznek!",
+            "Igen",
+            "Mégse"
+        );
+
+        if (isResponseOk)
+        {
+            await Shell.Current.GoToAsync("//MainPage");
+        }
+        else
+        {
+            return;
+        }
+    }
+
     public async void Save(Object sender, EventArgs e)
     {
         if (SelectedIds.Count > 2)
