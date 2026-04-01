@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admin_panel_data', function (Blueprint $table) {
+        Schema::create('admin_data', function (Blueprint $table) {
             $table->id();
-            $table->date('daily_last_update');
-            $table->date('trending_last_update');
+            $table->dateTime('daily_last_update');
+            $table->dateTime('trending_last_update');
             $table->softDeletes();
             $table->timestamps();
         });
