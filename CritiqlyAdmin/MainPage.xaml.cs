@@ -78,7 +78,7 @@ namespace CritiqlyAdmin
                 PropertyNameCaseInsensitive = true
             });
 
-            await DisplayAlertAsync("Alert", result[0].DailyLastUpdate.ToString(), "OK");
+            //await DisplayAlertAsync("Alert", result[0].DailyLastUpdate.ToString(), "OK");
             //await DisplayAlertAsync("Alert", result[0].TrendingLastUpdate.ToString(), "OK");
 
             AppData.DailyLastUpdate = result[0].DailyLastUpdate;

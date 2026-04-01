@@ -37,7 +37,7 @@ public partial class DailyPage : ContentPage
 
         var json = JsonSerializer.Serialize(data);
         var httpData = new StringContent(json, Encoding.UTF8, "application/json");
-        await DisplayAlertAsync("json", json, "OK");
+        //await DisplayAlertAsync("json", json, "OK");
         var response = await client.PostAsync("http://localhost:8000/api/admin/update", httpData);
 
         if (response.IsSuccessStatusCode)

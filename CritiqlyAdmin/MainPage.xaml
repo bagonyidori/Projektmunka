@@ -125,7 +125,7 @@
                 TextColor="White"
                 Margin="50,50,0,0"
                 HorizontalOptions="End"
-                Text="CNC VERSION 0.0.1"
+                Text="CNC VERSION 0.0.2"
                 />
         </HorizontalStackLayout>
     </VerticalStackLayout>
