@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('admin_panel_data', function (Blueprint $table) {
             $table->id();
+            $table->date('daily_last_update');
+            $table->date('trending_last_update');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
