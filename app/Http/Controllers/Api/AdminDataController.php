@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\AdminData;
+use Carbon\Carbon;
 
 class AdminDataController extends Controller
 {
@@ -33,13 +34,13 @@ class AdminDataController extends Controller
 
         if ($data) {
             $data->update([
-                'daily_last_update' => $request->daily,
-                'trending_last_update' => $request->trending
+                'daily_last_update' => Carbon::parse($request->daily),
+                'trending_last_update' => Carbon::parse($request->trending)
             ]);
         } else {
             $data = AdminData::create([
-                'daily_last_update' => $request->daily,
-                'trending_last_update' => $request->trending
+                'daily_last_update' => Carbon::parse($request->daily),
+                'trending_last_update' => Carbon::parse($request->trending)
             ]);
         }
 
