@@ -13,7 +13,7 @@
     <div class="profile_grid">
         <section class="profile_section reveal">
             <h2>Kedvenc filmjeid</h2>
-            <div class="grid>
+            <div class="grid">
                 @forelse($favoriteMovies as $movie)
                     @include('components.movie-card', ['movie' => $movie])
                 @empty

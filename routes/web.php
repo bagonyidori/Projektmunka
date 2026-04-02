@@ -26,6 +26,19 @@ Route::get('/rolunk', function () {
     return view('pages.about');
 })->name('about');
 
+Route::get('/profile', [App\Http\Controllers\MovieController::class, 'profile'])
+    ->name('profile')
+    ->middleware('auth');
+    
+
+//lehet majd egy külön controllerbe kell tenni
+$user = auth()->user();
+return view('profile.profile', [
+    'user' => $user,
+]);
+
+
+
 // Route::get('/bejelentkezes', function () {
 //     return view('auth.login');
 // })->name('login');

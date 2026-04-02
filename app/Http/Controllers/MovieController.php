@@ -97,4 +97,12 @@ class MovieController extends Controller
         return view('home', compact('featured', 'trending'));
     }
 
+    public function profile()
+    {
+        $user = auth()->user();
+        return view('profile.profile', [
+            'user' => $user,
+        ]);
+    }
+
 }
