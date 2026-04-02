@@ -29,7 +29,14 @@ public partial class UpdatePage : ContentPage
         EntryQuery.Text = "";
         StatusLabel.Text = "Kérlek válaszd ki a szerkeszteni kívánt filmet!";
 
+        if(AppData.updatePageSelectedMovie != null)
+        {
+            UpdatedMovies.Add(AppData.updatePageSelectedMovie);
+        }
+
         QueryMovies.Clear();
+
+        SearchQuery(this, EventArgs.Empty);
     }
 
     public async void SearchQuery(Object sender, EventArgs e)
@@ -65,7 +72,6 @@ public partial class UpdatePage : ContentPage
             Button.BackgroundColor = Colors.Orange;
             await Task.Delay(500);
             await Shell.Current.GoToAsync("//UpdateSubPage");
-            UpdatedMovies.Add(AppData.updatePageSelectedMovie);
             Button.BackgroundColor = Color.FromRgb(212, 255, 62);
         }
     }

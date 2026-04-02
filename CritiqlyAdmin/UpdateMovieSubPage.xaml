@@ -37,138 +37,199 @@
             MinimumWidthRequest="200"/>
         </HorizontalStackLayout>
 
-            <Border 
-                BackgroundColor="#F5F5F5"
-                Stroke="#D4FF3E"
-                StrokeThickness="5"
-                StrokeShape="RoundRectangle 10"
-                Margin="20,20,20,0"
-                MinimumHeightRequest="500"
-                >
-            <Grid 
+        <Grid
                 RowDefinitions="Auto,Auto,3*,Auto,Auto"
-                ColumnDefinitions="3*,*,3*"
+                ColumnDefinitions="10*,*,10*"
                 RowSpacing="10"
                 ColumnSpacing="10"
                 Padding="10"
+                Margin="20"
                 BackgroundColor="#1C1A15">
-                    <Label
+
+            <Border
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    BackgroundColor="#3E3C38"
+                    Stroke="#D4FF3E"
+                    StrokeThickness="3"
+                    StrokeShape="RoundRectangle 10">
+                <Label
                         x:Name="LabelTitle"
                         TextColor="White"
-                        Padding="10"
+                        Padding="20"
                         FontFamily="Kimberley"
                         FontSize="15"
                         MaxLines="2"
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
-                        MinimumHeightRequest="50"
-                        Grid.Row="0"
-                        Grid.Column="0"/>
-                    <Label 
+                        MinimumHeightRequest="50"/>
+            </Border>
+
+            <Border
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    BackgroundColor="#3E3C38"
+                    Stroke="#D4FF3E"
+                    StrokeThickness="3"
+                    StrokeShape="RoundRectangle 10">
+                <Label 
                         x:Name="LabelGenre"
                         TextColor="White"
-                        Padding="10"
+                        Padding="20"
                         FontFamily="Kimberley"
                         FontSize="15"
                         MaxLines="10"
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
-                        MinimumHeightRequest="50"
-                        Grid.Row="1"/>
-                    <Label
+                        MinimumHeightRequest="50"/>
+            </Border>
+
+            <Border
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    BackgroundColor="#3E3C38"
+                    Stroke="#D4FF3E"
+                    StrokeThickness="3"
+                    StrokeShape="RoundRectangle 10">
+                <Label
                         x:Name="LabelPlot"
                         TextColor="White"
-                        Padding="10"
+                        Padding="20"
                         FontFamily="Kimberley"
                         FontSize="15"
-                        MaxLines="2"
+                        MaxLines="10"
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
-                        MinimumHeightRequest="50"
-                        Grid.Row="2"
-                        Grid.Column="0"/>
-                    <Label
+                        MinimumHeightRequest="200"/>
+            </Border>
+
+            <Border
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    BackgroundColor="#3E3C38"
+                    Stroke="#D4FF3E"
+                    StrokeThickness="3"
+                    StrokeShape="RoundRectangle 10">
+                <Label
                         x:Name="LabelDate"
                         TextColor="White"
-                        Padding="10"
+                        Padding="20"
                         FontFamily="Kimberley"
                         FontSize="15"
                         MaxLines="2"
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
-                        MinimumHeightRequest="50"
-                        Grid.Row="3"
-                        Grid.Column="0"/>
+                        MinimumHeightRequest="50"/>
+            </Border>
+
+            <Border
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    BackgroundColor="#3E3C38"
+                    Stroke="#D4FF3E"
+                    StrokeThickness="3"
+                    StrokeShape="RoundRectangle 10">
                 <Label
                         x:Name="LabelPoster"
                         TextColor="White"
-                        Padding="10"
+                        Padding="20"
                         FontFamily="Kimberley"
                         FontSize="15"
                         MaxLines="2"
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
-                        MinimumHeightRequest="50"
-                        Grid.Row="4"
-                        Grid.Column="0"/>
-
-                <Entry
-                        Placeholder="Új cím?"
-                        FontFamily="Kimberley"
-                        TextColor="White"
-                        PlaceholderColor="#828282"
-                        BackgroundColor="#1C1A15"
-                        VerticalTextAlignment="Center"
-                        HorizontalTextAlignment="Start"
-                        x:Name="EntryTitle"
-                        Grid.Row="0"
-                        Grid.Column="2"/>
-                    <Entry
-                        Placeholder="Új műfaj?"
-                        FontFamily="Kimberley"
-                        TextColor="White"
-                        PlaceholderColor="#828282"
-                        BackgroundColor="#1C1A15"
-                        VerticalTextAlignment="Center"
-                        HorizontalTextAlignment="Start"
-                        x:Name="EntryGenre"
-                        Grid.Row="1"
-                        Grid.Column="2"/>
-                    <Entry
-                        Placeholder="Új leírás?"
-                        FontFamily="Kimberley"
-                        TextColor="White"
-                        PlaceholderColor="#828282"
-                        BackgroundColor="#1C1A15"
-                        VerticalTextAlignment="Center"
-                        HorizontalTextAlignment="Start"
-                        x:Name="EntryPlot"
-                        Grid.Row="2"
-                        Grid.Column="2"
-                        />
-                    <Entry
-                        Placeholder="Új megjelenési dátum?"
-                        FontFamily="Kimberley"
-                        TextColor="White"
-                        PlaceholderColor="#828282"
-                        BackgroundColor="#1C1A15"
-                        VerticalTextAlignment="Center"
-                        HorizontalTextAlignment="Start"
-                        x:Name="EntryDate"
-                        Grid.Row="3"
-                        Grid.Column="2"/>
-                    <Entry
-                        Placeholder="Új poster link?"
-                        FontFamily="Kimberley"
-                        TextColor="White"
-                        PlaceholderColor="#828282"
-                        BackgroundColor="#1C1A15"
-                        VerticalTextAlignment="Center"
-                        HorizontalTextAlignment="Start"
-                        x:Name="EntryPoster"
-                        Grid.Row="4"
-                        Grid.Column="2"/>
-                </Grid>
+                        MinimumHeightRequest="50"/>
             </Border>
+
+            <Border
+    Grid.Row="0"
+    Grid.Column="2"
+    BackgroundColor="#3E3C38"
+    Stroke="#D4FF3E"
+    StrokeThickness="3"
+    StrokeShape="RoundRectangle 10">
+                <Entry
+        Placeholder="Új cím?"
+        FontFamily="Kimberley"
+        TextColor="White"
+        PlaceholderColor="#828282"
+        BackgroundColor="#3E3C38"
+        VerticalTextAlignment="Center"
+        HorizontalTextAlignment="Start"
+        x:Name="EntryTitle"/>
+            </Border>
+
+            <Border
+    Grid.Row="1"
+    Grid.Column="2"
+    BackgroundColor="#3E3C38"
+    Stroke="#D4FF3E"
+    StrokeThickness="3"
+    StrokeShape="RoundRectangle 10">
+                <Entry
+        Placeholder="Új műfaj?"
+        FontFamily="Kimberley"
+        TextColor="White"
+        PlaceholderColor="#828282"
+        BackgroundColor="#3E3C38"
+        VerticalTextAlignment="Center"
+        HorizontalTextAlignment="Start"
+        x:Name="EntryGenre"/>
+            </Border>
+
+            <Border
+    Grid.Row="2"
+    Grid.Column="2"
+    BackgroundColor="#3E3C38"
+    Stroke="#D4FF3E"
+    StrokeThickness="3"
+    StrokeShape="RoundRectangle 10">
+                <Entry
+        Placeholder="Új leírás?"
+        FontFamily="Kimberley"
+        TextColor="White"
+        PlaceholderColor="#828282"
+        BackgroundColor="#3E3C38"
+        VerticalTextAlignment="Center"
+        HorizontalTextAlignment="Start"
+        x:Name="EntryPlot"/>
+            </Border>
+
+            <Border
+    Grid.Row="3"
+    Grid.Column="2"
+    BackgroundColor="#3E3C38"
+    Stroke="#D4FF3E"
+    StrokeThickness="3"
+    StrokeShape="RoundRectangle 10">
+                <Entry
+        Placeholder="Új megjelenési dátum?"
+        FontFamily="Kimberley"
+        TextColor="White"
+        PlaceholderColor="#828282"
+        BackgroundColor="#3E3C38"
+        VerticalTextAlignment="Center"
+        HorizontalTextAlignment="Start"
+        x:Name="EntryDate"/>
+            </Border>
+
+            <Border
+    Grid.Row="4"
+    Grid.Column="2"
+    BackgroundColor="#3E3C38"
+    Stroke="#D4FF3E"
+    StrokeThickness="3"
+    StrokeShape="RoundRectangle 10">
+                <Entry
+        Placeholder="Új poster link?"
+        FontFamily="Kimberley"
+        TextColor="White"
+        PlaceholderColor="#828282"
+        BackgroundColor="#3E3C38"
+        VerticalTextAlignment="Center"
+        HorizontalTextAlignment="Start"
+        x:Name="EntryPoster"/>
+            </Border>
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>

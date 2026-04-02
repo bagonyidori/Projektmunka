@@ -20,8 +20,8 @@ public partial class UpdateMovieSubPage : ContentPage
         LabelTitle.Text = AppData.updatePageSelectedMovie.title;
         LabelGenre.Text = AppData.updatePageSelectedMovie.genre;
         LabelPlot.Text = AppData.updatePageSelectedMovie.plot.Replace(".", "." + System.Environment.NewLine);
-        await DisplayAlertAsync("DEBUG", AppData.updatePageSelectedMovie.releaseDate.ToString(), "OK");
-        LabelDate.Text = AppData.updatePageSelectedMovie.releaseDate.ToString();
+        //await DisplayAlertAsync("DEBUG", AppData.updatePageSelectedMovie.releaseDate.ToString(), "OK");
+        LabelDate.Text = AppData.updatePageSelectedMovie.releaseDate?.ToString("yyyy-MM-dd");
         LabelPoster.Text = AppData.updatePageSelectedMovie.poster;
 
         EntryTitle.Text = "";
