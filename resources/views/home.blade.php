@@ -43,12 +43,12 @@
 
 <section class="section reveal">
     <div class="section_head">
-        <h2>Felkapott most</h2>
+        <h2>Legjobbra értékelt</h2>
     </div>
 
     <div class="rail" data-rail>
-        @foreach($trending as $movie)
-            @include('components.movie-card', ['movie' => $movie])
+        @foreach($trendingMovies as $trendy)
+            @include('components.movie-card', ['movie' => $trendy->movie])
         @endforeach
     </div>
 </section>
@@ -58,11 +58,8 @@
     </div>
 
     <div class="rail" data-rail>
-        //adatbázisból kéri le majd, mindennap más generált filmeket fog kidobni
-        /a generálásta grafikus rész kezeli
-
-        @foreach($trending as $movie)
-            @include('components.movie-card', ['movie' => $movie])
+        @foreach($dailyMovies as $daily)
+            @include('components.movie-card', ['movie' => $daily->movie])
         @endforeach
     </div>
 </section>

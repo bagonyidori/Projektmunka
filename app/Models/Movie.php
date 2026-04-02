@@ -28,4 +28,9 @@ class Movie extends Model
     {
         return $this->hasMany(Rating::class, 'movie_id');
     }
+
+    public function dailySelections()
+    {
+        return $this->hasMany(DailyMovie::class);
+    }
 }
