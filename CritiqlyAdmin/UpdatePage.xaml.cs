@@ -13,8 +13,7 @@ namespace CritiqlyAdmin;
 public partial class UpdatePage : ContentPage
 {
     public ObservableCollection<Movie> QueryMovies { get; set; } = new ObservableCollection<Movie>();
-
-    public List<int> SelectedIds = new List<int>();
+    public int selectedId;
     public UpdatePage()
     {
         InitializeComponent();
@@ -27,7 +26,6 @@ public partial class UpdatePage : ContentPage
         EntryQuery.Text = "";
         StatusLabel.Text = "Kérlek válaszd ki a szerkeszteni kívánt filmet!";
 
-        SelectedIds.Clear();
         QueryMovies.Clear();
     }
 
@@ -47,8 +45,15 @@ public partial class UpdatePage : ContentPage
     }
     public async void editMovie(Object sender, EventArgs e)
     {
+        selectedId = 0;
         var Button = sender as Button;
         var id = Button?.CommandParameter;
+        AppData.updatePageSelectedMovie = AppData.Movies.First(x => x.id == (Int32)id);
+
+        Button.BackgroundColor = Colors.Orange;
+        await Task.Delay(500);
+        await Shell.Current.GoToAsync("//UpdateMovieSubPage");
+        Button.BackgroundColor = Color.FromRgb(212, 255, 62);
     }
 
     public async void Exit(Object sender, EventArgs e)
@@ -72,30 +77,27 @@ public partial class UpdatePage : ContentPage
 
     public async void Save(Object sender, EventArgs e)
     {
-        if (SelectedIds.Count > 2)
+        if (selectedId > 0) 
         {
-            var client = new HttpClient();
-
-            var trendingData = new
+            Movie sel = AppData.updatePageSelectedMovie;
+            var data = new
             {
-                movies = SelectedIds.ToArray(),
+                id = selectedId,
+                tmdb_id = sel.tmdb_id,
+                title = sel.tmdb_id,
+                genre = sel.genre,
+                plot = sel.plot,
+                releaseDate = sel.release_date,
+                poster = sel.poster
             };
-            var trendingJson = JsonSerializer.Serialize(trendingData);
-            var httpTrendingData = new StringContent(trendingJson, Encoding.UTF8, "application/json");
 
-            var responseDaily = await client.PostAsync("http://localhost:8000/api/trending-movies", httpTrendingData);
+            HttpClient client = new HttpClient();
+            var json = JsonSerializer.Serialize(data);
+            var httpData = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var dateData = new
-            {
-                daily = AppData.DailyLastUpdate.Value.ToString("yyyy-MM-ddTHH:mm:sszzz"),
-                trending = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz")
-            };
-            var dateJson = JsonSerializer.Serialize(dateData);
-            var httpDateDate = new StringContent(dateJson, Encoding.UTF8, "application/json");
-            //await DisplayAlertAsync("json", json, "OK");
-            var responseDate = await client.PostAsync("http://localhost:8000/api/admin/update", httpDateDate);
+            var response = await client.PostAsync($"http://localhost:8000/api/movies/{selectedId}", httpData);
 
-            if (responseDate.IsSuccessStatusCode && responseDaily.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
                 await Shell.Current.GoToAsync($"//MainPage");
             }
