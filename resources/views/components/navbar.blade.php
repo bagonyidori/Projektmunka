@@ -16,6 +16,10 @@
         <a href="{{ route('about') }}">Rólunk</a>
     </div>
 
+    @auth
+        <a href="{{ route('profile') }}" class="btn btn--ghost">Profilom</a>
+    @endauth
+
     @guest
         <div class="nav_auth">
             <a href="{{ route('login') }}" class="btn btn--ghost">Belépés</a>
