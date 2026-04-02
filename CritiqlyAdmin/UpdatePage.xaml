@@ -15,7 +15,17 @@
                 HorizontalOptions="Center">
             </Image>
             <Button 
-            Margin="700,20,5,0"
+            Margin="500,20,5,0"
+            Clicked="Exit"
+            x:Name="exitBtn"
+            BackgroundColor="OrangeRed" 
+            Text="KILÉPÉS"
+            FontFamily="Kimberley"
+            TextColor="White"
+            MinimumWidthRequest="200"/>
+
+            <Button 
+            Margin="5,20,5,0"
             Clicked="Save"
             x:Name="SaveBtn"
             BackgroundColor="Red" 
@@ -27,7 +37,7 @@
 
         <HorizontalStackLayout
             BackgroundColor="#2A2720"
-            Padding="0,0,0,25">
+            Padding="0,0,0,0">
             <Label
                 x:Name="StatusLabel"
                 FontSize="25"
@@ -36,6 +46,99 @@
                 Margin="50,30,0,0"
                 />
         </HorizontalStackLayout>
-    </VerticalStackLayout>
 
+        <HorizontalStackLayout
+            VerticalOptions="Fill" 
+            BackgroundColor="#2A2720">
+            <Border 
+                BackgroundColor="#F5F5F5"
+                Stroke="#D4FF3E"
+                StrokeThickness="3"
+                StrokeShape="RoundRectangle 12"
+                Margin="50,30,0,20"
+                MinimumWidthRequest="250">
+
+                <Entry 
+                    Placeholder="Keresés..?"
+                    FontFamily="Kimberley"
+                    TextColor="White"
+                    PlaceholderColor="#828282"
+                    BackgroundColor="#1C1A15"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Start"
+                    x:Name="EntryQuery"
+                    />
+            </Border>
+
+            <Button
+                Text="⌕ Keresés"
+                Clicked="SearchQuery"
+                x:Name="searchQueryBtn"
+                FontFamily="Kimberley"
+                FontSize="20"
+                BackgroundColor="#D4FF3E"
+                Margin="15,30,0,20">
+
+            </Button>
+
+        </HorizontalStackLayout>
+        <CollectionView 
+            ItemsSource="{Binding QueryMovies}"
+            SelectionMode="Single"
+            HorizontalScrollBarVisibility="Always"
+            HeightRequest="500"
+            Margin="15"
+            >
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="4" VerticalItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border 
+                        BackgroundColor="#F5F5F5"
+                        Stroke="#D4FF3E"
+                        StrokeThickness="5"
+                        StrokeShape="RoundRectangle 10"
+                        WidthRequest="250"
+                        MaximumHeightRequest="550"
+                        >
+                        <Grid 
+                            RowDefinitions="Auto,*,Auto"
+                            BackgroundColor="#1C1A15"
+                            >
+                            <Image
+                                Source="{Binding fullPosterUrl}"
+                                WidthRequest="250"
+                                Grid.Row="0"/>
+
+                            <Label 
+                                    Text="{Binding title}"
+                                    TextColor="White"
+                                    Padding="10"
+                                    FontFamily="Kimberley"
+                                    FontSize="15"
+                                    MaxLines="2"
+                                    HorizontalOptions="Center"
+                                    MinimumHeightRequest="50"
+                                    Grid.Row="1"/>
+
+                            <Button 
+                                Text="SZERKESZTÉS"
+                                FontFamily="Kimberley"
+                                FontSize="20"
+                                CornerRadius="0"
+                                Clicked="editMovie"
+                                TextColor="Black"
+                                BackgroundColor="#D4FF3E"
+                                Grid.Row="2"
+                                MinimumHeightRequest="50"
+                                CommandParameter="{Binding id}"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
 </ContentPage>
