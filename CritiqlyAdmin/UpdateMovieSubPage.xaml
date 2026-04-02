@@ -45,11 +45,13 @@
                 Margin="20,20,20,0"
                 MinimumHeightRequest="500"
                 >
-                <Grid 
-                    RowDefinitions="*,*,3*,*,*"
-                    ColumnDefinitions="Auto,Auto"
-                    BackgroundColor="#1C1A15"
-                    >
+            <Grid 
+                RowDefinitions="Auto,Auto,3*,Auto,Auto"
+                ColumnDefinitions="3*,*,3*"
+                RowSpacing="10"
+                ColumnSpacing="10"
+                Padding="10"
+                BackgroundColor="#1C1A15">
                     <Label
                         x:Name="LabelTitle"
                         TextColor="White"
@@ -58,6 +60,7 @@
                         FontSize="15"
                         MaxLines="2"
                         HorizontalOptions="Center"
+                        VerticalOptions="Center"
                         MinimumHeightRequest="50"
                         Grid.Row="0"
                         Grid.Column="0"/>
@@ -69,6 +72,7 @@
                         FontSize="15"
                         MaxLines="10"
                         HorizontalOptions="Center"
+                        VerticalOptions="Center"
                         MinimumHeightRequest="50"
                         Grid.Row="1"/>
                     <Label
@@ -79,6 +83,7 @@
                         FontSize="15"
                         MaxLines="2"
                         HorizontalOptions="Center"
+                        VerticalOptions="Center"
                         MinimumHeightRequest="50"
                         Grid.Row="2"
                         Grid.Column="0"/>
@@ -90,6 +95,7 @@
                         FontSize="15"
                         MaxLines="2"
                         HorizontalOptions="Center"
+                        VerticalOptions="Center"
                         MinimumHeightRequest="50"
                         Grid.Row="3"
                         Grid.Column="0"/>
@@ -101,10 +107,19 @@
                         FontSize="15"
                         MaxLines="2"
                         HorizontalOptions="Center"
+                        VerticalOptions="Center"
                         MinimumHeightRequest="50"
                         Grid.Row="4"
                         Grid.Column="0"/>
 
+                <Label
+                    Text=" → "
+                    Grid.Row="0"
+                    FontSize="10"
+                    Grid.Column="1"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+                
                     <Entry
                         Placeholder="Új cím?"
                         FontFamily="Kimberley"
@@ -115,7 +130,7 @@
                         HorizontalTextAlignment="Start"
                         x:Name="EntryTitle"
                         Grid.Row="0"
-                        Grid.Column="1"/>
+                        Grid.Column="2"/>
                     <Entry
                         Placeholder="Új műfaj?"
                         FontFamily="Kimberley"
@@ -126,7 +141,7 @@
                         HorizontalTextAlignment="Start"
                         x:Name="EntryGenre"
                         Grid.Row="1"
-                        Grid.Column="1"/>
+                        Grid.Column="2"/>
                     <Entry
                         Placeholder="Új leírás?"
                         FontFamily="Kimberley"
@@ -137,7 +152,7 @@
                         HorizontalTextAlignment="Start"
                         x:Name="EntryPlot"
                         Grid.Row="2"
-                        Grid.Column="1"/>
+                        Grid.Column="2"/>
                     <Entry
                         Placeholder="Új megjelenési dátum?"
                         FontFamily="Kimberley"
@@ -148,7 +163,7 @@
                         HorizontalTextAlignment="Start"
                         x:Name="EntryDate"
                         Grid.Row="3"
-                        Grid.Column="1"/>
+                        Grid.Column="2"/>
                     <Entry
                         Placeholder="Új poster link?"
                         FontFamily="Kimberley"
@@ -159,7 +174,7 @@
                         HorizontalTextAlignment="Start"
                         x:Name="EntryPoster"
                         Grid.Row="4"
-                        Grid.Column="1"/>
+                        Grid.Column="2"/>
                 </Grid>
             </Border>
     </VerticalStackLayout>
