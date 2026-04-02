@@ -115,7 +115,7 @@ public partial class UpdatePage : ContentPage
                     title = movie.title,
                     genre = movie.genre,
                     plot = movie.plot,
-                    releaseDate = movie.release_date?.ToString("yyyy-MM-dd"),
+                    releaseDate = movie.releaseDate?.ToString("yyyy-MM-dd"),
                     poster = movie.poster
                 };
 
@@ -136,7 +136,7 @@ public partial class UpdatePage : ContentPage
                     existing.title = movie.title;
                     existing.genre = movie.genre;
                     existing.plot = movie.plot;
-                    existing.release_date = movie.release_date;
+                    existing.releaseDate = movie.releaseDate;
                     existing.poster = movie.poster;
                 }
 

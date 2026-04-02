@@ -99,7 +99,7 @@
                         MinimumHeightRequest="50"
                         Grid.Row="3"
                         Grid.Column="0"/>
-                    <Label
+                <Label
                         x:Name="LabelPoster"
                         TextColor="White"
                         Padding="10"
@@ -112,15 +112,7 @@
                         Grid.Row="4"
                         Grid.Column="0"/>
 
-                <Label
-                    Text=" → "
-                    Grid.Row="0"
-                    FontSize="10"
-                    Grid.Column="1"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
-                
-                    <Entry
+                <Entry
                         Placeholder="Új cím?"
                         FontFamily="Kimberley"
                         TextColor="White"
@@ -152,7 +144,8 @@
                         HorizontalTextAlignment="Start"
                         x:Name="EntryPlot"
                         Grid.Row="2"
-                        Grid.Column="2"/>
+                        Grid.Column="2"
+                        />
                     <Entry
                         Placeholder="Új megjelenési dátum?"
                         FontFamily="Kimberley"

@@ -12,7 +12,7 @@ namespace CritiqlyAdmin.Models
         public string title { get; set; }
         public string genre { get; set; }
         public string plot { get; set; }
-        public DateTime? release_date { get; set; }
+        public DateTime? releaseDate { get; set; }
         public string poster { get; set; }
         public string fullPosterUrl =>
             string.IsNullOrEmpty(poster)? null : $"https://image.tmdb.org/t/p/w500{poster}";
