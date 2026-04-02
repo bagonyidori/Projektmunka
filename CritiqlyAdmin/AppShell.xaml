@@ -13,4 +13,5 @@
     <ShellContent Title="Trending" ContentTemplate="{DataTemplate local:TrendingPage}" Route="TrendingPage"/>
     <ShellContent Title="Update" ContentTemplate="{DataTemplate local:UpdatePage}" Route="UpdatePage"/>
     <ShellContent Title="Delete" ContentTemplate="{DataTemplate local:DeletePage}" Route="DeletePage"/>
+    <ShellContent Title="UpdateSub" ContentTemplate="{DataTemplate local:UpdateMovieSubPage}" Route="UpdateSubPage"/>
 </Shell>

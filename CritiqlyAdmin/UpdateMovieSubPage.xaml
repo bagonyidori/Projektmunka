@@ -2,20 +2,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CritiqlyAdmin.UpdateMovieSubPage"
+             Shell.NavBarIsVisible="False"
              Title="UpdateMovieSubPage">
     <VerticalStackLayout>
         <HorizontalStackLayout 
             VerticalOptions="Fill" 
-            BackgroundColor="#2A2720">
+            BackgroundColor="#2A2720"
+            >
             <Image 
                 Source='Images/critiqlyNexusCore.png'
                 MaximumHeightRequest="50"
-                Margin="30,30,0,0"
+                Margin="30,30,0,30"
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
             </Image>
             <Button 
-            Margin="500,20,5,0"
+            Margin="500,20,5,30"
             Clicked="Exit"
             x:Name="exitBtn"
             BackgroundColor="OrangeRed" 
@@ -25,7 +27,7 @@
             MinimumWidthRequest="200"/>
 
             <Button 
-            Margin="5,20,5,25"
+            Margin="5,20,5,30"
             Clicked="Save"
             x:Name="SaveBtn"
             BackgroundColor="Red" 
@@ -40,8 +42,8 @@
                 Stroke="#D4FF3E"
                 StrokeThickness="5"
                 StrokeShape="RoundRectangle 10"
-                WidthRequest="250"
-                MaximumHeightRequest="550"
+                Margin="20,20,20,0"
+                MinimumHeightRequest="500"
                 >
                 <Grid 
                     RowDefinitions="*,*,3*,*,*"
@@ -65,7 +67,7 @@
                         Padding="10"
                         FontFamily="Kimberley"
                         FontSize="15"
-                        MaxLines="2"
+                        MaxLines="10"
                         HorizontalOptions="Center"
                         MinimumHeightRequest="50"
                         Grid.Row="1"/>

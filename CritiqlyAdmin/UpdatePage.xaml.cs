@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -28,12 +29,6 @@ public partial class UpdatePage : ContentPage
         StatusLabel.Text = "Kérlek válaszd ki a szerkeszteni kívánt filmet!";
 
         QueryMovies.Clear();
-
-        if (AppData.updatePageSelectedMovie != null)
-        {
-            UpdatedMovies.Add(AppData.updatePageSelectedMovie);
-            UpdatedMovies.Clear();
-        }
     }
 
     public async void SearchQuery(Object sender, EventArgs e)
@@ -57,10 +52,20 @@ public partial class UpdatePage : ContentPage
         var id = Button?.CommandParameter;
         AppData.updatePageSelectedMovie = AppData.Movies.First(x => x.id == (Int32)id);
 
-        Button.BackgroundColor = Colors.Orange;
-        await Task.Delay(500);
-        await Shell.Current.GoToAsync("//UpdateMovieSubPage");
-        Button.BackgroundColor = Color.FromRgb(212, 255, 62);
+        if(UpdatedMovies.Contains(AppData.Movies.First(x => x.id == (Int32)id)))
+        {
+            Movie sel = UpdatedMovies.First(x => x.id == (Int32)id); 
+            UpdatedMovies.Remove(sel);
+            checkUpdated(this, EventArgs.Empty);
+        }
+        else
+        {
+            Button.BackgroundColor = Colors.Orange;
+            await Task.Delay(500);
+            await Shell.Current.GoToAsync("//UpdateSubPage");
+            UpdatedMovies.Add(AppData.updatePageSelectedMovie);
+            Button.BackgroundColor = Color.FromRgb(212, 255, 62);
+        }
     }
 
     public async void checkUpdated(Object sender, EventArgs e)
@@ -97,33 +102,60 @@ public partial class UpdatePage : ContentPage
 
     public async void Save(Object sender, EventArgs e)
     {
-        if (selectedId > 0) 
+        bool islastRequestSuccessful = true;
+        if (UpdatedMovies.Count > 0) 
         {
-            Movie sel = AppData.updatePageSelectedMovie;
-            var data = new
-            {
-                id = selectedId,
-                tmdb_id = sel.tmdb_id,
-                title = sel.tmdb_id,
-                genre = sel.genre,
-                plot = sel.plot,
-                releaseDate = sel.release_date,
-                poster = sel.poster
-            };
-
             HttpClient client = new HttpClient();
-            var json = JsonSerializer.Serialize(data);
-            var httpData = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await client.PostAsync($"http://localhost:8000/api/movies/{selectedId}", httpData);
-
-            if (response.IsSuccessStatusCode)
+            foreach (var movie in UpdatedMovies)
             {
-                await Shell.Current.GoToAsync($"//MainPage");
+                var data = new
+                {
+                    tmdb_id = movie.tmdb_id,
+                    title = movie.title,
+                    genre = movie.genre,
+                    plot = movie.plot,
+                    releaseDate = movie.release_date?.ToString("yyyy-MM-dd"),
+                    poster = movie.poster
+                };
+
+                var json = JsonSerializer.Serialize(data);
+                var httpData = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var response = await client.PutAsync($"http://localhost:8000/api/movies/{movie.id}", httpData);
+                var responseText = await response.Content.ReadAsStringAsync();
+
+                /*await DisplayAlertAsync("DEBUG",
+                $"{response.StatusCode}\n{responseText}",
+                "OK");*/
+
+                var existing = AppData.Movies.FirstOrDefault(x => x.id == movie.id);
+
+                if (existing != null)
+                {
+                    existing.title = movie.title;
+                    existing.genre = movie.genre;
+                    existing.plot = movie.plot;
+                    existing.release_date = movie.release_date;
+                    existing.poster = movie.poster;
+                }
+
+                if (response.IsSuccessStatusCode)
+                {
+                    islastRequestSuccessful = true;
+                }
+                else
+                {
+                    await DisplayAlertAsync("Hiba", "A mentés nem sikerült! \n" +
+                        $"A hiba ezzel történt: {movie.title} \n" +
+                        "Próbáld újra!", "OK");
+                    islastRequestSuccessful = false;
+                }
             }
-            else
+
+            if (islastRequestSuccessful)
             {
-                await DisplayAlertAsync("Hiba", "A mentés nem sikerült! \n Próbáld újra!", "OK");
+                await Shell.Current.GoToAsync("//MainPage");
             }
         }
         else
