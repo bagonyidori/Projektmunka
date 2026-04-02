@@ -4,7 +4,7 @@
              Shell.NavBarIsVisible="False"
              x:Class="CritiqlyAdmin.UpdatePage">
     <VerticalStackLayout>
-            <HorizontalStackLayout 
+        <HorizontalStackLayout 
             VerticalOptions="Fill" 
             BackgroundColor="#2A2720">
             <Image 
@@ -25,17 +25,17 @@
             MinimumWidthRequest="200"/>
         </HorizontalStackLayout>
 
-            <HorizontalStackLayout
+        <HorizontalStackLayout
             BackgroundColor="#2A2720"
             Padding="0,0,0,25">
-                <Label
+            <Label
                 x:Name="StatusLabel"
                 FontSize="25"
                 FontFamily="Kimberley"
                 TextColor="White"
                 Margin="50,30,0,0"
                 />
-            </HorizontalStackLayout>
-        </VerticalStackLayout>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
 
 </ContentPage>

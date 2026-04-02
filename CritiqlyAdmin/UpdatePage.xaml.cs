@@ -26,6 +26,6 @@ public partial class UpdatePage : ContentPage
 
     public async void Save(Object sender, EventArgs e)
     {
-
+        await Shell.Current.GoToAsync("//MainPage");
     }
 }
