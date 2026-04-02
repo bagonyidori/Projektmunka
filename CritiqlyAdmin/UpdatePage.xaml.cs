@@ -14,12 +14,13 @@ public partial class UpdatePage : ContentPage
 {
     public ObservableCollection<Movie> QueryMovies { get; set; } = new ObservableCollection<Movie>();
     public int selectedId;
+    List<Movie> UpdatedMovies = new List<Movie>();
     public UpdatePage()
     {
         InitializeComponent();
         BindingContext = this;
     }
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
 
@@ -27,6 +28,12 @@ public partial class UpdatePage : ContentPage
         StatusLabel.Text = "Kérlek válaszd ki a szerkeszteni kívánt filmet!";
 
         QueryMovies.Clear();
+
+        if (AppData.updatePageSelectedMovie != null)
+        {
+            UpdatedMovies.Add(AppData.updatePageSelectedMovie);
+            UpdatedMovies.Clear();
+        }
     }
 
     public async void SearchQuery(Object sender, EventArgs e)
@@ -54,6 +61,19 @@ public partial class UpdatePage : ContentPage
         await Task.Delay(500);
         await Shell.Current.GoToAsync("//UpdateMovieSubPage");
         Button.BackgroundColor = Color.FromRgb(212, 255, 62);
+    }
+
+    public async void checkUpdated(Object sender, EventArgs e)
+    {
+        QueryMovies.Clear();
+        checkUpdatedBtn.BackgroundColor = Colors.Orange;
+
+        foreach (var movie in UpdatedMovies)
+        {
+            QueryMovies.Add(movie);
+        }
+        await Task.Delay(500);
+        checkUpdatedBtn.BackgroundColor = Color.FromRgb(212, 255, 62);
     }
 
     public async void Exit(Object sender, EventArgs e)

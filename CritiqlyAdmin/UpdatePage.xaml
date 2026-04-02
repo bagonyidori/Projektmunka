@@ -81,6 +81,17 @@
 
             </Button>
 
+            <Button
+                Text="☑ Frissített filmek megtekintése"
+                Clicked="checkUpdated"
+                x:Name="checkUpdatedBtn"
+                FontFamily="Kimberley"
+                FontSize="20"
+                BackgroundColor="#D4FF3E"
+                Margin="15,30,0,20">
+
+            </Button>
+
         </HorizontalStackLayout>
         <CollectionView 
             ItemsSource="{Binding QueryMovies}"
