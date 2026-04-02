@@ -50,18 +50,29 @@ class MovieController extends Controller
      */
     public function show($id)
     {
-    $movie = \App\Models\Movie::where('id', $id)->first();
+        $movie = Movie::where('id', $id)->first();
 
-    if (!$movie) {
-        return abort(404);
-    }
+        if (!$movie) {
+            return abort(404);
+        }
 
-    $related = \App\Models\Movie::where('genre', $movie->genre)
-                ->where('id', '!=', $id)
-                ->take(4)
-                ->get();
+        $related = Movie::where('genre', $movie->genre)
+            ->where('id', '!=', $id)
+            ->take(4)
+            ->get();
 
-    return view('movies.show', compact('movie', 'related'));
+        $ratings = $movie->ratings()->get();
+
+        $sum_rating = 0;
+        foreach ($ratings as $rating) {
+            $sum_rating += $rating->stars;
+        }
+        $average_rating = 0;
+        if (count($ratings)) {
+            $average_rating = $sum_rating / count($ratings);
+        }
+
+        return view('movies.show', compact('movie', 'related', 'ratings', 'average_rating'));
     }
 
     /**

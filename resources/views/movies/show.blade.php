@@ -66,7 +66,8 @@
     <section class="movie_reviews reveal">
         <div class="section_header">
             <h2>Vélemények</h2>
-            <span class="review_count"> *szám* hozzászólás</span>
+            <span class="review_count"> {{ count($ratings) }} hozzászólás</span>
+            <span class="review_average">Átlagosan: {{ $average_rating }} ⭐</span>
         </div>
 
         @auth
@@ -82,7 +83,7 @@
                     </div>
                 </div>
 
-                <textarea name="content" placeholder="Írd le a véleményed a filmről..." required></textarea>
+                <textarea name="content" placeholder="Írd le a véleményed a filmről..."></textarea>
                 <button type="submit" class="btn btn--primary">Küldés</button>
             </form>
         @else
@@ -93,19 +94,23 @@
 
         <div class="reviews_list">
 
-            <div class="review_item">
-                <div class="review_user">
-                    <div class="user_avatar"></div>
-                    <div class="user_info">
-                        <strong>name</strong>
-                        <span>time</span>
+            @foreach ($ratings as $rating)
+                <div class="review_item">
+                    <div class="review_user">
+                        <!-- <div class="user_avatar"></div> -->
+                        <div class="user_info">
+                            <strong>{{ $rating->user->name }}</strong>
+                            <span>{{$rating->created_at->format('Y-m-d')}}</span>
+                        </div>
+                        <div class="user_rating">⭐ {{ $rating->stars }}/10</div>
                     </div>
-                    <div class="user_rating">⭐ ??/10</div>
+                    <p class="review_text">{{$rating->comment}}</p>
                 </div>
-                <p class="review_text">content</p>
-            </div>
+            @endforeach
 
-            <p class="no_reviews">Még nincs értékelés. Legyél te az első!</p>
+            @empty('ratings')
+                <p class="no_reviews">Még nincs értékelés. Legyél te az első!</p>
+            @endempty
 
         </div>
     </section>
