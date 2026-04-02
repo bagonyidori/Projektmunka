@@ -1,8 +1,105 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CritiqlyAdmin.Models"
              Shell.NavBarIsVisible="False"
              x:Class="CritiqlyAdmin.UpdatePage">
+
+    <ContentPage.Resources>
+        <DataTemplate x:Key="NormalTemplate">
+            <Border
+                BackgroundColor="#F5F5F5"
+                Stroke="#D4FF3E"
+                StrokeThickness="5"
+                StrokeShape="RoundRectangle 10"
+                WidthRequest="250"
+                MaximumHeightRequest="550"
+                >
+                <Grid 
+                    RowDefinitions="Auto,*,Auto"
+                    BackgroundColor="#1C1A15"
+                    >
+                    <Image
+                        Source="{Binding fullPosterUrl}"
+                        WidthRequest="250"
+                        Grid.Row="0"/>
+
+                    <Label 
+                        Text="{Binding title}"
+                        TextColor="White"
+                        Padding="10"
+                        FontFamily="Kimberley"
+                        FontSize="15"
+                        MaxLines="2"
+                        HorizontalOptions="Center"
+                        MinimumHeightRequest="50"
+                        Grid.Row="1"/>
+
+                    <Button 
+                        Text="SZERKESZTÉS"
+                        FontFamily="Kimberley"
+                        FontSize="20"
+                        CornerRadius="0"
+                        Clicked="editMovie"
+                        TextColor="Black"
+                        BackgroundColor="#D4FF3E"
+                        Grid.Row="2"
+                        MinimumHeightRequest="50"
+                        CommandParameter="{Binding id}"/>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="UpdatedTemplate">
+            <Border
+                BackgroundColor="#F5F5F5"
+                Stroke="#D4FF3E"
+                StrokeThickness="5"
+                StrokeShape="RoundRectangle 10"
+                WidthRequest="250"
+                MaximumHeightRequest="550"
+                >
+                <Grid 
+                    RowDefinitions="Auto,*,Auto"
+                    BackgroundColor="#1C1A15"
+                    >
+                    <Image
+                        Source="{Binding fullPosterUrl}"
+                        WidthRequest="250"
+                        Grid.Row="0"/>
+
+                    <Label 
+                        Text="{Binding title}"
+                        TextColor="White"
+                        Padding="10"
+                        FontFamily="Kimberley"
+                        FontSize="15"
+                        MaxLines="2"
+                        HorizontalOptions="Center"
+                        MinimumHeightRequest="50"
+                        Grid.Row="1"/>
+
+                    <Button 
+                        Text="TÖRLÉS"
+                        FontFamily="Kimberley"
+                        FontSize="20"
+                        CornerRadius="0"
+                        Clicked="editMovie"
+                        TextColor="Black"
+                        BackgroundColor="#D4FF3E"
+                        Grid.Row="2"
+                        MinimumHeightRequest="50"
+                        CommandParameter="{Binding id}"/>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <local:MovieTemplateSelector 
+                x:Key="MovieSelector"
+                NormalTemplate="{StaticResource NormalTemplate}"
+                UpdatedTemplate="{StaticResource UpdatedTemplate}" />
+    </ContentPage.Resources>
+
     <VerticalStackLayout>
         <HorizontalStackLayout 
             VerticalOptions="Fill" 
@@ -93,63 +190,18 @@
             </Button>
 
         </HorizontalStackLayout>
+
         <CollectionView 
             ItemsSource="{Binding QueryMovies}"
+            ItemTemplate="{StaticResource MovieSelector}" 
             SelectionMode="Single"
             HorizontalScrollBarVisibility="Always"
             HeightRequest="500"
-            Margin="15"
-            >
+            Margin="15">
 
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical" Span="4" VerticalItemSpacing="10"/>
             </CollectionView.ItemsLayout>
-
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Border 
-                        BackgroundColor="#F5F5F5"
-                        Stroke="#D4FF3E"
-                        StrokeThickness="5"
-                        StrokeShape="RoundRectangle 10"
-                        WidthRequest="250"
-                        MaximumHeightRequest="550"
-                        >
-                        <Grid 
-                            RowDefinitions="Auto,*,Auto"
-                            BackgroundColor="#1C1A15"
-                            >
-                            <Image
-                                Source="{Binding fullPosterUrl}"
-                                WidthRequest="250"
-                                Grid.Row="0"/>
-
-                            <Label 
-                                    Text="{Binding title}"
-                                    TextColor="White"
-                                    Padding="10"
-                                    FontFamily="Kimberley"
-                                    FontSize="15"
-                                    MaxLines="2"
-                                    HorizontalOptions="Center"
-                                    MinimumHeightRequest="50"
-                                    Grid.Row="1"/>
-
-                            <Button 
-                                Text="SZERKESZTÉS"
-                                FontFamily="Kimberley"
-                                FontSize="20"
-                                CornerRadius="0"
-                                Clicked="editMovie"
-                                TextColor="Black"
-                                BackgroundColor="#D4FF3E"
-                                Grid.Row="2"
-                                MinimumHeightRequest="50"
-                                CommandParameter="{Binding id}"/>
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
         </CollectionView>
     </VerticalStackLayout>
 </ContentPage>

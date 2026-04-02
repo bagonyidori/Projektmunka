@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using CritiqlyAdmin.Models;
 using Microsoft.Maui.Controls.Shapes;
 using MySql.Data.MySqlClient;
+using Microsoft.Maui.Controls;
 
 namespace CritiqlyAdmin;
 
@@ -56,6 +57,7 @@ public partial class UpdatePage : ContentPage
         {
             Movie sel = UpdatedMovies.First(x => x.id == (Int32)id); 
             UpdatedMovies.Remove(sel);
+            sel.IsUpdated = false;
             checkUpdated(this, EventArgs.Empty);
         }
         else
@@ -156,6 +158,8 @@ public partial class UpdatePage : ContentPage
             if (islastRequestSuccessful)
             {
                 await Shell.Current.GoToAsync("//MainPage");
+                UpdatedMovies.Clear();
+                AppData.updatePageSelectedMovie = null;
             }
         }
         else

@@ -61,6 +61,7 @@ public partial class UpdateMovieSubPage : ContentPage
         updatedMovie.plot = string.IsNullOrWhiteSpace(EntryPlot.Text) ? AppData.updatePageSelectedMovie.plot : EntryPlot.Text;
         updatedMovie.releaseDate = string.IsNullOrWhiteSpace(EntryDate.Text) ? AppData.updatePageSelectedMovie.releaseDate : DateTime.Parse(EntryDate.Text);
         updatedMovie.poster = string.IsNullOrWhiteSpace(EntryPoster.Text) ? AppData.updatePageSelectedMovie.poster : EntryPoster.Text;
+        updatedMovie.IsUpdated = true;
 
         await Shell.Current.GoToAsync("//UpdatePage");
     }

@@ -20,6 +20,8 @@ namespace CritiqlyAdmin.Models
         public DateTime? updated_at { get; set; }
         public DateTime? deleted_at { get; set; }
 
+        public bool IsUpdated { get; set; }
+
         /*public Movie(int id, int tmdb_id, string title, string genre, string plot, DateTime release_date, string poster, DateTime created_at, DateTime updated_at, DateTime deleted_at)
         {
             this.id = id;
