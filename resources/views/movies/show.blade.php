@@ -47,6 +47,53 @@
     </div>
 </div>
 
+<section class="movie_reviews reveal">
+    <div class="section_header">
+        <h2>Vélemények</h2>
+        <span class="review_count"> *szám* hozzászólás</span>
+    </div>
+
+    @auth
+        <form action="" method="POST" class="review_form">
+            @csrf
+            <div class="rating_input">
+                <label>Értékelésed:</label>
+                <div class="star_rating">
+                    @for($i = 10; $i >= 1; $i--)
+                        <input type="radio" id="star{{ $i }}" name="rating" value="{{ $i }}" required>
+                        <label for="star{{ $i }}">★</label>
+                    @endfor
+                </div>
+            </div>
+            
+            <textarea name="content" placeholder="Írd le a véleményed a filmről..." required></textarea>
+            <button type="submit" class="btn btn--primary">Küldés</button>
+        </form>
+    @else
+        <div class="login_prompt">
+            <p><a href="{{ route('login') }}">Jelentkezz be</a> az értékeléshez!</p>
+        </div>
+    @endauth
+
+    <div class="reviews_list">
+        
+            <div class="review_item">
+                <div class="review_user">
+                    <div class="user_avatar"></div>
+                    <div class="user_info">
+                        <strong>name</strong>
+                        <span>time</span>
+                    </div>
+                    <div class="user_rating">⭐ ??/10</div>
+                </div>
+                <p class="review_text">content</p>
+            </div>
+        
+            <p class="no_reviews">Még nincs értékelés. Legyél te az első!</p>
+        
+    </div>
+</section>
+
 <div class="related_movies_section reveal">
     <h2>Hasonló filmek</h2>
     <div class="grid">
