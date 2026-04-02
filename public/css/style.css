@@ -718,3 +718,62 @@ body.light_mode {
     height: 98px;
 }
 
+.star_rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.star_rating input { display: none; }
+.star_rating label {
+    font-size: 24px;
+    color: var(--line);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.star_rating input:checked ~ label,
+.star_rating label:hover,
+.star_rating label:hover ~ label {
+    color: var(--primary);
+}
+
+.review_item {
+    background: var(--bg-2);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    border: 1px solid var(--line);
+}
+
+.review_user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.user_avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    color: var(--bg-1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.user_name {
+    margin-right: 15px;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.nav_auth {
+    display: flex;
+    align-items: center;
+}

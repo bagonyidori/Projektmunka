@@ -25,6 +25,7 @@
 
     @auth
         <span>Üdv, {{ Auth::user()->name }}</span>
+        <a href="{{ route('profile') }}" class="btn btn--ghost">Profilom</a>
         <form action="{{ route('user.logout') }}" method="POST">
             @csrf
             <button class="btn btn--primary">Logout</button>

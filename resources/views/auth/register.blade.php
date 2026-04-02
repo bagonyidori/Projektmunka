@@ -3,7 +3,6 @@
 @section('title', 'Criticly – Regisztráció')
 
 @section('content')
-<<<<<<< HEAD
     <div class="auth_wrapper reveal">
         <div class="auth_box">
             <div class="auth_head">
