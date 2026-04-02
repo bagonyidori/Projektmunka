@@ -12,7 +12,7 @@ class StoreRatingRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return auth()->user() != null;
     }
 
     /**
@@ -23,7 +23,8 @@ class StoreRatingRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "rating" => "required|min:1|max:10",
+            "content" => "max:1000"
         ];
     }
 }

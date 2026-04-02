@@ -14,7 +14,9 @@ class Rating extends Model
 
     protected $fillable = [
         "comment",
-        "stars"
+        "stars",
+        "user_id",
+        'movie_id'
     ];
 
     protected $dates = ['deleted_at'];
