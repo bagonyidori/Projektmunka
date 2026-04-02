@@ -42,6 +42,7 @@ public partial class UpdateMovieSubPage : ContentPage
 
         if (isResponseOk)
         {
+            AppData.updatePageSelectedMovie = null;
             await Shell.Current.GoToAsync("//UpdatePage");
         }
         else

@@ -31,7 +31,7 @@
             Clicked="Save"
             x:Name="SaveBtn"
             BackgroundColor="Red" 
-            Text="MENTÉS ÉS KILÉPÉS"
+            Text="MENTÉS"
             FontFamily="Kimberley"
             TextColor="White"
             MinimumWidthRequest="200"/>
