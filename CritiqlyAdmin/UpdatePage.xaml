@@ -53,7 +53,7 @@
         <DataTemplate x:Key="UpdatedTemplate">
             <Border
                 BackgroundColor="#F5F5F5"
-                Stroke="#D4FF3E"
+                Stroke="#FFB800"
                 StrokeThickness="5"
                 StrokeShape="RoundRectangle 10"
                 WidthRequest="250"
@@ -80,13 +80,13 @@
                         Grid.Row="1"/>
 
                     <Button 
-                        Text="TÖRLÉS"
+                        Text="VISSZAVONÁS"
                         FontFamily="Kimberley"
                         FontSize="20"
                         CornerRadius="0"
                         Clicked="editMovie"
                         TextColor="Black"
-                        BackgroundColor="#D4FF3E"
+                        BackgroundColor="#FFB800"
                         Grid.Row="2"
                         MinimumHeightRequest="50"
                         CommandParameter="{Binding id}"/>
