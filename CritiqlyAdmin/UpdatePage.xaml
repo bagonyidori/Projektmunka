@@ -95,8 +95,8 @@
             </Border>
         </DataTemplate>
 
-        <local:MovieTemplateSelector 
-                x:Key="MovieSelector"
+        <local:UpdatePageSelector
+                x:Key="UpdatePageSelector"
                 NormalTemplate="{StaticResource NormalTemplate}"
                 UpdatedTemplate="{StaticResource UpdatedTemplate}" />
     </ContentPage.Resources>

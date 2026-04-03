@@ -39,7 +39,7 @@
                         FontFamily="Kimberley"
                         FontSize="20"
                         CornerRadius="0"
-                        Clicked="editMovie"
+                        Clicked="deleteMovie"
                         TextColor="Black"
                         BackgroundColor="#D4FF3E"
                         Grid.Row="2"
@@ -83,7 +83,7 @@
                         FontFamily="Kimberley"
                         FontSize="20"
                         CornerRadius="0"
-                        Clicked="editMovie"
+                        Clicked="deleteMovie"
                         TextColor="Black"
                         BackgroundColor="#EB0000"
                         Grid.Row="2"
@@ -93,10 +93,10 @@
             </Border>
         </DataTemplate>
 
-        <local:MovieTemplateSelector 
-                x:Key="MovieSelector"
+        <local:DeletePageSelector 
+                x:Key="DeletePageSelector"
                 NormalTemplate="{StaticResource NormalTemplate}"
-                UpdatedTemplate="{StaticResource DeletedTemplate}" />
+                DeletedTemplate="{StaticResource DeletedTemplate}" />
     </ContentPage.Resources>
 
     <VerticalStackLayout>
@@ -192,7 +192,7 @@
 
         <CollectionView 
             ItemsSource="{Binding QueryMovies}"
-            ItemTemplate="{StaticResource MovieSelector}" 
+            ItemTemplate="{StaticResource DeletePageSelector}" 
             SelectionMode="Single"
             HorizontalScrollBarVisibility="Always"
             HeightRequest="500"

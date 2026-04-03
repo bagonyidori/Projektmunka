@@ -13,7 +13,6 @@ namespace CritiqlyAdmin;
 public partial class DeletePage : ContentPage
 {
     public ObservableCollection<Movie> QueryMovies { get; set; } = new ObservableCollection<Movie>();
-    public int selectedId;
     List<Movie> DeletedMovies = new List<Movie>();
     public DeletePage()
     {
@@ -46,9 +45,8 @@ public partial class DeletePage : ContentPage
         await Task.Delay(1000);
         searchQueryBtn.BackgroundColor = Color.FromRgb(212, 255, 62);
     }
-    public async void editMovie(Object sender, EventArgs e)
+    public async void deleteMovie(Object sender, EventArgs e)
     {
-        selectedId = 0;
         var Button = sender as Button;
         var id = Button?.CommandParameter;
 
@@ -63,10 +61,11 @@ public partial class DeletePage : ContentPage
         {
             Button.BackgroundColor = Colors.Orange;
             Movie del = AppData.Movies.First(x => x.id == (Int32)id);
-            DeletedMovies.Add(del);
             del.IsDeleted = true;
+            DeletedMovies.Add(del);
             await Task.Delay(500);
             Button.BackgroundColor = Color.FromRgb(212, 255, 62);
+            SearchQuery(this, EventArgs.Empty);
         }
     }
 
@@ -77,6 +76,7 @@ public partial class DeletePage : ContentPage
 
         foreach (var movie in DeletedMovies)
         {
+            await DisplayAlertAsync("DEBUG", movie.title + ": " + movie.IsDeleted, "OK");
             QueryMovies.Add(movie);
         }
         await Task.Delay(500);
