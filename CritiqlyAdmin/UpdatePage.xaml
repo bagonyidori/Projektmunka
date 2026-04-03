@@ -50,6 +50,7 @@
             </Border>
         </DataTemplate>
 
+
         <DataTemplate x:Key="UpdatedTemplate">
             <Border
                 BackgroundColor="#F5F5F5"

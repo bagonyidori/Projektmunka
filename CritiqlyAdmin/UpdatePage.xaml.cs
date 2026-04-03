@@ -45,7 +45,7 @@ public partial class UpdatePage : ContentPage
         QueryMovies.Clear();
         foreach (var movie in AppData.Movies)
         {
-            if (movie.title.ToLower().Contains(EntryQuery.Text.ToLower()))
+            if (movie.title.ToLower().Contains(EntryQuery.Text.ToLower()) && !movie.IsDeleted)
             {
                 QueryMovies.Add(movie);
             }
