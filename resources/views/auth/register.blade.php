@@ -13,10 +13,19 @@
             <form class="auth_form" action="{{ route('user.register') }}" method="POST">
                 @csrf
                 <div class="form_group">
-                    <label for="name" class="form_label">Felhasználónév</label>
-                    <input type="text" id="name" name="name" class="form_input" placeholder="Pl. MovieBuff99" required
+                    <label for="name" class="form_label">Név</label>
+                    <input type="text" id="name" name="name" class="form_input" placeholder="Pl. Movie Buff" required
                         autofocus>
                     @error('name')
+                        <p style="color:red">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="form_group">
+                    <label for="username" class="form_label">Felhasználónév</label>
+                    <input type="text" id="username" name="username" class="form_input" placeholder="Pl. MovieBuff99"
+                        required autofocus>
+                    @error('username')
                         <p style="color:red">{{ $message }}</p>
                     @enderror
                 </div>
