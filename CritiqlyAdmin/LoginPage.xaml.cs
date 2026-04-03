@@ -14,6 +14,9 @@ public partial class LoginPage : ContentPage
 
     public async void TryLogin(object sender, EventArgs e)
 	{
+        LoginBtn.BackgroundColor = Colors.Orange;
+        loginBtnBorder.Stroke = Color.FromRgb(255, 130, 0);
+
         var client = new HttpClient();
 
         var data = new
@@ -31,6 +34,8 @@ public partial class LoginPage : ContentPage
         if (!response.IsSuccessStatusCode)
         {
             await DisplayAlertAsync("SIKERTELEN BELÉPÉS", "Kérlek próbáld meg újra!", "OK");
+            LoginBtn.BackgroundColor = Color.FromRgb(212, 255, 62);
+            loginBtnBorder.Stroke = Color.FromRgb(212, 255, 62);
             return;
         }
 
@@ -48,6 +53,8 @@ public partial class LoginPage : ContentPage
             LoginBtn.Text = "Bejelentkezés";
             //EntryUsername.Text = "";
             EntryPassword.Text = "";
+            LoginBtn.BackgroundColor = Color.FromRgb(212, 255, 62);
+            loginBtnBorder.Stroke = Color.FromRgb(212, 255, 62);
         }
     }
 }

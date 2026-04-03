@@ -124,7 +124,8 @@ public partial class UpdatePage : ContentPage
                     genre = movie.genre,
                     plot = movie.plot,
                     releaseDate = movie.releaseDate?.ToString("yyyy-MM-dd"),
-                    poster = movie.poster
+                    poster = movie.poster,
+                    deleted_at = "null"
                 };
 
                 var json = JsonSerializer.Serialize(data);

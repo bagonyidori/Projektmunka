@@ -81,10 +81,10 @@
                     <Button 
                         Text="TÖRLÉS VISSZAVONÁSA"
                         FontFamily="Kimberley"
-                        FontSize="20"
+                        FontSize="18"
                         CornerRadius="0"
                         Clicked="deleteMovie"
-                        TextColor="Black"
+                        TextColor="White"
                         BackgroundColor="#EB0000"
                         Grid.Row="2"
                         MinimumHeightRequest="50"
