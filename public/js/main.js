@@ -2,16 +2,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
     const notification = document.getElementById('notification');
+    const logo = document.querySelector('.logo-class');
+
+    const darkLogo = "/img/logo.png";
+    const lightLogo = "/img/Critqly_Logo2_BW.png";
+
+    const updateLogo = () => {
+        if (logo) {
+            logo.src = body.classList.contains('light_mode') ? lightLogo : darkLogo;
+        }
+    };
 
     if (localStorage.getItem('theme') === 'light') {
         body.classList.add('light_mode');
     } else {
         localStorage.setItem('theme', 'dark');
     }
+    updateLogo();
 
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('light_mode');
         localStorage.setItem('theme', body.classList.contains('light_mode') ? 'light' : 'dark');
+        updateLogo();
     });
 
     const showNotification = (message) => {
@@ -34,8 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </svg>
                     Eltávolítás
                 `;
-            }
-            else {
+            } else {
                 favBtn.innerHTML = `
                     <svg class="favBtn-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
@@ -59,6 +70,5 @@ document.querySelectorAll('.filter_btn').forEach(button => {
     button.addEventListener('click', () => {
         document.querySelectorAll('.filter_btn').forEach(btn => btn.classList.remove('is_active'));
         button.classList.add('is_active');
-
     });
 });
