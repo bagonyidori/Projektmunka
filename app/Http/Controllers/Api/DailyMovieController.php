@@ -17,12 +17,13 @@ class DailyMovieController extends Controller
 
     public function store(Request $request)
     {
-        DailyMovie::truncate();
         //dd($request->movies);
         try {
             $movies = Movie::whereIn('id', $request->movies)->get();
             $date = $request->date;
             $nowTime = now();
+
+            DailyMovie::where('date', $date)->delete();
 
             foreach ($movies as $movie) {
                 DailyMovie::create([
