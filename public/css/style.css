@@ -179,7 +179,7 @@ img { display: block; max-width: 100%; }
     letter-spacing: -2px;
 }
 
-.hero p, .page_header p, .detail_info p {
+.hero p, .page_header p, .detail_info p, .navbar p {
     color: var(--text);
     font-size: 1.25rem;
     line-height: 1.6;
@@ -243,6 +243,25 @@ img { display: block; max-width: 100%; }
     align-items: end;
     gap: 16px;
     margin-bottom: 32px;
+}
+
+.page_header {
+    background: linear-gradient(to right, rgba(204, 255, 0, 0.05), transparent);
+    padding-left: 20px;
+    border-left: 4px solid var(--primary);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 50px;
+    padding-top: 40px;
+}
+
+.header_content h1 {
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 15px;
+    text-transform: uppercase;
 }
 
 .section_head h2 { 
@@ -478,16 +497,20 @@ svg, .nav_arrow, .back_btn svg {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .chip {
-    padding: 12px 24px;
+    padding: 10px 25px;
     border-radius: var(--radius-sm);
     font-weight: 700;
     text-transform: uppercase;
     border: 2px solid var(--line);
     background: transparent;
     color: var(--text);
+    min-width: 120px;
+    text-align: center;
 }
 
 .chip:hover { border-color: var(--primary); }
