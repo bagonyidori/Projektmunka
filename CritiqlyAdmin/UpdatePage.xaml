@@ -194,7 +194,7 @@
 
         <CollectionView 
             ItemsSource="{Binding QueryMovies}"
-            ItemTemplate="{StaticResource MovieSelector}" 
+            ItemTemplate="{StaticResource UpdatePageSelector}" 
             SelectionMode="Single"
             HorizontalScrollBarVisibility="Always"
             HeightRequest="500"

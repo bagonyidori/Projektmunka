@@ -6,7 +6,6 @@ namespace CritiqlyAdmin.Models
 {
     public class Movie
     {
-
         public int id {  get; set; }
         public int tmdb_id { get; set; }
         public string title { get; set; }

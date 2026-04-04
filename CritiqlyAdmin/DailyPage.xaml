@@ -50,12 +50,25 @@
         <HorizontalStackLayout
             VerticalOptions="Fill" 
             BackgroundColor="#2A2720">
+
+            <DatePicker
+                x:Name="dateSelector"
+                FontFamily="Kimberley"
+                TextColor="Black"
+                FontSize="20"
+                BackgroundColor="#D4FF3E"
+                Margin="20,30,0,20"
+                DateSelected="LoadDailys"
+                >
+
+            </DatePicker>
+            
             <Border 
                 BackgroundColor="#F5F5F5"
                 Stroke="#D4FF3E"
                 StrokeThickness="3"
                 StrokeShape="RoundRectangle 12"
-                Margin="50,30,0,20"
+                Margin="15,30,0,20"
                 MinimumWidthRequest="250">
 
                 <Entry 
