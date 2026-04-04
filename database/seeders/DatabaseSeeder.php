@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
         User::factory(10)->create();
         $this->call([
             MovieSeeder::class,
-            RatingSeeder::class
+            RatingSeeder::class,
+            AdminDataSeeder::class
         ]);
 
 

@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class AdminData extends Model
 {
-    use HasApiTokens;
+    use HasApiTokens, HasFactory;
 
     protected $fillable = [
         'daily_last_update',
