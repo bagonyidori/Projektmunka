@@ -26,12 +26,12 @@
                     <span class="badge">{{ date('Y/m/d', strtotime($movie->releaseDate)) }}</span>
                     <span class="badge">{{ $movie->genre }}</span>
                     <span class="badge badge--rating">
+                        {{ number_format($average_rating, 1) }}
                         <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; margin-right:4px;">
                             <path
                                 d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z">
                             </path>
                         </svg>
-                        {{ $movie->rating }}
                     </span>
                 </div>
 
@@ -67,7 +67,7 @@
         <div class="section_header">
             <h2>Vélemények</h2>
             <span class="review_count"> {{ count($ratings) }} hozzászólás</span>
-            <span class="review_average">Átlagosan: {{ $average_rating }} ⭐</span>
+            <span class="review_average">Átlagosan: {{ number_format($average_rating, 1) }} ⭐</span>
         </div>
 
         @auth
