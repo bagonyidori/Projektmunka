@@ -27,7 +27,10 @@
     @endforeach
 </section>
 
-<div class="pagination_wrap">
+<div class="pagination_wrapper">
+    <div class="pagination_info">
+        Oldal: {{ $movies->currentPage() }} / {{ $movies->lastPage() }}
+    </div>
     {{ $movies->links() }}
 </div>
 @endsection
