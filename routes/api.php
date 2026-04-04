@@ -17,6 +17,7 @@ Route::get('/movies', [MovieController::class, 'index']);
 Route::get('/ratings', [RatingController::class, 'index']);
 //Route::get('/users', [UserController::class, 'index']);
 Route::get('/admin/get', [AdminDataController::class, 'index']);
+Route::get('/get-daily', [DailyMovieController::class, 'index']);
 
 Route::put('/movies/{movie}', [MovieController::class, 'update']);
 Route::put('/ratings/{rating}', [RatingController::class, 'update']);

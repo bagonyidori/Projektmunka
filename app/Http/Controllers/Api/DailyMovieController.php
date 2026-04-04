@@ -10,6 +10,11 @@ use Carbon\Carbon;
 
 class DailyMovieController extends Controller
 {
+    public function index()
+    {
+        return DailyMovie::all();
+    }
+
     public function store(Request $request)
     {
         //dd($request->movies);
