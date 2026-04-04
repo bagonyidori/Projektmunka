@@ -17,6 +17,7 @@ class DailyMovieController extends Controller
 
     public function store(Request $request)
     {
+        DailyMovie::truncate();
         //dd($request->movies);
         try {
             $movies = Movie::whereIn('id', $request->movies)->get();
