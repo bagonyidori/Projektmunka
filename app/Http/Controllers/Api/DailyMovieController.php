@@ -6,19 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DailyMovie;
 use App\Models\Movie;
-
+use Carbon\Carbon;
 
 class DailyMovieController extends Controller
 {
     public function store(Request $request)
     {
         //dd($request->movies);
-        DailyMovie::truncate();
-
         try {
-            $date = now()->toDateString();
-
             $movies = Movie::whereIn('id', $request->movies)->get();
+            $date = $request->date;
+            $nowTime = now();
 
             foreach ($movies as $movie) {
                 DailyMovie::create([
