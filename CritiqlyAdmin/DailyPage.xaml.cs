@@ -160,7 +160,7 @@ public partial class DailyPage : ContentPage
     {
         var isResponseOk = await DisplayAlertAsync(
             "Kilépés",
-            "Biztosan ki akarsz lépni? Az eddigi változtatások elvesznek!",
+            "Biztosan ki akarsz lépni? A nem mentett változások elvesznek!",
             "Igen",
             "Mégse"
         );
