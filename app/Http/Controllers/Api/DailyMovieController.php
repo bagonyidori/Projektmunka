@@ -10,6 +10,11 @@ use Carbon\Carbon;
 
 class DailyMovieController extends Controller
 {
+    public function index()
+    {
+        return DailyMovie::all();
+    }
+
     public function store(Request $request)
     {
         //dd($request->movies);
@@ -17,6 +22,8 @@ class DailyMovieController extends Controller
             $movies = Movie::whereIn('id', $request->movies)->get();
             $date = $request->date;
             $nowTime = now();
+
+            DailyMovie::where('date', $date)->delete();
 
             foreach ($movies as $movie) {
                 DailyMovie::create([
