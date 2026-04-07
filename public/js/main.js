@@ -4,8 +4,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const notification = document.getElementById('notification');
     const logo = document.querySelector('.logo-class');
 
-    const darkLogo = "/img/Critiqly_Logo2.png";
-    const lightLogo = "/img/Critqly_Logo2_BW.png";
+    let darkLogo = "";
+    let lightLogo = "";
+
+    window.onload = (event) => {
+        let rnd = Math.floor(Math.random() * 10);
+
+        if(rnd <= 2){
+            darkLogo = "/img/Critiqly_Logo.png";
+            lightLogo = "/img/Critqly_Logo_BW.png"
+        }
+        else if(rnd > 2 && rnd <= 4){
+            darkLogo = "/img/Critiqly_Logo2.png";
+            lightLogo = "/img/Critqly_Logo2_BW.png"
+        }
+        else if(rnd > 4 && rnd <= 6){
+            darkLogo = "/img/Critiqly_Logo3.png";
+            lightLogo = "/img/Critqly_Logo3_BW.png"
+        }
+        else if(rnd > 6 && rnd <= 8){
+            darkLogo = "/img/Critiqly_Logo4.png";
+            lightLogo = "/img/Critqly_Logo4_BW.png"
+        }
+        else{
+            darkLogo = "/img/Critiqly_Logo5.png";
+            lightLogo = "/img/Critqly_Logo5_BW.png"
+        }
+
+
+    }
 
     const updateLogo = () => {
         if (logo) {
