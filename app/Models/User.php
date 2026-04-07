@@ -59,4 +59,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Rating::class, 'user_id');
     }
+
+    public function movies()
+    {
+        return $this->belongsToMany(Movie::class);
+    }
 }

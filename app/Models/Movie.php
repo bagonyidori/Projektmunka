@@ -29,6 +29,11 @@ class Movie extends Model
         return $this->hasMany(Rating::class, 'movie_id');
     }
 
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
     public function dailySelections()
     {
         return $this->hasMany(DailyMovie::class);
