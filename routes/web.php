@@ -22,7 +22,8 @@ Route::post('/logout', [AuthController::class, 'logoutUser'])->name('user.logout
 Route::get('/', [MovieController::class, 'home'])->name('home');
 Route::get('/movies', [MovieController::class, 'index'])->name('movies.index');
 Route::get('/movies/{id}', [MovieController::class, 'show'])->name('movies.show');
-Route::post("/movies/{id}/rating", [RatingController::class, 'store'])->name('rating.create');
+Route::post("/movies/{id}/rating", [RatingController::class, 'store'])->name('rating.create')->middleware(['auth']);
+Route::post("/movies/{id}/favourite", [MovieController::class, 'favouriteMovie'])->name("movie.favourite")->middleware(['auth']);
 
 Route::get('/rolunk', function () {
     return view('pages.about');

@@ -29,9 +29,19 @@ class Movie extends Model
         return $this->hasMany(Rating::class, 'movie_id');
     }
 
-    public function users()
+    public function favoritedBy()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'movie_user');
+    }
+
+    public function getIsFavoriteAttribute()
+    {
+        if (!auth()->check())
+            return false;
+
+        return $this->favoritedBy()
+            ->where('user_id', auth()->id())
+            ->exists();
     }
 
     public function dailySelections()

@@ -118,9 +118,26 @@ class MovieController extends Controller
     public function profile()
     {
         $user = auth()->user();
+
+        $favorites = $user->favoriteMovies()->get();
+
         return view('profile.profile', [
             'user' => $user,
+            'favorites' => $favorites
         ]);
+    }
+
+    public function favouriteMovie(Movie $id)
+    {
+        $userId = auth()->id();
+        $favourited = $id->favoritedBy()->where('user_id', $userId)->exists();
+        if ($favourited) {
+            $id->favoritedBy()->detach($userId);
+        } else {
+            $id->favoritedBy()->attach($userId);
+        }
+
+        return redirect()->back();
     }
 
 }
