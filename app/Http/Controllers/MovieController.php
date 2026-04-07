@@ -27,10 +27,10 @@ class MovieController extends Controller
             $query->where('title', 'like', '%' . $request->search . '%');
         }
 
-        $movies = $query->latest()->paginate(24)->withQueryString();
+        $movies = $query->latest()->withAvg('ratings', 'stars')->paginate(24)->withQueryString();
         $dailyMovies = DailyMovie::with('movie')->get();
         $trendingMovies = TrendingMovie::with('movie')->get();
-        
+
         return view('movies.index', compact('movies', 'dailyMovies', 'trendingMovies'));
     }
 
@@ -55,8 +55,8 @@ class MovieController extends Controller
      */
     public function show($id)
     {
-    //dd($id);
-    $movie = \App\Models\Movie::where('id', $id)->first();
+        //dd($id);
+        $movie = \App\Models\Movie::where('id', $id)->first();
 
         if (!$movie) {
             return abort(404);
@@ -108,9 +108,9 @@ class MovieController extends Controller
 
     public function home()
     {
-        $featured = Movie::latest()->take(8)->get();
+        $featured = Movie::latest()->withAvg('ratings', 'stars')->take(8)->get();
         $trendingMovies = TrendingMovie::with('movie')->whereDate('date', today())->get();
-        $dailyMovies = DailyMovie::with('movie')->whereDate('date', today())->get(); 
+        $dailyMovies = DailyMovie::with('movie')->whereDate('date', today())->get();
 
         return view('home', compact('featured', 'trendingMovies', 'dailyMovies'));
     }
