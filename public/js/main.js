@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const notification = document.getElementById('notification');
     const logo = document.querySelector('.logo-class');
 
-    const darkLogo = "/img/logo.png";
+    const darkLogo = "/img/Critiqly_Logo2.png";
     const lightLogo = "/img/Critqly_Logo2_BW.png";
 
     const updateLogo = () => {

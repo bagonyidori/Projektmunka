@@ -1,6 +1,6 @@
 <nav class="navbar">
     <a class="nav_brand" href="{{ route('home') }}">
-        <img src="{{ asset('img/logo.png') }}" alt="critiqly logo" class="logo-class">
+        <img src="{{ asset('img/critiqly_logo2.png') }}" alt="critiqly logo" class="logo-class">
     </a>
 
     <form class="nav_search" action="{{ route('movies.index') }}" method="GET">
