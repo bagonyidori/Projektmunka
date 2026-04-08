@@ -12,23 +12,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if(rnd <= 2){
             darkLogo = "/img/Critiqly_Logo.png";
-            lightLogo = "/img/Critqly_Logo_BW.png"
+            lightLogo = "/img/Critiqly_Logo_BW.png"
+            updateLogo();
         }
         else if(rnd > 2 && rnd <= 4){
             darkLogo = "/img/Critiqly_Logo2.png";
-            lightLogo = "/img/Critqly_Logo2_BW.png"
+            lightLogo = "/img/Critiqly_Logo2_BW.png"
+            updateLogo();
         }
         else if(rnd > 4 && rnd <= 6){
             darkLogo = "/img/Critiqly_Logo3.png";
-            lightLogo = "/img/Critqly_Logo3_BW.png"
+            lightLogo = "/img/Critiqly_Logo3_BW.png"
+            updateLogo();
         }
         else if(rnd > 6 && rnd <= 8){
             darkLogo = "/img/Critiqly_Logo4.png";
-            lightLogo = "/img/Critqly_Logo4_BW.png"
+            lightLogo = "/img/Critiqly_Logo4_BW.png"
+            updateLogo();
         }
         else{
             darkLogo = "/img/Critiqly_Logo5.png";
-            lightLogo = "/img/Critqly_Logo5_BW.png"
+            lightLogo = "/img/Critiqly_Logo5_BW.png"
+            updateLogo();
         }
 
 
