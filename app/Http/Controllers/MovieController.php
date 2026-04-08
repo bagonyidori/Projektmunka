@@ -109,7 +109,7 @@ class MovieController extends Controller
     public function home()
     {
         $featured = Movie::latest()->withAvg('ratings', 'stars')->take(8)->get();
-        $trendingMovies = TrendingMovie::with('movie')->whereDate('date', today())->get();
+        $trendingMovies = TrendingMovie::with('movie')->get();
         $dailyMovies = DailyMovie::with('movie')->whereDate('date', today())->get();
 
         return view('home', compact('featured', 'trendingMovies', 'dailyMovies'));
