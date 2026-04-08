@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('trending_movies', function (Blueprint $table) {
             $table->id();
             $table->foreignId('movie_id')->constrained()->cascadeOnDelete();
-            $table->date('date');
             $table->timestamps();
 
-            $table->unique(['movie_id', 'date']);
+            $table->unique(['movie_id']);
         });
     }
 
