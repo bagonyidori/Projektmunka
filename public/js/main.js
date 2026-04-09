@@ -134,5 +134,5 @@ const swiperConfig = (next, prev) => ({
     }
 });
 
-new Swiper('.trending-swiper', swiperConfig('.swiper-button-next-trending', '.swiper-button-prev-trending'));
-new Swiper('.daily-swiper', swiperConfig('.swiper-button-next-daily', '.swiper-button-prev-daily'));
+new Swiper('.trending-swiper', swiperConfig('.trending-next', '.trending-prev'));
+new Swiper('.daily-swiper', swiperConfig('.daily-next', '.daily-prev'));
