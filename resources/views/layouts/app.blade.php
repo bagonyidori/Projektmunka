@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
+    <div id="preloader">
+        <div class="loader-box">
+            <div class="loader-circle"></div>
+            <span class="loader-logo">CRITIQlY</span>
+        </div>
+    </div>
     @include('components.navbar')
 
     <div class="page_shell">

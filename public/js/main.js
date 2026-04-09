@@ -120,3 +120,11 @@ const swiperConfig = (next, prev) => ({
 
 new Swiper('.trending-swiper', swiperConfig('.trending-next', '.trending-prev'));
 new Swiper('.daily-swiper', swiperConfig('.daily-next', '.daily-prev'));
+
+const preloader = document.getElementById('preloader');
+
+setTimeout(() => {
+    if (preloader) {
+        preloader.classList.add('is-hidden');
+    }
+}, 1500);
