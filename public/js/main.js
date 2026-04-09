@@ -7,41 +7,37 @@ document.addEventListener('DOMContentLoaded', () => {
     let darkLogo = "";
     let lightLogo = "";
 
-    window.onload = (event) => {
-        let rnd = Math.floor(Math.random() * 10);
+    let rnd = Math.floor(Math.random() * 10);
 
-        if(rnd <= 2){
-            darkLogo = "/img/Critiqly_Logo.png";
-            lightLogo = "/img/Critiqly_Logo_BW.png"
-            updateLogo();
-        }
-        else if(rnd > 2 && rnd <= 4){
-            darkLogo = "/img/Critiqly_Logo2.png";
-            lightLogo = "/img/Critiqly_Logo2_BW.png"
-            updateLogo();
-        }
-        else if(rnd > 4 && rnd <= 6){
-            darkLogo = "/img/Critiqly_Logo3.png";
-            lightLogo = "/img/Critiqly_Logo3_BW.png"
-            updateLogo();
-        }
-        else if(rnd > 6 && rnd <= 8){
-            darkLogo = "/img/Critiqly_Logo4.png";
-            lightLogo = "/img/Critiqly_Logo4_BW.png"
-            updateLogo();
-        }
-        else{
-            darkLogo = "/img/Critiqly_Logo5.png";
-            lightLogo = "/img/Critiqly_Logo5_BW.png"
-            updateLogo();
-        }
-
-
+    if(rnd <= 2){
+        darkLogo = "/img/Critiqly_Logo.png";
+        lightLogo = "/img/Critiqly_Logo_BW.png";
+    }else if(rnd > 2 && rnd <= 4){
+        darkLogo = "/img/Critiqly_Logo2.png";
+        lightLogo = "/img/Critiqly_Logo2_BW.png";
+    }else if(rnd > 4 && rnd <= 6){
+        darkLogo = "/img/Critiqly_Logo3.png";
+        lightLogo = "/img/Critiqly_Logo3_BW.png";
+    }else if(rnd > 6 && rnd <= 8){
+        darkLogo = "/img/Critiqly_Logo4.png";
+        lightLogo = "/img/Critiqly_Logo4_BW.png";
+    }else{
+        darkLogo = "/img/Critiqly_Logo5.png";
+        lightLogo = "/img/Critiqly_Logo5_BW.png";
     }
 
     const updateLogo = () => {
         if (logo) {
-            logo.src = body.classList.contains('light_mode') ? lightLogo : darkLogo;
+            const targetSrc = body.classList.contains('light_mode') ? lightLogo : darkLogo;
+            
+            logo.onload = () => logo.classList.add('is_visible');
+            logo.onerror = () => logo.classList.add('is_visible');
+            
+            logo.src = targetSrc;
+
+            if (logo.complete) {
+                logo.classList.add('is_visible');
+            }
         }
     };
 
@@ -115,22 +111,10 @@ const swiperConfig = (next, prev) => ({
         prevEl: prev,
     },
     breakpoints: {
-        480: {
-            slidesPerView: 2.2,
-            spaceBetween: 15,
-        },
-        768: {
-            slidesPerView: 3.2,
-            spaceBetween: 20,
-        },
-        1024: {
-            slidesPerView: 4.2,
-            spaceBetween: 20,
-        },
-        1400: {
-            slidesPerView: 5.2,
-            spaceBetween: 25,
-        }
+        480: { slidesPerView: 2.2, spaceBetween: 15 },
+        768: { slidesPerView: 3.2, spaceBetween: 20 },
+        1024: { slidesPerView: 4.2, spaceBetween: 20 },
+        1400: { slidesPerView: 5.2, spaceBetween: 25 }
     }
 });
 

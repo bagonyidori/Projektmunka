@@ -1,6 +1,6 @@
 <nav class="navbar">
     <a class="nav_brand" href="{{ route('home') }}">
-        <img src="" class="logo-class">
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="logo-class">
     </a>
 
     <form class="nav_search" action="{{ route('movies.index') }}" method="GET">
