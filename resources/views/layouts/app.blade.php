@@ -12,8 +12,7 @@
 <body>
     <div id="preloader">
         <div class="loader-box">
-            <div class="loader-circle"></div>
-            <span class="loader-logo">CRITIQlY</span>
+            <img src="{{ asset('img/Page_Loader.gif') }}" alt="Betöltés...">
         </div>
     </div>
     @include('components.navbar')
