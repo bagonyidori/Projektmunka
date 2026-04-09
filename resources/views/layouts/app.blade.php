@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#0b0f19">
     <title>@yield('title', 'Criticly')</title>
     
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
@@ -24,4 +24,6 @@
 
     <script src="{{ asset('js/main.js') }}"></script>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="{{ asset('js/script.js') }}"></script>
 </html>

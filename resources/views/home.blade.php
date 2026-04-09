@@ -28,6 +28,7 @@
         </div>
     </div>
 </section>
+
 <section class="section reveal">
     <div class="section_head">
         <h2>Kiemelt filmek</h2>
@@ -44,23 +45,43 @@
 <section class="section reveal">
     <div class="section_head">
         <h2>Legjobbra értékelt</h2>
+        <div class="swiper_nav">
+            <div class="swiper-button-prev trending-prev"></div>
+            <div class="swiper-button-next trending-next"></div>
+        </div>
     </div>
 
-    <div class="rail" data-rail>
-        @foreach($trendingMovies as $trendy)
-            @include('components.movie-card', ['movie' => $trendy->movie])
-        @endforeach
+    <div class="swiper trending-swiper">
+        <div class="swiper-wrapper">
+            @foreach($trendingMovies as $trendy)
+                <div class="swiper-slide">
+                    @include('components.movie-card', ['movie' => $trendy->movie])
+                </div>
+            @endforeach
+        </div>
     </div>
 </section>
+
 <section class="section reveal">
     <div class="section_head">
         <h2>Napi válogatás</h2>
+        <div class="swiper_nav">
+            <div class="swiper-button-prev daily-prev"></div>
+            <div class="swiper-button-next daily-next"></div>
+        </div>
     </div>
 
-    <div class="rail" data-rail>
-        @foreach($dailyMovies as $daily)
-            @include('components.movie-card', ['movie' => $daily->movie])
-        @endforeach
+    <div class="swiper daily-swiper">
+        <div class="swiper-wrapper">
+            @foreach($dailyMovies as $daily)
+                <div class="swiper-slide">
+                    @include('components.movie-card', ['movie' => $daily->movie])
+                </div>
+            @endforeach
+        </div>
     </div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="{{ asset('js/script.js') }}"></script>
 @endsection

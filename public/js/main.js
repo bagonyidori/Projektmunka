@@ -104,3 +104,35 @@ document.querySelectorAll('.filter_btn').forEach(button => {
         button.classList.add('is_active');
     });
 });
+
+const swiperConfig = (next, prev) => ({
+    slidesPerView: 1.2,
+    spaceBetween: 15,
+    centeredSlides: false,
+    grabCursor: true,
+    navigation: {
+        nextEl: next,
+        prevEl: prev,
+    },
+    breakpoints: {
+        480: {
+            slidesPerView: 2.2,
+            spaceBetween: 15,
+        },
+        768: {
+            slidesPerView: 3.2,
+            spaceBetween: 20,
+        },
+        1024: {
+            slidesPerView: 4.2,
+            spaceBetween: 20,
+        },
+        1400: {
+            slidesPerView: 5.2,
+            spaceBetween: 25,
+        }
+    }
+});
+
+new Swiper('.trending-swiper', swiperConfig('.swiper-button-next-trending', '.swiper-button-prev-trending'));
+new Swiper('.daily-swiper', swiperConfig('.swiper-button-next-daily', '.swiper-button-prev-daily'));
