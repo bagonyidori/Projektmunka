@@ -23,7 +23,11 @@
             <section class="profile_section reveal">
                 <h2>Saját értékeléseid</h2>
                 <div class="my_review_list">
-
+                    @foreach ($user->ratings as $rating)
+                        <div>
+                            {{ $rating->movie->title }} - {{ $rating->stars }} ⭐
+                        </div>
+                    @endforeach
                 </div>
             </section>
         </div>
