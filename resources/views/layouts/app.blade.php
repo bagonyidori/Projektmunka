@@ -11,10 +11,10 @@
 </head>
 <body>
     <div id="preloader">
-        <div class="loader-box">
-            <img src="{{ asset('img/Page_Loader.gif') }}" alt="Betöltés...">
-        </div>
+    <div class="loader-box">
+        <img src="/img/Page_Loader.gif" alt="Loading..." class="loader-gif">
     </div>
+</div>
     @include('components.navbar')
 
     <div class="page_shell">
