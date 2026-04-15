@@ -48,4 +48,13 @@ class Movie extends Model
     {
         return $this->hasMany(DailyMovie::class);
     }
+
+    public function getAverageRatingAttribute()
+    {
+        if ($this->relationLoaded('ratings')) {
+            return $this->ratings->avg('stars') ?? 0;
+        }
+        
+        return $this->ratings()->avg('stars') ?? 0;
+    }
 }
