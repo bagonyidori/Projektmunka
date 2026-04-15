@@ -111,8 +111,9 @@ class MovieController extends Controller
         $featured = Movie::latest()->withAvg('ratings', 'stars')->take(8)->get();
         $trendingMovies = TrendingMovie::with('movie')->get();
         $dailyMovies = DailyMovie::with('movie')->whereDate('date', today())->get();
+        $upcomingMovies = Movie::where('releaseDate', '>', now())->orderBy('releaseDate', 'asc')->take(8)->get();
 
-        return view('home', compact('featured', 'trendingMovies', 'dailyMovies'));
+        return view('home', compact('featured', 'trendingMovies', 'dailyMovies', 'upcomingMovies'));
     }
 
     public function profile()
