@@ -14,7 +14,9 @@
         <h3>{{ $movie->title }}</h3>
         <div class="card_meta">
             <span>{{ date('Y', strtotime($movie->releaseDate)) }}</span>
-            <span class="genre_label">{{ $movie->genre }}</span>
+            <span class="genre_label">
+                {{ implode(', ', array_slice(explode(',', $movie->genre), 0, 2)) }}
+            </span>
         </div>
     </div>
 </a>

@@ -315,6 +315,8 @@ img { display: block; max-width: 100%; }
     display: flex;
     flex-direction: column;
     gap: 16px;
+    height: 100%;
+    text-decoration: none;
 }
 
 .movie_card:hover { 
@@ -483,20 +485,30 @@ img { display: block; max-width: 100%; }
 }
 
 .card_content h3 {
-    margin: 0;
-    font-size: 1.2rem;
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    line-height: 1.2;
     font-weight: 800;
     text-transform: uppercase;
     color: var(--text);
 }
 
+.card_content{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 15px;
+}
+
 .card_meta {
     display: flex;
     justify-content: space-between;
-    font-size: 0.85rem;
+    font-size: 13px;
     font-weight: 700;
     color: var(--muted);
-    margin-top: 8px;
+    margin-top: auto;
+    align-items: center;
+    gap: 8px;
 }
 
 .movie_detail_grid {
@@ -527,6 +539,10 @@ img { display: block; max-width: 100%; }
     font-weight: 800;
     text-transform: uppercase;
     font-size: 0.8rem;
+}
+
+.genre_label {
+    display: inline-block;
 }
 
 .movie_plot h3 {
