@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const swiperConfig = (next, prev) => ({
-        slidesPerView: 1.2,
+        slidesPerView: 'auto',
         spaceBetween: 15,
         centeredSlides: false,
         grabCursor: true,
@@ -120,10 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
             prevEl: prev,
         },
         breakpoints: {
-            480: { slidesPerView: 2.2, spaceBetween: 15 },
-            768: { slidesPerView: 3.2, spaceBetween: 20 },
-            1024: { slidesPerView: 4.2, spaceBetween: 20 },
-            1400: { slidesPerView: 5.2, spaceBetween: 25 }
+            1024: { slidesPerView: 3, spaceBetween: 20 },
+            1400: { slidesPerView: 4, spaceBetween: 25 }
         }
     });
 
@@ -133,5 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (document.querySelector('.daily-swiper')) {
         new Swiper('.daily-swiper', swiperConfig('.daily-next', '.daily-prev'));
+    }
+
+    if (document.querySelector('.upcoming-swiper')) {
+        new Swiper('.upcoming-swiper', swiperConfig('.upcoming-next', '.upcoming-prev'));
     }
 });

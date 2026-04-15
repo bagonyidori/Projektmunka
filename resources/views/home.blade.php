@@ -86,12 +86,12 @@
         <div class="section_head">
             <h2>Közelgő filmek</h2>
             <div class="swiper_nav">
-                <div class="swiper-button-prev daily-prev"></div>
-                <div class="swiper-button-next daily-next"></div>
+                <div class="swiper-button-prev upcoming-prev"></div>
+                <div class="swiper-button-next upcoming-next"></div>
             </div>
         </div>
 
-        <div class="swiper daily-swiper">
+        <div class="swiper upcoming-swiper">
             <div class="swiper-wrapper">
                 @foreach($upcomingMovies as $movie)
                     <div class="swiper-slide">
