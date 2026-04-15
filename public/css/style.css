@@ -765,7 +765,7 @@ svg, .nav_arrow, .back_btn svg {
 .form_input:focus {
     outline: none;
     border-color: var(--text-dark);
-    background: #ffffff;
+    background: var(--card);
     box-shadow: 6px 6px 0 var(--primary);
     transform: translate(-2px, -2px);
 }
@@ -1199,4 +1199,120 @@ body.light_mode #preloader {
 .loader-gif {
     width: 150px;
     height: auto;
+}
+
+.page_shell {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px 50px;
+}
+
+.profile_header {
+    text-align: center;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user_large_avatar {
+    width: 120px;
+    height: 120px;
+    background: var(--primary);
+    color: var(--text-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(198, 255, 0, 0.3);
+    text-transform: uppercase;
+}
+
+.profile_header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: var(--card);
+}
+
+body.light_mode .profile_header h1 {
+    color: var(--card);
+}
+
+.profile_header p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.profile_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.profile_section {
+    background: var(--bg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+}
+
+body.light_mode .profile_section {
+    background: var(--card);
+    border: 1px solid var(--muted);
+}
+
+.profile_section h2 {
+    font-size: 20px;
+    margin-bottom: 25px;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+body.light_mode .profile_section h2 {
+    color: var(--text-dark);
+    border-bottom: 2px solid var(--primary);
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+.profile_section .grid h3 {
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: 0.3s ease;
+}
+
+.profile_section .grid h3:hover {
+    background: rgba(198, 255, 0, 0.1);
+    transform: translateX(5px);
+}
+
+body.light_mode .profile_section .grid h3 {
+    background: var(--card);
+    border: 1px solid var(--muted);
+}
+
+.my_review_list div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 15px;
+}
+
+.my_review_list div:last-child {
+    border-bottom: none;
+}
+
+body.light_mode .my_review_list div {
+    border-bottom: 1px solid var(--muted);
+    color: #444;
 }
