@@ -19,7 +19,8 @@ class Movie extends Model
         "genre",
         "plot",
         "releaseDate",
-        "poster"
+        "poster",
+        "deleted_at"
     ];
 
     protected $dates = ['deleted_at'];
