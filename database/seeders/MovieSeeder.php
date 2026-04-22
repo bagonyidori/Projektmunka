@@ -54,6 +54,16 @@ class MovieSeeder extends Seeder
                     $translatedPlot = $response['translations'][0]['text'] ?? $plot;
                 }*/
 
+                $trailerResp = Http::get("https://api.themoviedb.org/3/movie/{$movieData['id']}/videos", ['api_key' => env('TMBD_API_KEY'), 'language' => 'hu-HU']);
+                $trailerData = $trailerResp->json();
+
+                $key = collect($trailerData['results'])->first(function ($video)
+                {
+                    return $video['type'] === 'Trailer'
+                    && $video['site'] === 'YouTube'
+                    && $video['official'];
+                })['key'] ?? null;
+
                 Movie::updateOrCreate(
                     [
                         'tmdb_id' => $movieData['id']
@@ -64,7 +74,8 @@ class MovieSeeder extends Seeder
                         //'plot' => $translatedPlot,
                         'plot' => $movieData['overview'],
                         'poster' => $movieData['poster_path'],
-                        'releaseDate' => $movieData['release_date']
+                        'releaseDate' => $movieData['release_date'],
+                        'trailerUrl' => $key ? "https://www.youtube.com/watch?v=" . $key : null 
                     ]
                 );
             }
