@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->date("releaseDate");
             $table->string("poster")->nullable();
             $table->string("trailerUrl")->nullable();
+            $table->string("streamUrl")->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
