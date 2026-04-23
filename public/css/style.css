@@ -1218,10 +1218,6 @@ body.light_mode {
     transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
-body.light_mode #preloader {
-    background: var(--card);
-}
-
 #preloader.is-hidden {
     opacity: 0;
     visibility: hidden;
