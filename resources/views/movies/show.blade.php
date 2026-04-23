@@ -41,23 +41,23 @@
                 <div class="streaming_platforms">
                     <h3>Hol érhető el? (Szavazás)</h3>
                     <div class="platform_grid">
-                        <button class="platform_btn" data-platform="netflix" data-movie-id="{{ $movie->id }}" onclick="localVote(this)">
+                        <button class="platform_btn" data-platform="netflix" data-movie-id="{{ $movie->id }}" onclick="localVote(this)" {{ !auth()->check() ? 'disabled' : '' }}>
                             <span class="platform_name">Netflix</span>
                             <span class="vote_count">0</span>
                         </button>
-                        <button class="platform_btn" data-platform="disney" data-movie-id="{{ $movie->id }}" onclick="localVote(this)">
+                        <button class="platform_btn" data-platform="disney" data-movie-id="{{ $movie->id }}" onclick="localVote(this)" {{ !auth()->check() ? 'disabled' : '' }}>
                             <span class="platform_name">Disney+</span>
                             <span class="vote_count">0</span>
                         </button>
-                        <button class="platform_btn" data-platform="hbo" data-movie-id="{{ $movie->id }}" onclick="localVote(this)">
+                        <button class="platform_btn" data-platform="hbo" data-movie-id="{{ $movie->id }}" onclick="localVote(this)" {{ !auth()->check() ? 'disabled' : '' }}>
                             <span class="platform_name">HBO Max</span>
                             <span class="vote_count">0</span>
                         </button>
-                        <button class="platform_btn" data-platform="apple" data-movie-id="{{ $movie->id }}" onclick="localVote(this)">
+                        <button class="platform_btn" data-platform="apple" data-movie-id="{{ $movie->id }}" onclick="localVote(this)" {{ !auth()->check() ? 'disabled' : '' }}>
                             <span class="platform_name">Apple TV</span>
                             <span class="vote_count">0</span>
                         </button>
-                        <button class="platform_btn" data-platform="amazon" data-movie-id="{{ $movie->id }}" onclick="localVote(this)">
+                        <button class="platform_btn" data-platform="amazon" data-movie-id="{{ $movie->id }}" onclick="localVote(this)" {{ !auth()->check() ? 'disabled' : '' }}>
                             <span class="platform_name">Amazon</span>
                             <span class="vote_count">0</span>
                         </button>
@@ -67,7 +67,7 @@
                 <div class="movie_actions">
                     <form action="{{ route('movie.favourite', ['id' => $movie->id]) }}" method="POST">
                         @csrf
-                        <button id="favBtn" class="btn favBtn btn--primary {{ $movie->is_favorite ? 'is_active' : '' }}"
+                        <button id="favBtn" class="btn favBtn btn--primary {{ $movie->is_favorite ? 'is_active' : '' }} {{ !auth()->check() ? 'disabled' : '' }}"
                             data-id="{{ $movie->id }}">
                             <svg class="favBtn-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
