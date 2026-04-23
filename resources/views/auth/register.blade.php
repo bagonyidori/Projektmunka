@@ -50,7 +50,8 @@
                     <input type="password" id="password_confirmation" name="password_confirmation" class="form_input"
                         placeholder="Jelszó megerősítése" required>
                     @error('password')
-                        <p style="color:red">{{ $message }}</p>
+                        <!--<p style="color:red">{{ $message }}</p>-->
+                        <p style="color:red">A jelszó tartalmazzon legalább 1 nagybetűt és számot!</p>
                     @enderror
                 </div>
 
