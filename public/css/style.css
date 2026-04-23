@@ -444,7 +444,11 @@ img { display: block; max-width: 100%; }
 
 .user_info strong {
     font-size: 1.1rem;
-    color: #fff;
+    color: var(--primary);
+}
+
+.user_info strong #light_mode{
+    color: var(--primary-2);
 }
 
 .user_info span {
@@ -464,7 +468,7 @@ img { display: block; max-width: 100%; }
 }
 
 .review_text {
-    color: #ddd;
+    color: #868686;
     line-height: 1.6;
     margin: 0;
 }
@@ -1342,6 +1346,14 @@ body.light_mode .profile_section .grid h3 {
 body.light_mode .my_review_list div {
     border-bottom: 1px solid var(--muted);
     color: #444;
+}
+
+.movie_title{
+    color: var(--text);
+}
+
+.movie_plot_text {
+    color: var(--text);
 }
 
 @media (max-width: 1024px) {

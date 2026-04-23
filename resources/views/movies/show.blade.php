@@ -20,7 +20,7 @@
             </div>
 
             <div class="movie_detail_info">
-                <h1>{{ $movie->title }}</h1>
+                <h1 class="movie_title">{{ $movie->title }}</h1>
 
                 <div class="movie_badges">
                     <span class="badge">{{ date('Y/m/d', strtotime($movie->releaseDate)) }}</span>
@@ -37,7 +37,7 @@
 
                 <div class="movie_plot">
                     <h3>Történet</h3>
-                    <p>{{ $movie->plot }}</p>
+                    <p class="movie_plot_text">{{ $movie->plot }}</p>
                 </div>
                 <div class="movie_actions">
                     <form action="{{ route('movie.favourite', ['id' => $movie->id]) }}" method="POST">
@@ -103,7 +103,7 @@
                     <div class="review_user">
                         <!-- <div class="user_avatar"></div> -->
                         <div class="user_info">
-                            <strong>{{ $rating->user->name }}</strong>
+                            <strong class="review_user_name">{{ $rating->user->name }}</strong>
                             <span>{{$rating->created_at->format('Y-m-d')}}</span>
                         </div>
                         <div class="user_rating">⭐ {{ $rating->stars }}/10</div>
