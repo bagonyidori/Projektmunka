@@ -29,7 +29,7 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users',
             "password" => [
                 'required',
-                'min:6',
+                'min:8',
                 'regex:/^(?=.*\d)(?=.*\p{Ll})(?=.*\p{Lu}).{8,}$/u',
                 'confirmed'
             ]
