@@ -1356,6 +1356,97 @@ body.light_mode .my_review_list div {
     color: var(--text);
 }
 
+.streaming_platforms {
+    margin: 32px 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+}
+
+.streaming_platforms h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary);
+    margin-bottom: 16px;
+}
+
+.platform_grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.platform_btn {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    color: var(--text);
+    padding: 10px 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.platform_btn:hover {
+    border-color: var(--primary);
+    background: rgba(var(--primary-rgb), 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.platform_btn.voted {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #000;
+}
+
+.platform_btn.voted .platform_name {
+    font-weight: 700;
+}
+
+.vote_count {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    min-width: 24px;
+    text-align: center;
+}
+
+.platform_btn.voted .vote_count {
+    background: rgba(0, 0, 0, 0.15);
+    color: #000;
+}
+
+@media (max-width: 768px) {
+    .platform_grid {
+        gap: 8px;
+    }
+    
+    .platform_btn {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        flex: 1 1 auto;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .streaming_platforms h3 {
+        text-align: center;
+    }
+    
+    .platform_grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 1024px) {
     .page_shell {
         padding: 60px 0 32px;

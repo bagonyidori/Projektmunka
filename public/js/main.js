@@ -103,6 +103,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const platformButtons = document.querySelectorAll('.platform_btn');
+    platformButtons.forEach(btn => {
+        const platform = btn.getAttribute('data-platform');
+        const movieId = btn.getAttribute('data-movie-id');
+        const storageKey = `voted_${movieId}_${platform}`;
+
+        if (localStorage.getItem(storageKey)) {
+            btn.classList.add('voted');
+            btn.querySelector('.vote_count').innerText = "1";
+        }
+
+        btn.addEventListener('click', () => {
+            if (btn.classList.contains('voted')) return;
+
+            const countSpan = btn.querySelector('.vote_count');
+            let currentCount = parseInt(countSpan.innerText);
+            countSpan.innerText = currentCount + 1;
+            btn.classList.add('voted');
+
+            localStorage.setItem(storageKey, "true");
+            showNotification('Köszönjük a szavazatot!');
+        });
+    });
+
     document.querySelectorAll('.filter_btn').forEach(button => {
         button.addEventListener('click', () => {
             document.querySelectorAll('.filter_btn').forEach(btn => btn.classList.remove('is_active'));
