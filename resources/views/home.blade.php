@@ -5,9 +5,9 @@
 @section('content')
     <section class="hero reveal">
         <div class="hero_box">
-            <span class="hero_badge">Film- és sorozatkritika</span>
-            <h1>Találd meg a következő kedvenc filmedet vagy sorozatodat.</h1>
-            <p>Modern, gyors és vizuálisan erős felület filmekhez, sorozatokhoz és értékelésekhez.</p>
+            <span class="hero_badge">Valódi filmkritika</span>
+            <h1>Találd meg a következő kedvenc filmedet.</h1>
+            <p>Modern, gyors és vizuálisan gazdag felület filmekhez és azok értékelésekhez.</p>
             <div class="hero_actions">
                 <a href="{{ route('movies.index') }}" class="btn btn--primary">Filmek böngészése</a>
             </div>
