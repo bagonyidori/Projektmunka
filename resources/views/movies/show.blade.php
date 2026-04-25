@@ -48,12 +48,22 @@
                             'amazon' => 'Amazon'
                         ];
                         $votes = $movie->streamingVotes;
+                        $verified = $votes ? $votes->verified_platform : null;
                     @endphp
 
                     @foreach($platforms as $slug => $label)
-                        <button class="platform_btn {{ !auth()->check() ? 'guest-btn' : '' }}" 
+                        <button class="platform_btn {{ !auth()->check() ? 'guest-btn' : '' }} {{ $verified === $slug ? 'is-verified' : '' }}" 
                             data-platform="{{ $slug }}" 
                             data-movie-id="{{ $movie->id }}">
+
+                            @if($verified === $slug)
+                                <span class="verified_badge" title="Admin által hitelesítve">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" style="width:12px; height:12px;">
+                                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                    </svg>
+                                </span>
+                            @endif
+
                             <span class="platform_name">{{ $label }}</span>
                             <span class="vote_count">{{ $votes ? $votes->$slug : 0 }}</span>
                         </button>
