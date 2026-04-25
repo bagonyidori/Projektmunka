@@ -18,7 +18,8 @@ class StreamingVote extends Model
         "disney",
         "hbo",
         "apple",
-        "amazon"
+        "amazon",
+        "verified_platform"
     ];
 
     protected $dates = ['deleted_at'];
