@@ -165,8 +165,9 @@
             </form>
         @else
             <div class="login_prompt">
-                <p><a href="{{ route('login') }}">Jelentkezz be</a> az értékeléshez!</p>
+                <button class="btn btn--primary"><p><a href="{{ route('login') }}">Jelentkezz be az értékeléshez!</a></p></button>
             </div>
+            <br>
         @endauth
 
         <div class="reviews_list">
