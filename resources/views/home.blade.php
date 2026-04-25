@@ -7,7 +7,7 @@
         <div class="hero_box">
             <span class="hero_badge">Valódi filmkritika</span>
             <h1>Találd meg a következő kedvenc filmedet.</h1>
-            <p>Modern, gyors és vizuálisan gazdag felület filmekhez és azok értékelésekhez.</p>
+            <p>Fedezd fel. Nézd. Értékeld.</p>
             <div class="hero_actions">
                 <a href="{{ route('movies.index') }}" class="btn btn--primary">Filmek böngészése</a>
             </div>
