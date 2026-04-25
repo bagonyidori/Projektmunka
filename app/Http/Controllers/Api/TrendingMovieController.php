@@ -15,14 +15,9 @@ class TrendingMovieController extends Controller
         TrendingMovie::truncate();
 
         try {
-            $date = now()->toDateString();
-
-            $movies = Movie::whereIn('id', $request->movies)->get();
-
-            foreach ($movies as $movie) {
+            foreach ($request->movies as $movieId) {
                 TrendingMovie::create([
-                    'movie_id' => $movie->id,
-                    'date' => $date
+                    'movie_id' => $movieId
                 ]);
             }
 
