@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer("hbo")->default(0);
             $table->integer("apple")->default(0);
             $table->integer("amazon")->default(0);
+            $table->string("verified_platform")->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
