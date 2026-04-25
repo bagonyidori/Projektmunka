@@ -58,4 +58,9 @@ class Movie extends Model
         
         return $this->ratings()->avg('stars') ?? 0;
     }
+
+    public function streamingVotes()
+    {
+        return $this->hasMany(StreamingVote::class);
+    }
 }

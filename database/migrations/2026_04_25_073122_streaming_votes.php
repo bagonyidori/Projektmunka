@@ -11,7 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('streaming_votes', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId("movie_id")->constrained()->cascadeOnDelete();
+            $table->integer("netflix")->default(0);
+            $table->integer("disney")->default(0);
+            $table->integer("hbo")->default(0);
+            $table->integer("apple")->default(0);
+            $table->integer("amazon")->default(0);
+            $table->softDeletes();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('streaming_votes');
     }
 };
