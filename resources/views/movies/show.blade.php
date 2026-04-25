@@ -131,10 +131,7 @@
                 @endif
             @else
                 <div class="no_trailer_box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M2 8a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
-                        <line x1="2" y1="2" x2="22" y2="22" stroke="var(--primary)" />
-                    </svg>
+                    <img src="{{ asset('img/No_Trailer.png') }}" alt="Nincs előzetes" class="no_trailer_image">                 
                     <p>Ehhez a filmhez jelenleg nem érhető el előzetes.</p>
                 </div>
             @endif
