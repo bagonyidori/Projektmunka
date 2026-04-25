@@ -20,6 +20,8 @@ class Movie extends Model
         "plot",
         "releaseDate",
         "poster",
+        "trailerUrl",
+        "streamUrl",
         "deleted_at"
     ];
 
