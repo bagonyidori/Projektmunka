@@ -141,4 +141,32 @@ class MovieController extends Controller
         return redirect()->back();
     }
 
+    public function votePlatform(Request $request, Movie $movie, $platform)
+    {
+        $allowedPlatforms = ['netflix', 'disney', 'hbo', 'apple', 'amazon'];
+        $action = $request->input('action');
+
+        if (!in_array($platform, $allowedPlatforms)) {
+            return response()->json(['error' => 'Érvénytelen platform'], 400);
+        }
+
+        $votes = $movie->streamingVotes()->firstOrCreate(
+            ['movie_id' => $movie->id],
+            ['netflix' => 0, 'disney' => 0, 'hbo' => 0, 'apple' => 0, 'amazon' => 0]
+        );
+
+        if ($action === 'up') {
+            $votes->increment($platform);
+        } else {
+            if ($votes->$platform > 0) {
+                $votes->decrement($platform);
+            }
+        }
+
+        return response()->json([
+            'success' => true,
+            'new_count' => $votes->refresh()->$platform
+        ]);
+    }
+
 }

@@ -38,17 +38,27 @@
                     <p class="movie_plot_text">{{ $movie->plot }}</p>
                 </div>
 
-                <div class="streaming_platforms">
-                    <h3>Hol érhető el? (Szavazás)</h3>
-                    <div class="platform_grid">
-                        @php $platforms = ['netflix' => 'Netflix', 'disney' => 'Disney+', 'hbo' => 'HBO Max', 'apple' => 'Apple TV', 'amazon' => 'Amazon']; @endphp
-                        @foreach($platforms as $slug => $label)
-                            <button class="platform_btn" data-platform="{{ $slug }}" data-movie-id="{{ $movie->id }}" {{ !auth()->check() ? 'disabled' : '' }}>
-                                <span class="platform_name">{{ $label }}</span>
-                                <span class="vote_count">0</span>
-                            </button>
-                        @endforeach
-                    </div>
+                <div class="platform_grid">
+                    @php 
+                        $platforms = [
+                            'netflix' => 'Netflix', 
+                            'disney' => 'Disney+', 
+                            'hbo' => 'HBO Max', 
+                            'apple' => 'Apple TV', 
+                            'amazon' => 'Amazon'
+                        ];
+                        $votes = $movie->streamingVotes;
+                    @endphp
+
+                    @foreach($platforms as $slug => $label)
+                        <button class="platform_btn" 
+                                data-platform="{{ $slug }}" 
+                                data-movie-id="{{ $movie->id }}" 
+                                {{ !auth()->check() ? 'disabled' : '' }}>
+                            <span class="platform_name">{{ $label }}</span>
+                            <span class="vote_count">{{ $votes ? $votes->$slug : 0 }}</span>
+                        </button>
+                    @endforeach
                 </div>
 
                 <div class="movie_actions">

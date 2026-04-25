@@ -61,6 +61,6 @@ class Movie extends Model
 
     public function streamingVotes()
     {
-        return $this->hasMany(StreamingVote::class);
+        return $this->hasOne(StreamingVote::class);
     }
 }

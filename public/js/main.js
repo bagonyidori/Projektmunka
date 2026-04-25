@@ -111,21 +111,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (localStorage.getItem(storageKey)) {
             btn.classList.add('voted');
-            btn.querySelector('.vote_count').innerText = "1";
         }
 
         btn.addEventListener('click', () => {
-            if (btn.classList.contains('voted')) return;
+            const isVoted = btn.classList.contains('voted');
+         const action = isVoted ? 'down' : 'up';
 
-            const countSpan = btn.querySelector('.vote_count');
-            let currentCount = parseInt(countSpan.innerText);
-            countSpan.innerText = currentCount + 1;
-            btn.classList.add('voted');
+            fetch(`/movies/${movieId}/vote/${platform}`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ action: action })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const countSpan = btn.querySelector('.vote_count');
+                    countSpan.innerText = data.new_count;
 
-            localStorage.setItem(storageKey, "true");
-            showNotification('Köszönjük a szavazatot!');
+                    if (isVoted) {
+                        btn.classList.remove('voted');
+                        localStorage.removeItem(storageKey);
+                        if(typeof showNotification === "function") showNotification('Szavazat visszavonva.');
+                    } else {
+                        btn.classList.add('voted');
+                        localStorage.setItem(storageKey, "true");
+                        if(typeof showNotification === "function") showNotification('Köszönjük a szavazatot!');
+                    }
+                }
+            })
+            .catch(err => console.error("Hiba történt:", err));
         });
-    });
+    });    
 
     document.querySelectorAll('.filter_btn').forEach(button => {
         button.addEventListener('click', () => {
