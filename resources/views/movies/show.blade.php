@@ -63,8 +63,7 @@
                 <div class="movie_actions">
                     <form action="{{ auth()->check() ? route('movie.favourite', ['id' => $movie->id]) : '#' }}" method="POST">
                         @csrf
-                        <button id="favBtn" class="btn favBtn btn--primary {{ $movie->is_favorite ? 'is_active' : '' }}"
-                            {{ !auth()->check() ? 'disabled' : '' }}
+                        <button id="favBtn" class="btn favBtn btn--primary {{ $movie->is_favorite ? 'is_active' : '' }} {{ !auth()->check() ? 'guest-fav-btn' : ''}}"
                             data-id="{{ $movie->id }}"
                             type="{{ auth()->check() ? 'submit' : 'button' }}">
                             <svg class="favBtn-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
