@@ -51,10 +51,9 @@
                     @endphp
 
                     @foreach($platforms as $slug => $label)
-                        <button class="platform_btn" 
-                                data-platform="{{ $slug }}" 
-                                data-movie-id="{{ $movie->id }}" 
-                                {{ !auth()->check() ? 'disabled' : '' }}>
+                        <button class="platform_btn {{ !auth()->check() ? 'guest-btn' : '' }}" 
+                            data-platform="{{ $slug }}" 
+                            data-movie-id="{{ $movie->id }}">
                             <span class="platform_name">{{ $label }}</span>
                             <span class="vote_count">{{ $votes ? $votes->$slug : 0 }}</span>
                         </button>

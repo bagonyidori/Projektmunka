@@ -114,6 +114,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         btn.addEventListener('click', () => {
+        
+            if (btn.classList.contains('guest-btn')) {
+                if (typeof showNotification === "function") {
+                    showNotification('A szavazáshoz kérjük, jelentkezz be!', 'warning');
+                } else {
+                    alert('A szavazáshoz bejelentkezés szükséges!');
+                }
+                return;
+            }
+        
             const isVoted = btn.classList.contains('voted');
          const action = isVoted ? 'down' : 'up';
 
