@@ -1564,6 +1564,14 @@ body.light_mode .my_review_list div {
     font-weight: 400;
 }
 
+.related_movies_section h2{
+    color: var(--text);
+}
+
+.related_movies_section h2.light_mode{
+    color: var(--text-dark);
+}
+
 @media (max-width: 1024px) {
     .page_shell {
         padding: 60px 0 32px;
