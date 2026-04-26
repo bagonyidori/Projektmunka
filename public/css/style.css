@@ -330,7 +330,7 @@ img { display: block; max-width: 100%; }
     padding: 2rem;
     background-color: var(--bg-2);
     border-radius: 40px;
-    color: #fff;
+    color: var(--text);
 }
 .movie_reviews .section_header {
     display: flex;
