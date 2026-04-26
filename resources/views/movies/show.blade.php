@@ -52,12 +52,22 @@
                     @endphp
 
                     @foreach($platforms as $slug => $label)
-                        <button class="platform_btn {{ !auth()->check() ? 'guest-btn' : '' }} {{ $verified === $slug ? 'is-verified' : '' }}" 
-                            data-platform="{{ $slug }}" 
-                            data-movie-id="{{ $movie->id }}">
+                        @php
+                            $isThisVerified = ($verified === $slug);
+                        @endphp
+        
+                        <button class="platform_btn 
+                                {{ !auth()->check() ? 'guest-btn' : '' }} 
+                                {{ $isThisVerified ? 'is-verified' : '' }} 
+                                {{ $verified ? 'voting-closed' : '' }}" 
+                                data-platform="{{ $slug }}" 
+                                data-movie-id="{{ $movie->id }}"
+                                @if($isThisVerified && $movie->streamUrl) 
+                                    data-url="{{ $movie->streamUrl }}" 
+                                @endif>
 
-                            @if($verified === $slug)
-                                <span class="verified_badge" title="Admin által hitelesítve">
+                            @if($isThisVerified)
+                                <span class="verified_badge" title="Hivatalos forrás">
                                     <svg viewBox="0 0 24 24" fill="currentColor" style="width:12px; height:12px;">
                                         <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
                                     </svg>

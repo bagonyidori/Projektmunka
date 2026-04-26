@@ -126,9 +126,22 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.classList.add('voted');
         }
 
-        btn.addEventListener('click', () => {
-        
-            if (btn.classList.contains('guest-btn')) {
+        btn.addEventListener('click', function() {
+            const streamUrl = this.getAttribute('data-url');
+
+            if (this.classList.contains('is-verified') && streamUrl) {
+                window.open(streamUrl, '_blank');
+                return;
+            }
+
+            if (this.classList.contains('voting-closed')) {
+                if (typeof showNotification === "function") {
+                    showNotification('A szavazás lezárult, a forrás hitelesítve lett.', 'info');
+                }
+                return;
+            }
+
+            if (this.classList.contains('guest-btn')) {
                 if (typeof showNotification === "function") {
                     showNotification('A szavazáshoz kérjük, jelentkezz be!', 'warning');
                 } else {
@@ -136,9 +149,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 return;
             }
-        
-            const isVoted = btn.classList.contains('voted');
-         const action = isVoted ? 'down' : 'up';
+
+            if (this.disabled) return;
+            this.disabled = true;
+
+            const isVoted = this.classList.contains('voted');
+            const action = isVoted ? 'down' : 'up';
 
             fetch(`/movies/${movieId}/vote/${platform}`, {
                 method: 'POST',
@@ -152,21 +168,24 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    const countSpan = btn.querySelector('.vote_count');
+                    const countSpan = this.querySelector('.vote_count');
                     countSpan.innerText = data.new_count;
 
                     if (isVoted) {
-                        btn.classList.remove('voted');
+                        this.classList.remove('voted');
                         localStorage.removeItem(storageKey);
                         if(typeof showNotification === "function") showNotification('Szavazat visszavonva.');
                     } else {
-                        btn.classList.add('voted');
+                        this.classList.add('voted');
                         localStorage.setItem(storageKey, "true");
                         if(typeof showNotification === "function") showNotification('Köszönjük a szavazatot!');
                     }
                 }
             })
-            .catch(err => console.error("Hiba történt:", err));
+            .catch(err => console.error("Hiba történt:", err))
+            .finally(() => {
+                this.disabled = false;
+            });
         });
     });    
 

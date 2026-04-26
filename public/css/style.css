@@ -1416,6 +1416,7 @@ body.light_mode .my_review_list div {
     font-weight: 600;
     min-width: 24px;
     text-align: center;
+    color: var(--text);
 }
 
 .platform_btn.voted .vote_count {
@@ -1494,6 +1495,15 @@ body.light_mode .my_review_list div {
     background: rgba(46, 204, 113, 0.1);
     position: relative;
     overflow: visible;
+    cursor: pointer;
+    border-color: #2ecc71;
+    opacity: 1;
+}
+
+.platform_btn.voting-closed:not(.is-verified) {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(0.8);
 }
 
 .verified_badge {
@@ -1515,6 +1525,11 @@ body.light_mode .my_review_list div {
 .is-verified .platform_name {
     font-weight: bold;
     color: #2ecc71;
+}
+
+.platform_btn.is-verified:hover {
+    background-color: rgba(46, 204, 113, 0.2);
+    transform: translateY(-2px);
 }
 
 .no_trailer_box {
