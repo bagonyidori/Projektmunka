@@ -24,7 +24,7 @@
     @endguest
 
     @auth
-        <p>Üdv, {{ Auth::user()->name }}</p>
+        <p>Üdv, {{ Auth::user()->username }}</p>
         <a href="{{ route('profile') }}" class="btn btn--ghost">Profilom</a>
         <form action="{{ route('user.logout') }}" method="POST">
             @csrf
