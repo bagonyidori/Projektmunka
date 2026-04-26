@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\DailyMovieController;
 use App\Http\Controllers\Api\TrendingMovieController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AdminDataController;
+use App\Http\Controllers\Api\VoteController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -26,4 +27,4 @@ Route::post('/daily-movies', [DailyMovieController::class, 'store']);
 Route::post('/trending-movies', [TrendingMovieController::class, 'store']);
 Route::post('/admin/login', [UserController::class, 'adminLogin']);
 Route::post('/admin/update', [AdminDataController::class, 'update']);
-Route::post('/vefify-votes', [VoteController::class, 'update']);
+Route::post('/verify-votes/{movie}', [VoteController::class, 'update']);
