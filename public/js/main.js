@@ -250,4 +250,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector('.upcoming-swiper')) {
         new Swiper('.upcoming-swiper', swiperConfig('.upcoming-next', '.upcoming-prev'));
     }
+
+    document.querySelectorAll('.show_more_btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const container = this.previousElementSibling; 
+        
+            if (container && container.classList.contains('expandable_container')) {
+                const isExpanding = !container.classList.contains('is_expanded');            
+                container.classList.toggle('is_expanded');
+
+                if (isExpanding) {
+                    this.textContent = 'Kevesebb megjelenítése';
+                } else {
+                    this.textContent = 'Összes megjelenítése';
+                    container.parentElement.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                }
+            }
+        });
+    });
 });

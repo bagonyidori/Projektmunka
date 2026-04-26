@@ -13,22 +13,34 @@
         <div class="profile_grid">
             <section class="profile_section reveal">
                 <h2>Kedvenc filmjeid</h2>
-                <div class="grid">
-                    @foreach ($favorites as $favorite)
-                        <h3>{{ $favorite->title }}</h3>
-                    @endforeach
+                <div class="expandable_container">
+                    <div class="grid">
+                        @foreach ($favorites as $favorite)
+                            <div class="profile_item">
+                                <h3>{{ $favorite->title }}</h3>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
+                @if(count($favorites) > 6)
+                    <button class="show_more_btn">Összes megjelenítése</button>
+                @endif
             </section>
 
             <section class="profile_section reveal">
                 <h2>Saját értékeléseid</h2>
-                <div class="my_review_list">
-                    @foreach ($user->ratings as $rating)
-                        <div>
-                            {{ $rating->movie->title }} - {{ $rating->stars }} ⭐
-                        </div>
-                    @endforeach
+                <div class="expandable_container">
+                    <div class="my_review_list">
+                        @foreach ($user->ratings as $rating)
+                            <div class="profile_item">
+                                <h3>{{ $rating->movie->title }} - {{ $rating->stars }}</h3>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
+                @if(count($user->ratings) > 6)
+                    <button class="show_more_btn">Összes megjelenítése</button>
+                @endif
             </section>
         </div>
     </div>
