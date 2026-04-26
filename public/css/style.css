@@ -1564,81 +1564,47 @@ body.light_mode .my_review_list div {
     font-weight: 400;
 }
 
-@media (max-width: 768px) {
-    .movie_trailer_section {
-        margin: 30px auto;
-        padding: 0 15px;
-    }
-    
-    .movie_trailer_section h2 {
-        font-size: 1.5rem;
-    }
-
-    .no_trailer_box svg {
-        width: 60px;
-        height: 60px;
-    }
-}
-
-@media (max-width: 768px) {
-    .platform_grid {
-        gap: 8px;
-    }
-    
-    .platform_btn {
-        padding: 8px 12px;
-        font-size: 0.85rem;
-        flex: 1 1 auto;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .streaming_platforms h3 {
-        text-align: center;
-    }
-    
-    .platform_grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 @media (max-width: 1024px) {
     .page_shell {
         padding: 60px 0 32px;
     }
 
     .navbar {
+        display: flex;
         flex-wrap: wrap;
-        padding: 12px 16px;
-        gap: 12px;
+        padding: 15px 20px;
+        gap: 15px;
+        justify-content: space-between;
     }
 
-    .nav_brand {
-        order: 1;
+    .nav_brand { 
+        order: 1; 
+        flex: 1 1 auto;
     }
 
-    .nav_auth {
-        order: 2;
+    .nav_auth { 
+        order: 2; 
+        flex: 0 0 auto;
     }
-
+    
     .nav_search {
         order: 3;
-        max-width: 100%;
+        flex: 1 1 100%;
         width: 100%;
-        margin: 5px 0;
+        margin: 0;
     }
 
     .nav_links {
         order: 4;
+        flex: 1 1 100%;
         width: 100%;
         justify-content: center;
-        padding: 10px 0;
+        padding: 10px 0 0 0;
         border-top: 1px solid var(--line);
         gap: 15px;
         font-size: 0.85rem;
         display: flex;
+        flex-wrap: wrap;
     }
 
     .hero, 
@@ -1655,36 +1621,31 @@ body.light_mode .my_review_list div {
     .detail_hero {
         display: flex;
         flex-direction: column-reverse;
+        align-items: center;
     }
 
-    .page_header {
-        align-items: center;
-        padding: 30px 20px;
-        flex-direction: column;
+    .detail_poster, .movie_poster {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .detail_poster img, .movie_poster img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        border-radius: 12px;
+        display: block;
     }
 
     .header_content h1 {
-        font-size: 3rem;
+        font-size: 2.8rem;
     }
 
-    .hero p, 
-    .page_header p, 
-    .detail_info p {
-        max-width: 100%;
-        margin: 16px auto;
-    }
-
-    .hero_actions, 
-    .movie_actions {
+    .hero_actions, .movie_actions {
         justify-content: center;
-    }
-
-    .hero_side {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
         flex-wrap: wrap;
+        gap: 10px;
     }
 
     .grid {
@@ -1692,178 +1653,233 @@ body.light_mode .my_review_list div {
         gap: 15px;
     }
 
-    .swiper-slide {
-        width: 220px !important;
+    .navbar {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas: 
+            "brand auth"
+            "search search"
+            "links links";
+        gap: 15px;
+        padding: 10px 15px;
+    }
+
+    .nav_brand { grid-area: brand; }
+    .nav_auth { grid-area: auth; display: flex; justify-content: flex-end; }
+    .nav_search { grid-area: search; width: 100%; }
+    .nav_search form { width: 100%; display: flex; }
+    .nav_search input { width: 100%; }
+    
+    .nav_links { 
+        grid-area: links; 
+        display: flex;
+        justify-content: center;
+        border-top: 1px solid var(--line);
+        padding-top: 10px;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .detail_hero, .movie_detail_grid, .profile_grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .detail_hero {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .detail_poster img {
+        max-width: 250px;
+        height: auto;
     }
 }
 
 @media (max-width: 768px) {
-    .logo-class {
-        width: 140px;
-        height: auto;
-    }
-
-    .nav_brand {
-        font-size: 1rem;
-    }
-
     .section {
         padding: 30px 15px;
     }
 
-    .section_head {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
+    .movie_trailer_section {
+        margin: 20px auto;
+        padding: 0 10px;
+    }
+    
+    .movie_trailer_section h2 {
+        font-size: 1.3rem;
+        text-align: center;
     }
 
-    .swiper_nav {
-        align-self: flex-end;
+    .no_trailer_box {
+        aspect-ratio: 16 / 9;
+        padding: 20px;
+        box-sizing: border-box;
+        max-width: 100%;
     }
 
-    .auth_box {
-        padding: 32px 24px;
-        margin: 0 16px;
+    .platform_grid {
+        gap: 8px;
+    }
+    
+    .platform_btn {
+        padding: 10px;
+        font-size: 0.8rem;
+        flex: 1 1 auto;
     }
 
-    .auth_head h1 {
-        font-size: 2.2rem;
+    .rating_input_wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        justify-content: center;
     }
 
-    .loader-gif {
-        width: 100px;
-    }
-
-    .movie_reviews {
-        padding: 1.5rem;
-        margin-top: 2rem;
-    }
-
-    .movie_reviews .section_header h2 {
-        font-size: 1.4rem;
-    }
-
-    .nav_auth .btn {
-        padding: 8px 14px;
-        font-size: 0.75rem;
+    .rating_input_wrapper svg {
+        flex-shrink: 0;
+        width: clamp(18px, 6vw, 30px);
+        height: auto;
     }
 
     .grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .swiper-slide {
-        width: 200px !important;
+    .auth_box {
+        padding: 24px 16px;
+        margin: 0 10px;
+        box-sizing: border-box;
+    }
+
+    .auth_head h1 {
+        font-size: 1.8rem;
+    }
+
+    .review_form {
+        padding: 15px;
+    }
+
+    .rating_input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .star_rating {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+
+    .star_rating label {
+        font-size: clamp(1.2rem, 5vw, 2rem);
+        padding: 0 2px;
+        cursor: pointer;
+    }
+
+    .review_form textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .platform_grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
     }
 }
 
 @media (max-width: 480px) {
     .navbar {
         padding: 10px;
+        gap: 10px;
     }
 
     .nav_brand span {
         display: none;
     }
 
-    .nav_links {
-        gap: 10px;
-        flex-wrap: wrap;
+    .hero h1, .header_content h1, .detail_info h1 {
+        font-size: 1.8rem;
     }
 
-    .nav_links a {
-        font-size: 0.8rem;
-    }
-
-    .nav_search input {
-        padding: 10px 16px;
-        font-size: 0.85rem;
-    }
-
-    .hero h1, 
-    .page_header h1, 
-    .detail_info h1,
-    .header_content h1 {
-        font-size: 2.2rem;
+    .platform_grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .btn {
         width: 100%;
-        padding: 12px 20px;
-    }
-
-    .nav_auth {
-        width: auto;
-        gap: 8px;
+        justify-content: center;
+        box-sizing: border-box;
     }
 
     .nav_auth .btn {
         width: auto;
-        flex: none;
+        padding: 6px 10px;
+        font-size: 0.7rem;
+    }
+
+    .rating_input_wrapper svg {
+        width: clamp(14px, 5vw, 24px);
     }
 
     .grid {
         grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .swiper-slide {
-        width: 160px !important;
     }
 
     .movie_card {
-        padding: 12px;
-    }
-
-    .card_content h3 {
-        font-size: 16px;
-    }
-
-    .card_meta {
-        font-size: 11px;
-        flex-wrap: wrap;
+        max-width: 280px;
+        margin: 0 auto;
     }
 
     .detail_metrics {
         flex-direction: column;
-        align-items: center;
-        gap: 12px;
+        gap: 15px;
     }
 
-    .movie_badges {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .user_large_avatar {
-        width: 80px;
-        height: 80px;
-        font-size: 32px;
-    }
-
-    .profile_section {
-        padding: 20px;
+    .swiper-slide {
+        width: 140px;
     }
 
     .my_review_list div {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+        text-align: left;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .navbar {
+        grid-template-columns: 1fr 1fr;
     }
 
-    .theme_toggle {
-        width: 50px;
-        height: 50px;
-        right: 16px;
-        bottom: 16px;
+    .nav_brand span { display: none; }
+
+    .header_content h1, .detail_info h1 {
+        font-size: 1.8rem;
     }
 
-    .card_rating span {
-        font-size: 13px;
+    .star_rating label {
+        font-size: 1.4rem;
+        padding: 0 1px;
     }
 
-    .card_rating svg {
-        width: 16px;
-        height: 16px;
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .movie_card {
+        max-width: 100%;
+    }
+
+    .detail_metrics {
+        flex-direction: column;
+        gap: 10px;
     }
 }
