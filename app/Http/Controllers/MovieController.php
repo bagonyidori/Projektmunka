@@ -132,10 +132,20 @@ class MovieController extends Controller
     {
         $userId = auth()->id();
         $favourited = $id->favoritedBy()->where('user_id', $userId)->exists();
+
         if ($favourited) {
             $id->favoritedBy()->detach($userId);
+            $status = 'removed';
         } else {
             $id->favoritedBy()->attach($userId);
+            $status = 'added';
+        }
+
+        if (request()->ajax() || request()->wantsJson()) {
+            return response()->json([
+                'success' => true,
+                'status' => $status
+            ]);
         }
 
         return redirect()->back();
