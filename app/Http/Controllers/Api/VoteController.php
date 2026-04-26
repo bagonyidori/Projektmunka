@@ -15,6 +15,8 @@ class VoteController extends Controller
 
     public function update(Request $request, StreamingVote $streamingVote)
     {
-        //
+        $streamingVote->update($request->all());
+
+        return response()->json($streamingVote);
     }
 }
