@@ -8,6 +8,7 @@ use Tests\TestCase;
 
 class MovieTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic feature test example.
      */
@@ -17,4 +18,11 @@ class MovieTest extends TestCase
 
         $response->assertStatus(200);
     }*/
+
+    public function test_movies_page_loads()
+    {
+        $response = $this->get('/movies');
+
+        $response->assertStatus(200);
+    }
 }
