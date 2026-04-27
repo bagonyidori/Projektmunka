@@ -40,4 +40,19 @@ class MovieTest extends TestCase
         $response = $this->get('/movies?search=Batman');
         $response->assertSee('Batman');
     }
+
+    public function test_movies_can_be_filtered()
+    {
+        Movie::factory()->create([
+            'tmdb_id' => 351,
+            'title' => 'Mario',
+            'genre' => 'Drama',
+            'plot' => 'kkkkkkkkkkpppppp',
+            'releaseDate' => 2002 - 12 - 21
+        ]);
+
+        $response = $this->get('/movies?genre=Drama');
+
+        $response->assertSee('Drama');
+    }
 }
