@@ -34,7 +34,7 @@ class MovieTest extends TestCase
             'title' => 'Batman',
             'genre' => 'action',
             'plot' => 'dkjdkkkkcd',
-            'releaseDate' => 2001 - 12 - 21
+            'releaseDate' => '2001-12-21'
         ]);
 
         $response = $this->get('/movies?search=Batman');
@@ -48,7 +48,7 @@ class MovieTest extends TestCase
             'title' => 'Mario',
             'genre' => 'Drama',
             'plot' => 'kkkkkkkkkkpppppp',
-            'releaseDate' => 2002 - 12 - 21
+            'releaseDate' => '2002-12-21'
         ]);
 
         $response = $this->get('/movies?genre=Drama');
