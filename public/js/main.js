@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             link.innerHTML = `🎬 ${movie.title}`;
                             link.style.display = 'block';
                             link.style.marginBottom = '10px';
-                            link.style.color = '#2c2c2c';
+                            link.style.color = '#7a7a7a';
                             link.style.fontWeight = 'bold';
                             link.style.textDecoration = 'none';
                         
