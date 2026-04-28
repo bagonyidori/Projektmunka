@@ -17,7 +17,9 @@
                     <div class="grid">
                         @foreach ($favorites as $favorite)
                             <div class="profile_item">
-                                <h3>{{ $favorite->title }}</h3>
+                                <a href="{{ route('movies.show', $favorite->id) }}" class="profile_link">
+                                    <h3>{{ $favorite->title }}</h3>
+                                </a>
                             </div>
                         @endforeach
                     </div>
@@ -33,7 +35,9 @@
                     <div class="my_review_list">
                         @foreach ($user->ratings as $rating)
                             <div class="profile_item">
-                                <h3>{{ $rating->movie->title }} - {{ $rating->stars }}</h3>
+                                <a href="{{ route('movies.show', $rating->movie->id) }}" class="profile_link">
+                                    <h3>{{ $rating->movie->title }} - {{ $rating->stars }} ⭐</h3>
+                                </a>
                             </div>
                         @endforeach
                     </div>
