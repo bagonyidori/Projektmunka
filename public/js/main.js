@@ -271,4 +271,117 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    window.onload = function() {
+        console.log("Az oldal teljes tartalma betöltődött.");
+
+        const trigger = document.getElementById('openWizard');
+        const modal = document.getElementById('assistantModal');
+        const closeBtn = document.getElementById('closeWizard');
+        const restartBtn = document.getElementById('restartWizard');
+
+        let selections = { 
+            genre: '', 
+            era: '' 
+        };
+
+        if (!trigger) {
+            console.error("HIBA: Nem találom az 'openWizard' ID-val rendelkező gombot!");
+        } else {
+            console.log("Siker: A gomb megvan, eseménykezelő hozzáadása...");
+
+            trigger.onclick = function(e) {
+                console.log("KATTINTÁS ÉSZLELVE!");
+                if (modal) {
+                    modal.style.display = 'block';
+                } else {
+                    console.error("HIBA: A modal (assistantModal) nem található!");
+                }
+            };
+        }
+
+        if (closeBtn) {
+            closeBtn.onclick = function() {
+                modal.style.display = 'none';
+            };
+        }
+
+        const choiceButtons = document.querySelectorAll('.choice_btn');
+        choiceButtons.forEach(btn => {
+            btn.onclick = function() {
+                const type = this.getAttribute('data-type');
+                const value = this.getAttribute('data-value');
+                const currentStepDiv = this.closest('.wizard_step');
+                const currentStepNum = parseInt(currentStepDiv.getAttribute('data-step'));
+
+                console.log(`Választás: ${type} = ${value}`);
+                selections[type] = value;
+
+                currentStepDiv.style.display = 'none';
+
+                const nextStepNum = currentStepNum + 1;
+                const nextStepDiv = document.querySelector(`.wizard_step[data-step="${nextStepNum}"]`);
+
+                if (nextStepDiv) {
+                    nextStepDiv.style.display = 'block';
+
+                    if (nextStepNum === 3) {
+                        fetchRecommendations();
+                    }
+                }
+            };
+        });
+
+        function fetchRecommendations() {
+            const resultsDiv = document.getElementById('wizardResults');
+            resultsDiv.innerHTML = '<p style="color: #333333;">Cricklee elővarázsolja a filmeket...</p>';
+
+            const apiUrl = `/api/recommend?genre=${selections.genre}&era=${selections.era}`;
+            console.log("Lekérés indítása:", apiUrl);
+
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) throw new Error("Hálózati hiba történt.");
+                    return response.json();
+                })
+                .then(movies => {
+                    resultsDiv.innerHTML = '';
+                
+                    if (movies.length === 0) {
+                        resultsDiv.innerHTML = '<p>A jövő ködbe vész... nem találtam ilyen filmet a jóslataimban. Próbálkozz más opciókkal!</p>';
+                    } else {
+                        movies.forEach(movie => {
+                            const link = document.createElement('a');
+                            link.href = `/movies/${movie.id}`;
+                            link.className = 'result_item';
+                            link.innerHTML = `🎬 ${movie.title}`;
+                            link.style.display = 'block';
+                            link.style.marginBottom = '10px';
+                            link.style.color = '#2c2c2c';
+                            link.style.fontWeight = 'bold';
+                            link.style.textDecoration = 'none';
+                        
+                            resultsDiv.appendChild(link);
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error("Fetch hiba:", error);
+                    resultsDiv.innerHTML = '<p>Hiba történt a lekéréskor.</p>';
+                });
+        }
+
+        if (restartBtn) {
+            restartBtn.onclick = function() {
+                console.log("Varázsló újraindítása...");
+                selections = { genre: '', era: '' };
+
+                document.querySelectorAll('.wizard_step').forEach(step => {
+                    step.style.display = 'none';
+                });
+                document.querySelector('.wizard_step[data-step="1"]').style.display = 'block';
+                document.getElementById('wizardResults').innerHTML = '';
+            };
+        }
+    };
 });

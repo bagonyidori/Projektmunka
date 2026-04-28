@@ -25,6 +25,7 @@ Route::get('/movies/{id}', [MovieController::class, 'show'])->name('movies.show'
 Route::post("/movies/{id}/rating", [RatingController::class, 'store'])->name('rating.create')->middleware(['auth']);
 Route::post("/movies/{id}/favourite", [MovieController::class, 'favouriteMovie'])->name("movie.favourite")->middleware(['auth']);
 Route::post('/movies/{movie}/vote/{platform}', [MovieController::class, 'votePlatform'])->middleware('auth');
+Route::get('/api/recommend', [MovieController::class, 'recommend']);
 
 Route::get('/rolunk', function () {
     return view('pages.about');

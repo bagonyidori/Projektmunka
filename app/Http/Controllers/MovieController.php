@@ -179,4 +179,39 @@ class MovieController extends Controller
         ]);
     }
 
+   public function recommend(Request $request)
+    {
+        try {
+            $query = \App\Models\Movie::query();
+
+            if ($request->filled('genre') && $request->genre !== 'any') {
+                $genres = explode(',', $request->genre);
+
+                $query->where(function($q) use ($genres) {
+                    foreach ($genres as $genre) {
+                        $q->orWhere('genre', 'LIKE', '%' . trim($genre) . '%');
+                    }
+                });
+            }
+
+            if ($request->filled('era')) {
+                if ($request->era === 'new') {
+                    $query->whereYear('releaseDate', '>=', 2020);
+                } elseif ($request->era === 'classic') {
+                    $query->whereYear('releaseDate', '<', 2010);
+                }
+            }
+
+            $movies = $query->inRandomOrder()->limit(3)->get();
+
+            return response()->json($movies);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Szerver hiba történt!',
+                'details' => $e->getMessage()
+            ], 500);
+        }
+    }   
+
 }
