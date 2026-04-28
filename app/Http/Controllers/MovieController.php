@@ -120,7 +120,13 @@ class MovieController extends Controller
     {
         $user = auth()->user();
 
-        $favorites = $user->favoriteMovies()->get();
+        $favorites = $user->favoriteMovies()->get()->sortByDesc(function($movie) {
+            return $movie->pivot->id ?? $movie->id; 
+        });
+
+        $user->load(['ratings' => function($query) {
+            $query->latest();
+        }]);
 
         return view('profile.profile', [
             'user' => $user,

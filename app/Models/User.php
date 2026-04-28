@@ -62,6 +62,6 @@ class User extends Authenticatable
 
     public function favoriteMovies()
     {
-        return $this->belongsToMany(Movie::class, 'movie_user');
+        return $this->belongsToMany(Movie::class, 'movie_user')->withTimestamps()->withPivot('id');
     }
 }
