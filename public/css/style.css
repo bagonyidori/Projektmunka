@@ -1786,6 +1786,34 @@ body.light_mode .my_review_list div {
     to { opacity: 1; transform: translateY(0) translateX(0); }
 }
 
+@media (max-width: 480px) {
+    .assistant_card {
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: 20px 15px;
+        margin: 10px;
+    }
+
+    .assistant_header img {
+        width: 80px;
+    }
+
+    .assistant_header h3 {
+        font-size: 1.2rem;
+    }
+
+    .choice_grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .choice_btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
 @media (max-width: 1024px) {
     .page_shell {
         padding: 60px 0 32px;
