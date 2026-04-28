@@ -36,7 +36,7 @@
                         @foreach ($user->ratings as $rating)
                             <div class="profile_item">
                                 <a href="{{ route('movies.show', $rating->movie->id) }}" class="profile_link">
-                                    <h3>{{ $rating->movie->title }} - {{ $rating->stars }} ⭐</h3>
+                                    <h3>{{ $rating->movie->title }} - {{ $rating->stars }}</h3>
                                 </a>
                             </div>
                         @endforeach
